@@ -1,0 +1,9 @@
+#para-text{
+    box-sizing: content-box; 
+    margin-top: 0;
+    margin-bottom: 2em;
+    font-family: 'Fidelity-Sans', Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.5em;
+    color: #000;
+  }

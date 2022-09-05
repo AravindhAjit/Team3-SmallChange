@@ -1,0 +1,9 @@
+.navbar{
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f2f2f2;
+    padding: 0.5rem 0rem 0.5rem 0rem;
+    max-width: 62.5rem;
+    display: block;
+    width: 100%;
+  }

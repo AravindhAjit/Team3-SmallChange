@@ -1,0 +1,14 @@
+.username-error-message{
+    font-family: 'Fidelity Sans',Arial, sans-serif;
+    font-size: 0.8em;
+    font-weight: bold;
+    display: none;
+    text-align: center;
+    color: red;
+  
+  }
+  
+  .username-label{
+    font-family: 'Fidelity Sans',Arial, sans-serif;
+  
+  }

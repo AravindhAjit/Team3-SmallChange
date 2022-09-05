@@ -1,0 +1,21 @@
+.login-box{
+    margin: 0 auto 0 auto;
+    border: solid 1px #ccc;
+    padding: 2rem 3rem 2rem 3rem;
+    max-width: 18rem;
+    font-family: 'Fidelity Sans',Arial, sans-serif;
+  
+  }
+  
+  .form{
+    margin-bottom: 1.5rem;
+  }
+  
+  .login-button
+  {
+    margin-bottom: 1.5rem;
+  }
+  
+  .forgot-pass{
+    text-align: center;
+  }

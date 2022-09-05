@@ -1,0 +1,7 @@
+#header-text{
+    box-sizing: content-box; 
+    font-family: 'Fidelity-Sans', Arial, sans-serif;
+    font-size: 32px;
+    line-height: 1.5em;
+    color: #000;
+  }
