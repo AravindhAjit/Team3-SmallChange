@@ -19,6 +19,8 @@ import { PasswordFormControlComponent } from './molecules/password-form-control/
 import { UsernameFormControlComponent } from './molecules/username-form-control/username-form-control.component';
 import { LoginFormComponent } from './organisms/login-form/login-form.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { TradePageComponent } from './pages/trade-page/trade-page.component';
+import { TradeButtonComponent } from './atoms/trade-button/trade-button.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
     PasswordFormControlComponent,
     UsernameFormControlComponent,
     LoginFormComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    TradePageComponent,
+    TradeButtonComponent
   ],
   imports: [
     BrowserModule
