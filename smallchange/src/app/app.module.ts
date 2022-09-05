@@ -21,6 +21,7 @@ import { LoginFormComponent } from './organisms/login-form/login-form.component'
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { TradePageComponent } from './pages/trade-page/trade-page.component';
 import { TradeButtonComponent } from './atoms/trade-button/trade-button.component';
+import { PreferencesPageComponent } from './pages/preferences-page/preferences-page.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { TradeButtonComponent } from './atoms/trade-button/trade-button.componen
     LoginFormComponent,
     LoginPageComponent,
     TradePageComponent,
-    TradeButtonComponent
+    TradeButtonComponent,
+    PreferencesPageComponent
   ],
   imports: [
     BrowserModule

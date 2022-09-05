@@ -1,4 +1,15 @@
 <app-header-bar></app-header-bar>
+<app-nav-bar></app-nav-bar>
+<div class="trade-page-buttons">
+    <app-trade-button class="trade-button" (click)="performBuy()">Execute Trade Buy</app-trade-button>
+    <app-trade-button class="trade-button" (click)="performSell()">Execute Trade Sell</app-trade-button>
+</div>
 
-    <app-trade-button class="trade-button"></app-trade-button>
+<div *ngIf="buy">
+    Buy happened
+</div>
+
+<div *ngIf="sell">
+    Sell happened
+</div>
 <!-- <app-footer-bar></app-footer-bar> -->

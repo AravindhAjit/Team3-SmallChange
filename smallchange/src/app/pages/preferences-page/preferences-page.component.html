@@ -1,0 +1,13 @@
+<div class="preferences-page-buttons">
+    <app-trade-button class="trade-button" (click)="enterPreferences()">Enter Preferences</app-trade-button>
+    <app-trade-button class="trade-button" (click)="editPreferences()">Edit Preferences</app-trade-button>
+</div>
+
+<div *ngIf="enter">
+    Enter preferences happened
+</div>
+
+<div *ngIf="edit">
+    Edit preferences happened
+</div>
+<!-- <app-footer-bar></app-footer-bar> -->
