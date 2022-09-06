@@ -1,15 +1,19 @@
 <!-- Your HTML goes here: -->
 <div class="login-box">
     <div class="form">
-        <!-- <app-username-form-control (change)="Storeusername($event)" id="form-username"></app-username-form-control> -->
+        <app-username-form-control (change)="Storeusername($event)" id="form-username"></app-username-form-control>
+        <!-- <app-username-form-control id="form-username"></app-username-form-control> -->
     </div>
     <div class="form">
-        <!-- <app-password-form-control (change)="Storepassword($event)" id="form-password"></app-password-form-control> -->
+        <app-password-form-control (change)="Storepassword($event)" id="form-password"></app-password-form-control>
+        <!-- <app-password-form-control id="form-password"></app-password-form-control> -->
     </div>
     <div class="login-button" id="login-button">
-        <app-button></app-button>
+        <app-button>Log In</app-button>
     </div>
-    <div class="forgot-pass">
-        <app-link></app-link>
+    <div class="link">
+        <app-link [routeName]="defaultName">Forgot Password</app-link>
+        <br>
+        <app-link [routeName]="registrationName">New User ? Login</app-link>
     </div>
 </div>

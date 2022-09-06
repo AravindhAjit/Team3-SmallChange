@@ -23,8 +23,6 @@ export class PasswordFormControlComponent implements OnInit {
       // else{
       //   err_msg?.style.display="block";
       //   text_box?.style.borderColor="red";
-
-        
       // }
     });
   }

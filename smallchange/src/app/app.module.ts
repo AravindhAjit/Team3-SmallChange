@@ -19,6 +19,9 @@ import { PasswordFormControlComponent } from './molecules/password-form-control/
 import { UsernameFormControlComponent } from './molecules/username-form-control/username-form-control.component';
 import { LoginFormComponent } from './organisms/login-form/login-form.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { AppRoutingModule } from './app-routing.module';
+import { RegPageComponent } from './pages/reg-page/reg-page.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -39,10 +42,13 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
     PasswordFormControlComponent,
     UsernameFormControlComponent,
     LoginFormComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    RegPageComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
