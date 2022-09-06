@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-trade-page',
   templateUrl: './trade-page.component.html',
@@ -9,6 +8,13 @@ export class TradePageComponent implements OnInit {
 
   buy:boolean = false;
   sell:boolean = false;
+
+  //carousel stuff
+  // slides = [
+  //   {'image': '../../../assets/1.jpg'}, 
+  //   {'image': '../../../assets/2.jpg'},
+  //   {'image': '../../../assets/3.jpg'}, 
+  // ];
   constructor() { }
 
   ngOnInit(): void {

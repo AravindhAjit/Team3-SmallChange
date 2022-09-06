@@ -22,6 +22,13 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { TradePageComponent } from './pages/trade-page/trade-page.component';
 import { TradeButtonComponent } from './atoms/trade-button/trade-button.component';
 import { PreferencesPageComponent } from './pages/preferences-page/preferences-page.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCarouselModule } from 'ng-mat-carousel';
+import { MatSelectModule, } from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
+
 
 @NgModule({
   declarations: [
@@ -48,7 +55,14 @@ import { PreferencesPageComponent } from './pages/preferences-page/preferences-p
     PreferencesPageComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    NoopAnimationsModule,
+    MatCarouselModule.forRoot(),
+    MatSelectModule,
+    MatInputModule,
+    MatCheckboxModule
+  
+
   ],
   providers: [],
   bootstrap: [AppComponent]
