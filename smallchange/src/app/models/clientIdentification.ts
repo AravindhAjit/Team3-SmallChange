@@ -1,9 +1,9 @@
-export interface ClientIdentification{
-    type: string;
-    value: string;
+export class ClientIdentification{
     
-    constructor():
+    constructor(
+        type: string,
+        value: string,
+    )
     {
-
     }
 }
