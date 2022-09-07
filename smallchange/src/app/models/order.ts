@@ -1,12 +1,13 @@
-export interface Order{
-    instrumentId: string;
-    quantity: number;
-    targetPrice: number;
-    direction: string;
-    clientId: string;
-    orderId: string;
+export class Order{
 
-    constructor():{
-        
+    constructor(
+        instrumentId: string,
+        quantity: number,
+        targetPrice: number,
+        direction: string,
+        clientId: string,
+        orderId: string,
+    ){
+
     }
 }
