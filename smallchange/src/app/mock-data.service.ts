@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { Client } from './models/client';
 import { ClientIdentification } from './models/clientIdentification';
 import { Instrument } from './models/instrument';
@@ -133,23 +134,23 @@ export class MockDataService {
 
   constructor(){}
 
-  getClients(): Client[] {
-    return this.clients;
+  getClients(): Observable<Client[]> {
+    return of(this.clients);
   }
-  getClientIdentifications(): ClientIdentification[] {
-    return this.clientIdentifications;
+  getClientIdentifications(): Observable<ClientIdentification[]> {
+    return of(this.clientIdentifications);
   }
-  getInstruments(): Instrument[] {
-    return this.instruments;
+  getInstruments(): Observable<Instrument[]> {
+    return of(this.instruments);
   }
-  getOrders(): Order[] {
-    return this.orders;
+  getOrders(): Observable<Order[]> {
+    return of(this.orders);
   }
-  getPrices(): Price[] {
-    return this.prices;
+  getPrices(): Observable<Price[]> {
+    return of(this.prices);
   }
-  getTrades(): Trade[] {
-    return this.trades;
+  getTrades(): Observable<Trade[]> {
+    return of(this.trades);
   }
 
 }
