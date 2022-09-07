@@ -1,0 +1,63 @@
+<!-- <div>     -->
+<div *ngIf="preferencesSet">
+    Cant enter preference , preference already set
+</div>
+<!-- <div> -->
+    <div *ngIf="!preferencesSet" class="enter-preference">
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Purpose of Investment</mat-label>
+            <input matInput>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Risk Tolerance</mat-label>
+            <mat-select [(value)]="riskTolerance">
+                <mat-option>None</mat-option>
+                <mat-option value="CONSERVATIVE">CONSERVATIVE</mat-option>
+                <mat-option value="BELOW AVERAGE">BELOW AVERAGE</mat-option>
+                <mat-option value="AVERAGE">AVERAGE</mat-option>
+                <mat-option value="ABOVE AVERAGE">ABOVE AVERAGE</mat-option>
+                <mat-option value="AGGRESSIVE">AGGRESSIVE</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Income Category</mat-label>
+            <mat-select [(value)]="incomeCategory">
+                <mat-option>None</mat-option>
+                <mat-option value="0-20000">0-20000</mat-option>
+                <mat-option value="20001-40000">20001-40000</mat-option>
+                <mat-option value="40001-60000">40001-60000</mat-option>
+                <mat-option value="60001-80000">60001-80000</mat-option>
+                <mat-option value="80001-100000">80001-100000</mat-option>
+                <mat-option value="100001-150000">100001-150000</mat-option>
+                <mat-option value="150000+">150000+</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Length of Investment</mat-label>
+            <mat-select [(value)]="investmentLength">
+                <mat-option>None</mat-option>
+                <mat-option value="0-5 YEARS">0-5 YEARS</mat-option>
+                <mat-option value="5-7 YEARS">5-7 YEARS</mat-option>
+                <mat-option value="7-10 YEARS">7-10 YEARS</mat-option>
+                <mat-option value="10-15 YEARS">10-15 YEARS</mat-option>
+
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="example-section">
+        <mat-checkbox class="example-margin" (click)="setAgreement()">I agree to the terms and conditions for using the
+            Robo-Advisor
+        </mat-checkbox>
+    </div>
+    <div>
+        <button mat-raised-button color="primary" (click)="setPreference()" [disabled]="!agreed">Submit</button>
+    </div>
+</div>

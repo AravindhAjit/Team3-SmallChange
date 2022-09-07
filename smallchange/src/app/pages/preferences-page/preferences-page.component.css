@@ -30,3 +30,11 @@
 ::ng-deep .mat-checkbox .mat-checkbox-inner-container{
     background: black ;
 }
+
+.preference-page{
+    background-color: lightgray;
+}
+
+::ng-deep .mat-tab-group .mat-tab-body-content{
+    text-align: center;
+}

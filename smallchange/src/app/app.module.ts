@@ -27,6 +27,9 @@ import { MatCarouselModule } from 'ng-mat-carousel';
 import { MatSelectModule, } from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import {MatTabsModule} from '@angular/material/tabs';
+import { EnterPreferenceComponent } from './organisms/enter-preference/enter-preference.component';
+import { EditPreferenceComponent } from './organisms/edit-preference/edit-preference.component';
 
 
 
@@ -52,7 +55,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     LoginPageComponent,
     TradePageComponent,
     TradeButtonComponent,
-    PreferencesPageComponent
+    PreferencesPageComponent,
+    EnterPreferenceComponent,
+    EditPreferenceComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +65,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatCarouselModule.forRoot(),
     MatSelectModule,
     MatInputModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatTabsModule
   
 
   ],
