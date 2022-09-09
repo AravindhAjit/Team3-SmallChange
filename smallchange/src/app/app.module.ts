@@ -32,6 +32,7 @@ import { EnterPreferenceComponent } from './organisms/enter-preference/enter-pre
 import { EditPreferenceComponent } from './organisms/edit-preference/edit-preference.component';
 import { TradeBuyComponent } from './organisms/trade-buy/trade-buy.component';
 import { TradeSellComponent } from './organisms/trade-sell/trade-sell.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -70,7 +71,8 @@ import { TradeSellComponent } from './organisms/trade-sell/trade-sell.component'
     MatSelectModule,
     MatInputModule,
     MatCheckboxModule,
-    MatTabsModule
+    MatTabsModule,
+    FormsModule
   
 
   ],

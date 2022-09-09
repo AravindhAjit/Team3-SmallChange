@@ -2,16 +2,16 @@
     
     <div *ngIf="preferencesSet">
         <div>
-            {{investmentPurpose}}
+            {{preference.purposeOfInvestment}}
         </div>
         <div>
-            {{riskTolerance}}
+            {{preference.riskTolerance}}
         </div>
         <div>
-            {{incomeCategory}}
+            {{preference.incomeCategory}}
         </div>
         <div>
-            {{investmentLength}}
+            {{preference.investmentLength}}
         </div>
         <div>
             <button mat-raised-button color="primary" (click)="setEdit()">Edit Preferences</button>
@@ -22,7 +22,8 @@
         <div>
             <mat-form-field appearance="fill">
                 <mat-label>Purpose of Investment</mat-label>
-                <input matInput>
+                <input matInput placeholder="Enter name" [(ngModel)]="investmentPurpose" >
+                
             </mat-form-field>
         </div>
         <div>
