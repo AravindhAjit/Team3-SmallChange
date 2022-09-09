@@ -30,6 +30,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import {MatTabsModule} from '@angular/material/tabs';
 import { EnterPreferenceComponent } from './organisms/enter-preference/enter-preference.component';
 import { EditPreferenceComponent } from './organisms/edit-preference/edit-preference.component';
+import { TradeBuyComponent } from './organisms/trade-buy/trade-buy.component';
+import { TradeSellComponent } from './organisms/trade-sell/trade-sell.component';
 
 
 
@@ -57,7 +59,9 @@ import { EditPreferenceComponent } from './organisms/edit-preference/edit-prefer
     TradeButtonComponent,
     PreferencesPageComponent,
     EnterPreferenceComponent,
-    EditPreferenceComponent
+    EditPreferenceComponent,
+    TradeBuyComponent,
+    TradeSellComponent
   ],
   imports: [
     BrowserModule,

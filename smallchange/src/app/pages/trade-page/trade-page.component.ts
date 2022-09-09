@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MockDataService } from 'src/app/service/mock-data.service';
 @Component({
   selector: 'app-trade-page',
   templateUrl: './trade-page.component.html',
@@ -9,14 +10,8 @@ export class TradePageComponent implements OnInit {
   buy:boolean = false;
   sell:boolean = false;
 
-  //carousel stuff
-  // slides = [
-  //   {'image': '../../../assets/1.jpg'}, 
-  //   {'image': '../../../assets/2.jpg'},
-  //   {'image': '../../../assets/3.jpg'}, 
-  // ];
-  constructor() { }
 
+  constructor(private service :MockDataService) { }
   ngOnInit(): void {
   }
 

@@ -1,6 +1,5 @@
-<!-- <div *ngIf="edit"> -->
-    <div>
-        <div>
+<div>
+    
     <div *ngIf="preferencesSet">
         <div>
             {{investmentPurpose}}
@@ -14,12 +13,12 @@
         <div>
             {{investmentLength}}
         </div>
-<div>
-        <button mat-raised-button color="primary" (click)="setEdit()">Edit Preferences</button>
+        <div>
+            <button mat-raised-button color="primary" (click)="setEdit()">Edit Preferences</button>
+        </div>
     </div>
-    <div>
-        
-    <!-- <div *ngIf="setEditTrue"> -->
+
+    <div *ngIf="setEditTrue">
         <div>
             <mat-form-field appearance="fill">
                 <mat-label>Purpose of Investment</mat-label>
@@ -69,9 +68,10 @@
         </div>
 
         <button mat-raised-button color="primary" (click)="finishEdit()">Confirm Preferences</button>
+    </div>
 
-    </div>
-    </div>
+
+
     <div *ngIf="!preferencesSet">
         Enter preferences first , then edit preferences
     </div>

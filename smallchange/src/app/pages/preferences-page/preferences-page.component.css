@@ -38,3 +38,7 @@
 ::ng-deep .mat-tab-group .mat-tab-body-content{
     text-align: center;
 }
+
+::ng-deep .mat-tab-label .mat-tab-label-content{
+    color: black;
+}
