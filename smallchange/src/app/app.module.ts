@@ -19,6 +19,11 @@ import { PasswordFormControlComponent } from './molecules/password-form-control/
 import { UsernameFormControlComponent } from './molecules/username-form-control/username-form-control.component';
 import { LoginFormComponent } from './organisms/login-form/login-form.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+
+import { AppRoutingModule } from './app-routing.module';
+import { RegPageComponent } from './pages/reg-page/reg-page.component';
+import { FormsModule } from '@angular/forms';
+
 import { TradePageComponent } from './pages/trade-page/trade-page.component';
 import { TradeButtonComponent } from './atoms/trade-button/trade-button.component';
 import { PreferencesPageComponent } from './pages/preferences-page/preferences-page.component';
@@ -32,8 +37,6 @@ import { EnterPreferenceComponent } from './organisms/enter-preference/enter-pre
 import { EditPreferenceComponent } from './organisms/edit-preference/edit-preference.component';
 import { TradeBuyComponent } from './organisms/trade-buy/trade-buy.component';
 import { TradeSellComponent } from './organisms/trade-sell/trade-sell.component';
-
-
 
 @NgModule({
   declarations: [
@@ -55,6 +58,7 @@ import { TradeSellComponent } from './organisms/trade-sell/trade-sell.component'
     UsernameFormControlComponent,
     LoginFormComponent,
     LoginPageComponent,
+    RegPageComponent,
     TradePageComponent,
     TradeButtonComponent,
     PreferencesPageComponent,
@@ -65,14 +69,14 @@ import { TradeSellComponent } from './organisms/trade-sell/trade-sell.component'
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
+    FormsModule,
     NoopAnimationsModule,
     MatCarouselModule.forRoot(),
     MatSelectModule,
     MatInputModule,
     MatCheckboxModule,
     MatTabsModule
-  
-
   ],
   providers: [],
   bootstrap: [AppComponent]
