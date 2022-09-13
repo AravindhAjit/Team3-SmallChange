@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { MockDataService } from '../../service/mock-data.service';
-import { Order } from 'src/app/models/order';
-import { Observable } from 'rxjs';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-portfolio-page',
@@ -10,12 +9,15 @@ import { Observable } from 'rxjs';
   styleUrls: ['./portfolio-page.component.css']
 })
 export class PortfolioPageComponent implements OnInit {
-  Alldata : any;
+  Portfoliodata : any;
+  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   constructor(private dataService : MockDataService) {   }
+  dataSource : any;
   ngOnInit(): void {
-    this.dataService.getOrders().subscribe(response => {
-      this.Alldata = response;
+    this.dataService.getPortfolio().subscribe(response => {
+      this.Portfoliodata = response;
+      this.dataSource = new MatTableDataSource(this.Portfoliodata);
   });
-  console.log(this.Alldata);
+  console.log(this.Portfoliodata);
 }
 }

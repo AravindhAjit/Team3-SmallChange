@@ -19,11 +19,6 @@ import { PasswordFormControlComponent } from './molecules/password-form-control/
 import { UsernameFormControlComponent } from './molecules/username-form-control/username-form-control.component';
 import { LoginFormComponent } from './organisms/login-form/login-form.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
-
-import { AppRoutingModule } from './app-routing.module';
-import { RegPageComponent } from './pages/reg-page/reg-page.component';
-import { FormsModule } from '@angular/forms';
-
 import { TradePageComponent } from './pages/trade-page/trade-page.component';
 import { TradeButtonComponent } from './atoms/trade-button/trade-button.component';
 import { PreferencesPageComponent } from './pages/preferences-page/preferences-page.component';
@@ -37,6 +32,17 @@ import { EnterPreferenceComponent } from './organisms/enter-preference/enter-pre
 import { EditPreferenceComponent } from './organisms/edit-preference/edit-preference.component';
 import { TradeBuyComponent } from './organisms/trade-buy/trade-buy.component';
 import { TradeSellComponent } from './organisms/trade-sell/trade-sell.component';
+import { AppRoutingModule } from './app-routing.module';
+import { RegPageComponent } from './pages/reg-page/reg-page.component';
+import { FormsModule } from '@angular/forms';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { HomeComponent } from './atoms/home/home.component';
+import { FlipCardComponent } from './atoms/flip-card/flip-card.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from "@angular/material/card";
+import { MatGridListModule } from '@angular/material/grid-list';
+import { PortfolioPageComponent } from './pages/portfolio-page/portfolio-page.component';
+
 
 @NgModule({
   declarations: [
@@ -58,15 +64,20 @@ import { TradeSellComponent } from './organisms/trade-sell/trade-sell.component'
     UsernameFormControlComponent,
     LoginFormComponent,
     LoginPageComponent,
-    RegPageComponent,
     TradePageComponent,
     TradeButtonComponent,
     PreferencesPageComponent,
     EnterPreferenceComponent,
     EditPreferenceComponent,
     TradeBuyComponent,
-    TradeSellComponent
+    TradeSellComponent,
+    RegPageComponent,
+    HomePageComponent,
+    HomeComponent,
+    FlipCardComponent,
+    PortfolioPageComponent
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -76,7 +87,13 @@ import { TradeSellComponent } from './organisms/trade-sell/trade-sell.component'
     MatSelectModule,
     MatInputModule,
     MatCheckboxModule,
-    MatTabsModule
+    MatTabsModule,
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    MatIconModule,
+    MatCardModule,
+    MatGridListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

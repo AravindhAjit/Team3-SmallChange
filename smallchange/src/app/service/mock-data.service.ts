@@ -4,6 +4,7 @@ import { Client } from '../models/client';
 import { ClientIdentification } from '../models/clientIdentification';
 import { Instrument } from '../models/instrument';
 import { Order } from '../models/order';
+import { Portfolio } from '../models/portfolio';
 import { Price } from '../models/price';
 import { Trade } from '../models/trade';
 
@@ -132,6 +133,31 @@ export class MockDataService {
     tradeId: "401", cashValue: 1500}
   ];
 
+  portfolio: Portfolio[]=[
+    {
+       username: 'jshew0',balance: 3779, stock: [
+       {symbol: 'NASDAQ',quantity: 64, value: 845.17},
+       {symbol: 'ABNB',quantity: 64, value: 120},
+       {symbol: 'ACR',quantity: 75, value: 456.21},
+       {symbol: 'NYSE',quantity: 45, value: 231},
+       {symbol: 'AAPL',quantity: 23, value: 761.99},
+       {symbol: 'IRS',quantity: 190, value: 750}
+       ],
+       bonds: [
+        {symbol: 'NASDAQ',quantity: 64, value: 845.17},
+        {symbol: 'ABNB',quantity: 64, value: 120},
+        {symbol: 'AAPL',quantity: 23, value: 761.99},
+        {symbol: 'IRS',quantity: 190, value: 750}
+        ],
+        mutual_funds: [
+          {symbol: 'NYSE',quantity: 45, value: 231},
+          {symbol: 'AAPL',quantity: 23, value: 761.99},
+          {symbol: 'IRS',quantity: 190, value: 750}
+          ]
+     }
+
+   ]
+
   constructor(){}
 
   getClients(): Observable<Client[]> {
@@ -151,6 +177,9 @@ export class MockDataService {
   }
   getTrades(): Observable<Trade[]> {
     return of(this.trades);
+  }
+  getPortfolio(): Observable<Portfolio[]> {
+    return of(this.portfolio);
   }
 
 }
