@@ -33,6 +33,8 @@ import { EditPreferenceComponent } from './organisms/edit-preference/edit-prefer
 import { TradeBuyComponent } from './organisms/trade-buy/trade-buy.component';
 import { TradeSellComponent } from './organisms/trade-sell/trade-sell.component';
 import { FormsModule } from '@angular/forms';
+import { PortfolioPageComponent } from './pages/portfolio-page/portfolio-page.component';
+import {MatTableModule} from '@angular/material/table';
 
 
 
@@ -62,7 +64,9 @@ import { FormsModule } from '@angular/forms';
     EnterPreferenceComponent,
     EditPreferenceComponent,
     TradeBuyComponent,
-    TradeSellComponent
+    TradeSellComponent,
+    PortfolioPageComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -72,7 +76,8 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     MatCheckboxModule,
     MatTabsModule,
-    FormsModule
+    FormsModule,
+    MatTableModule,
   
 
   ],
