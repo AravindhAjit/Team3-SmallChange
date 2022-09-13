@@ -42,7 +42,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from "@angular/material/card";
 import { MatGridListModule } from '@angular/material/grid-list';
 import { PortfolioPageComponent } from './pages/portfolio-page/portfolio-page.component';
-
+import { MatTableModule } from '@angular/material/table';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -94,6 +95,8 @@ import { PortfolioPageComponent } from './pages/portfolio-page/portfolio-page.co
     MatIconModule,
     MatCardModule,
     MatGridListModule,
+    MatTableModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
