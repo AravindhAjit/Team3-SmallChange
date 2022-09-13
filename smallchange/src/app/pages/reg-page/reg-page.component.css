@@ -1,0 +1,40 @@
+.reg-box{
+  margin: 0 auto 0 auto;
+  border: solid 1px #ccc;
+  padding: 2rem 3rem 2rem 3rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  max-width: 18rem;
+  font-family: 'Fidelity Sans', Arial, sans-serif;
+}
+
+form{
+  margin-bottom: 1.5rem;
+}
+
+.reg-button
+{
+  margin-bottom: 1.5rem;
+}
+
+.link{
+  text-align: center;
+}
+
+label{
+  display: block; 
+  margin-bottom: 0.25rem;
+  font-family: 'Fidelity-Sans', Arial, sans-serif;
+  font-weight: bold;
+}
+
+.text-box {
+  box-sizing: border-box;
+  width: 100%;
+  display: block;
+  padding: 0.25rem, 1rem, 0.25rem, 1rem;
+  font-size: 18px;
+  line-height: 1.5em;
+  width: 100%;
+  display: block;
+}
