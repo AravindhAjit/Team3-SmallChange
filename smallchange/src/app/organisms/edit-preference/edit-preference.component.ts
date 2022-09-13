@@ -15,7 +15,7 @@ export class EditPreferenceComponent implements OnInit {
   incomeCategory = '';
   investmentLength = ''
   investmentPurpose ='';
-  preference = new Preference('','','','');
+  preference = new Preference('','','','',false);
 
   constructor(private service:PrefernceService) {    
     this.preference = this.service.getPreferences();
@@ -25,7 +25,6 @@ export class EditPreferenceComponent implements OnInit {
 
   ngOnInit(): void {
     this.setEditTrue = false;
-    this.preferencesSet = true;
   }
 
   setEdit():void{
@@ -34,7 +33,7 @@ export class EditPreferenceComponent implements OnInit {
 
   finishEdit():void{
     this.setEditTrue = false;
-    this.service.setPreferences(new Preference(this.investmentPurpose,this.riskTolerance,this.incomeCategory,this.investmentLength));
+    this.service.setPreferences(new Preference(this.investmentPurpose,this.riskTolerance,this.incomeCategory,this.investmentLength,true));
 
 
   }

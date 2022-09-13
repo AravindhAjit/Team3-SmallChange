@@ -1,21 +1,4 @@
-<!-- <table>
-    <thead>
-        <td>instrument</td>
-        <td>description</td>
-        <td>category</td>
-    </thead>
-    <tbody>
-        <tr *ngFor = "let instrument of instruments" (click)="createTradeform(instrument)">
-            <td>{{instrument.instrumentId}}
-            <td>{{instrument.description}}
-            <td>{{instrument.category}}
-
-        </tr>
-    </tbody>
-</table> -->
-
-<table mat-table [dataSource]="instruments" multiTemplateDataRows
-       class="mat-elevation-z8">
+<table mat-table [dataSource]="instruments" multiTemplateDataRows class="mat-elevation-z8">
   <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
     <th mat-header-cell *matHeaderCellDef> {{column}} </th>
     <td mat-cell *matCellDef="let instrument"> {{instrument[column]}} </td>
@@ -24,27 +7,22 @@
   <ng-container matColumnDef="expandedDetail">
     <td mat-cell *matCellDef="let instrument" [attr.colspan]="columnsToDisplay.length">
       <div class="example-instrument-detail"
-           [@detailExpand]="instrument == expandedinstrument ? 'expanded' : 'collapsed'">
-            <div>Expand works</div>
-            <input type="text">
-            <!-- <mat-input-counter [min]="1"
-            [max]="10"
-            [step]="0.5"
-            [label]="Your label"
-            placeholder="your place holder">
-</mat-input-counter> -->
-   
+        [@detailExpand]="instrument == expandedinstrument ? 'expanded' : 'collapsed'">
+
+
+        <div class="example-instrument-description">
+         <span>BUY {{instrument.description}}</span> <input type="text" id="minQuantity" name="minQuantity" [(ngModel)]="instrument.minQuantity">
+         <button [disabled]="instrument.minQuantity>instrument.maxQuantity">BUY</button>
+         <div *ngIf="instrument.minQuantity>instrument.maxQuantity">Enter less than {{instrument.maxQuantity}} instruments</div>
+        </div>
       </div>
     </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-  <tr mat-row *matRowDef="let instrument; columns: columnsToDisplay;"
-      class="example-instrument-row"
-      [class.example-expanded-row]="expandedinstrument === instrument"
-      (click)="expandedinstrument = expandedinstrument === instrument ? null : instrument">
+  <tr mat-row *matRowDef="let instrument; columns: columnsToDisplay;" class="example-instrument-row"
+    [class.example-expanded-row]="expandedinstrument === instrument"
+    (click)="expandedinstrument = expandedinstrument === instrument ? null : instrument">
   </tr>
   <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
 </table>
-
-

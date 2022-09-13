@@ -1,6 +1,6 @@
 <div>
     
-    <div *ngIf="preferencesSet">
+    <div *ngIf="preference.preferenceSet">
         <div>
             {{preference.purposeOfInvestment}}
         </div>
@@ -73,7 +73,7 @@
 
 
 
-    <div *ngIf="!preferencesSet">
+    <div *ngIf="!preference.preferenceSet">
         Enter preferences first , then edit preferences
     </div>
 </div>

@@ -6,7 +6,7 @@ import { Preference } from '../models/preference';
 })
 export class PrefernceService {
 
-  preference = new Preference('', '', '', '');
+  preference = new Preference('', '', '', '',false);
   constructor() { }
 
   setPreferences(preferences: Preference): void {
@@ -14,6 +14,7 @@ export class PrefernceService {
     this.preference.incomeCategory = preferences.incomeCategory;
     this.preference.riskTolerance = preferences.riskTolerance;
     this.preference.purposeOfInvestment = preferences.purposeOfInvestment;
+    this.preference.preferenceSet = preferences.preferenceSet;
 
 
   }

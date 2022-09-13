@@ -28,7 +28,7 @@ export class EnterPreferenceComponent implements OnInit {
 
   setPreference(): void {
       this.preferencesSet = true;
-      this.service.setPreferences(new Preference(this.investmentPurpose,this.riskTolerance,this.incomeCategory,this.investmentLength));
+      this.service.setPreferences(new Preference(this.investmentPurpose,this.riskTolerance,this.incomeCategory,this.investmentLength,this.preferencesSet));
   }
   
   setflag():void {
@@ -37,16 +37,7 @@ export class EnterPreferenceComponent implements OnInit {
     this.preferencesSet = true;
   }
 
-  editPreferences(): void {
-    this.enter = false;
-    if (this.edit==true)
-      this.edit = false;
-      
-    else
-      this.edit = true;
-    // if(this.preferencesSet==false)
   
-  }
 
 
   setAgreement():void{

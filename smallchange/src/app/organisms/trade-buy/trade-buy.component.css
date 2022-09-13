@@ -21,16 +21,10 @@ table {
   .example-instrument-detail {
     overflow: hidden;
     display: flex;
+    /* height: 20%; */
   }
   
-  .example-instrument-diagram {
-    min-width: 80px;
-    border: 2px solid black;
-    padding: 8px;
-    font-weight: lighter;
-    margin: 8px 0;
-    height: 104px;
-  }
+ 
   
   .example-instrument-symbol {
     font-weight: bold;
@@ -45,4 +39,7 @@ table {
   .example-instrument-description-attribution {
     opacity: 0.5;
   }
+
+
+
   
