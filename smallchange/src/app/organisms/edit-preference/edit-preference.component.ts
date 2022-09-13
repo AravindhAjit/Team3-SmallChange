@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Preference } from 'src/app/models/preference';
+import { PrefernceService } from 'src/app/service/prefernce.service';
 
 @Component({
   selector: 'app-edit-preference',
@@ -13,7 +15,7 @@ export class EditPreferenceComponent implements OnInit {
   incomeCategory = '';
   investmentLength = ''
   investmentPurpose ='';
-  preference = new Preference('','','','');
+  preference = new Preference('','','','',false);
 
   constructor(private service:PrefernceService) {    
     this.preference = this.service.getPreferences();

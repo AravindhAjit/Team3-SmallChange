@@ -2,16 +2,16 @@
     
     <div *ngIf="preference.preferenceSet">
         <div>
-            {{investmentPurpose}}
+            {{preference.purposeOfInvestment}}
         </div>
         <div>
-            {{riskTolerance}}
+            {{preference.riskTolerance}}
         </div>
         <div>
-            {{incomeCategory}}
+            {{preference.incomeCategory}}
         </div>
         <div>
-            {{investmentLength}}
+            {{preference.investmentLength}}
         </div>
         <div>
             <button mat-raised-button color="primary" (click)="setEdit()">Edit Preferences</button>
