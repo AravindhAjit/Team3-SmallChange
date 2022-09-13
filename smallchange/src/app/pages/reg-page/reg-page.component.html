@@ -1,0 +1,33 @@
+<div class="reg-box">
+  <form>
+      <label>Email Address</label>
+      <input class="text-box" id="email" [(ngModel)]="data.emailAdd" [ngModelOptions]="{standalone: true}" type="email" required>
+  </form>
+  <form>
+    <label>Password</label>
+    <input class="text-box" id="pass" [(ngModel)]="data.password" [ngModelOptions]="{standalone: true}" type="password" required>
+  </form>
+  <form>
+    <label>Country</label>
+    <input class="text-box" id="country" [(ngModel)]="data.country" [ngModelOptions]="{standalone: true}" type="text" required>
+  </form>
+  <form>
+    <label>Family Name</label>
+    <input class="text-box" id="family-name" [(ngModel)]="data.familyName" [ngModelOptions]="{standalone: true}" type="text">
+  </form>
+  <form>
+    <label>Personal Name</label>
+    <input class="text-box" id="personal-name" [(ngModel)]="data.personalName" [ngModelOptions]="{standalone: true}" type="text">
+  </form>
+  <form>
+    <label>Date Of Birth</label>
+    <input class="text-box" id="dob"[(ngModel)]="data.dob" [ngModelOptions]="{standalone: true}" type="text">
+  </form>
+  <form>
+    <label>Investment Risk Appetite</label>
+    <input class="text-box" id="ira" [(ngModel)]="data.ira" [ngModelOptions]="{standalone: true}" type="text">
+  </form>
+  <div class="reg-button" id="reg-button">
+      <app-button>Register</app-button>
+  </div>
+</div>

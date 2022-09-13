@@ -1,0 +1,85 @@
+<div class="section1">
+<mat-carousel class="carousel" timings="250ms ease-in" 
+[autoplay]="true" 
+color="primary" 
+maxWidth="auto" 
+[loop]="true"
+[hideArrows]="false" 
+[hideIndicators]="false" 
+[useKeyboard]="true" 
+[useMouseWheel]="false" 
+orientation="ltr">
+<mat-carousel-slide #matCarouselSlide *ngFor="let slide of slides; 
+    let i = index" [image]="slide.image"
+    overlayColor="#00000040" [hideOverlay]="false">
+</mat-carousel-slide>
+</mat-carousel>
+</div>
+<div class="section2">
+<h1>
+    What is Small Change 
+</h1>
+
+<p>
+    SmallChange™ will allow investors to make discretionary trades or use an automated investment engine (Robo-Advisor) based on their preferred risk level
+</p>
+
+</div>
+
+<div class="section3">
+
+
+</div>
+
+<div class="section4">
+    <h1>
+        Why Invest with SmallChange?
+    </h1>
+
+    <div class="benfits">
+        <div class="benefit">
+            <mat-icon>monetization_on</mat-icon>
+            <h3>Low Cost Str</h3>
+        </div>
+        <div class="benefit">
+
+        </div>
+        <div class="benefit">
+
+        </div>
+    </div>
+
+    <!-- <div class="benefits">
+        <div class="card">
+            <mat-card class="example-card">
+                <img class="cardimg" mat-card-image src="../../../assets/cost.png">
+                <mat-card-content>
+                  <p>
+                    Low Cost Structure
+                  </p>
+                </mat-card-content>
+              </mat-card>
+        </div>
+        <div class="card">
+            <mat-card class="example-card">
+                <img class="cardimg" mat-card-image src="../../../assets/benefits.png">
+                <mat-card-content>
+                  <p>
+                    Offer Valuable Perks
+                  </p>
+                </mat-card-content>
+              </mat-card>
+        </div>
+        <div class="card">
+            <mat-card class="example-card">
+                <img class="cardimg" mat-card-image src="../../../assets/voucher.jpg">
+                <mat-card-content>
+                  <p>
+                    Restraunt Vouchers
+                  </p>
+                </mat-card-content>
+              </mat-card>
+        </div>
+    </div> -->
+
+</div>

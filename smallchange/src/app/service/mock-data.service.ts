@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Observable, ObservableLike, of } from 'rxjs';
-import { Client } from './models/client';
-import { ClientIdentification } from './models/clientIdentification';
-import { Instrument } from './models/instrument';
-import { Order } from './models/order';
-import { Portfolio } from './models/portfolio';
-import { Price } from './models/price';
-import { Trade } from './models/trade';
+import { Observable, of } from 'rxjs';
+import { Client } from '../models/client';
+import { ClientIdentification } from '../models/clientIdentification';
+import { Instrument } from '../models/instrument';
+import { Order } from '../models/order';
+import { Portfolio } from '../models/portfolio';
+import { Price } from '../models/price';
+import { Trade } from '../models/trade';
 
 @Injectable({
   providedIn: 'root'
@@ -74,30 +74,30 @@ export class MockDataService {
   ];
 
   instruments: Instrument[] = [
-    {instrument: "1", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua", externalIdType: "ISIN", externalId: "ABC456", category: "CID101",minQuantity: 24, maxQuantity: 50},
-    {instrument: "3", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua", externalIdType: "ISIN", externalId: "XYZ456", category: "CID101",minQuantity: 24, maxQuantity: 50},
-    {instrument: "2", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua", externalIdType: "CUSIP", externalId: "ABC123", category: "CID101",minQuantity: 24, maxQuantity: 50},
-    {instrument: "4", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua", externalIdType: "CUSIP", externalId: "ABC345", category: "CID101",minQuantity: 24, maxQuantity: 50},
-    {instrument: "5", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua", externalIdType: "ISIN", externalId: "XYZ125", category: "CID101",minQuantity: 24, maxQuantity: 50},
-    {instrument: "6", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua", externalIdType: "ISIN", externalId: "ABC459", category: "CID101",minQuantity: 24, maxQuantity: 50},
-    {instrument: "7", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua", externalIdType: "CUSIP", externalId: "XYZ756", category: "CID101",minQuantity: 24, maxQuantity: 50},
-    {instrument: "8", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua", externalIdType: "ISIN", externalId: "BCA456", category: "CID101",minQuantity: 24, maxQuantity: 50},
-    {instrument: "9", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua", externalIdType: "CUSIP", externalId: "ZXY456", category: "CID101",minQuantity: 24, maxQuantity: 50},
-    {instrument: "10", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua", externalIdType: "ISIN", externalId: "ABC056", category: "CID101",minQuantity: 24, maxQuantity: 50},
+    {instrument: "1", description: "INSTRUMENT 1 ", externalIdType: "ISIN", externalId: "ABC456", category: "CID101",minQuantity: 24, maxQuantity: 50},
+    {instrument: "3", description: "INSTRUMENT 2", externalIdType: "ISIN", externalId: "XYZ456", category: "CID101",minQuantity: 24, maxQuantity: 50},
+    {instrument: "2", description: "INSTRUMENT 3", externalIdType: "CUSIP", externalId: "ABC123", category: "CID101",minQuantity: 24, maxQuantity: 50},
+    {instrument: "4", description: "INSTRUMENT 4", externalIdType: "CUSIP", externalId: "ABC345", category: "CID101",minQuantity: 24, maxQuantity: 50},
+    {instrument: "5", description: "INSTRUMENT 5", externalIdType: "ISIN", externalId: "XYZ125", category: "CID101",minQuantity: 24, maxQuantity: 50},
+    {instrument: "6", description: "INSTRUMENT 6", externalIdType: "ISIN", externalId: "ABC459", category: "CID101",minQuantity: 24, maxQuantity: 50},
+    {instrument: "7", description: "INSTRUMENT 7", externalIdType: "CUSIP", externalId: "XYZ756", category: "CID101",minQuantity: 24, maxQuantity: 50},
+    {instrument: "8", description: "INSTRUMENT 8", externalIdType: "ISIN", externalId: "BCA456", category: "CID101",minQuantity: 24, maxQuantity: 50},
+    {instrument: "9", description: "INSTRUMENT 9", externalIdType: "CUSIP", externalId: "ZXY456", category: "CID101",minQuantity: 24, maxQuantity: 50},
+    {instrument: "10", description: "INSTRUMENT 10 ", externalIdType: "ISIN", externalId: "ABC056", category: "CID101",minQuantity: 24, maxQuantity: 50},
   ];
 
   prices: Price[] = [
 
-    {instrumentId: "1", bidPrice: 25000,askPrice: 14000, timestamp: "20220512T073255.234UTC", instrument: {instrument: 1, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua", externalIdType: "SSN", externalId: "ABC456", categoryId: "CID3",minQuantity: 24, maxQuantity: 50},},
-    {instrumentId: "2", bidPrice: 25000,askPrice: 14000, timestamp: "20220512T073255.234UTC", instrument: {instrument: 2, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua", externalIdType: "SSN", externalId: "XYZ456", categoryId: "CID4",minQuantity: 24, maxQuantity: 50},},
-    {instrumentId: "3", bidPrice: 25000,askPrice: 14000, timestamp: "20220512T073255.234UTC", instrument: {instrument: 3, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua", externalIdType: "EID", externalId: "ABC123", categoryId: "CID3",minQuantity: 24, maxQuantity: 50},},
-    {instrumentId: "4", bidPrice: 25000,askPrice: 14000, timestamp: "20220512T073255.234UTC", instrument: {instrument: 4, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua", externalIdType: "EID", externalId: "XYZ123", categoryId: "CID2",minQuantity: 24, maxQuantity: 50},},
-    {instrumentId: "5", bidPrice: 25000,askPrice: 14000, timestamp: "20220512T073255.234UTC", instrument: {instrument: 5, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua", externalIdType: "SSN", externalId: "ABC456", categoryId: "CID01",minQuantity: 24, maxQuantity: 50},},
-    {instrumentId: "6", bidPrice: 25000,askPrice: 14000, timestamp: "20220512T073255.234UTC", instrument: {instrument: 6, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua", externalIdType: "SSN", externalId: "ABC789", categoryId: "CID2",minQuantity: 24, maxQuantity: 50},},
-    {instrumentId: "7", bidPrice: 25000,askPrice: 14000, timestamp: "20220512T073255.234UTC", instrument: {instrument: 7, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua", externalIdType: "EID", externalId: "XYZ789", categoryId: "CID1",minQuantity: 24, maxQuantity: 50},},
-    {instrumentId: "8", bidPrice: 25000,askPrice: 14000, timestamp: "20220512T073255.234UTC", instrument: {instrument: 8, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua", externalIdType: "EID", externalId: "ABC234", categoryId: "CID5",minQuantity: 24, maxQuantity: 50},},
-    {instrumentId: "9", bidPrice: 25000,askPrice: 14000, timestamp: "20220512T073255.234UTC", instrument: {instrument: 9, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua", externalIdType: "SSN", externalId: "DEF567", categoryId: "CID3",minQuantity: 24, maxQuantity: 50},},
-    {instrumentId: "10", bidPrice: 25000,askPrice: 14000, timestamp: "20220512T073255.234UTC", instrument: {instrument: 10, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua", externalIdType: "SSN", externalId: "ABC456", categoryId: "CID6",minQuantity: 24, maxQuantity: 50},},
+    {instrumentId: "1", bidPrice: 25000,askPrice: 14000, timestamp: "20220512T073255.234UTC", instrument: {instrument: 1, description: "PRICE 1", externalIdType: "SSN", externalId: "ABC456", categoryId: "CID3",minQuantity: 24, maxQuantity: 50},},
+    {instrumentId: "2", bidPrice: 25000,askPrice: 14000, timestamp: "20220512T073255.234UTC", instrument: {instrument: 2, description: "PRICE 2", externalIdType: "SSN", externalId: "XYZ456", categoryId: "CID4",minQuantity: 24, maxQuantity: 50},},
+    {instrumentId: "3", bidPrice: 25000,askPrice: 14000, timestamp: "20220512T073255.234UTC", instrument: {instrument: 3, description: "PRICE 3", externalIdType: "EID", externalId: "ABC123", categoryId: "CID3",minQuantity: 24, maxQuantity: 50},},
+    {instrumentId: "4", bidPrice: 25000,askPrice: 14000, timestamp: "20220512T073255.234UTC", instrument: {instrument: 4, description: "PRICE 4", externalIdType: "EID", externalId: "XYZ123", categoryId: "CID2",minQuantity: 24, maxQuantity: 50},},
+    {instrumentId: "5", bidPrice: 25000,askPrice: 14000, timestamp: "20220512T073255.234UTC", instrument: {instrument: 5, description: "PRICE 5", externalIdType: "SSN", externalId: "ABC456", categoryId: "CID01",minQuantity: 24, maxQuantity: 50},},
+    {instrumentId: "6", bidPrice: 25000,askPrice: 14000, timestamp: "20220512T073255.234UTC", instrument: {instrument: 6, description: "PRICE 6", externalIdType: "SSN", externalId: "ABC789", categoryId: "CID2",minQuantity: 24, maxQuantity: 50},},
+    {instrumentId: "7", bidPrice: 25000,askPrice: 14000, timestamp: "20220512T073255.234UTC", instrument: {instrument: 7, description: "PRICE 7", externalIdType: "EID", externalId: "XYZ789", categoryId: "CID1",minQuantity: 24, maxQuantity: 50},},
+    {instrumentId: "8", bidPrice: 25000,askPrice: 14000, timestamp: "20220512T073255.234UTC", instrument: {instrument: 8, description: "PRICE 8", externalIdType: "EID", externalId: "ABC234", categoryId: "CID5",minQuantity: 24, maxQuantity: 50},},
+    {instrumentId: "9", bidPrice: 25000,askPrice: 14000, timestamp: "20220512T073255.234UTC", instrument: {instrument: 9, description: "PRICE 9", externalIdType: "SSN", externalId: "DEF567", categoryId: "CID3",minQuantity: 24, maxQuantity: 50},},
+    {instrumentId: "10",bidPrice: 25000,askPrice: 14000, timestamp: "20220512T073255.234UTC", instrument: {instrument: 10,description: "PRICE 10", externalIdType: "SSN", externalId: "ABC456", categoryId: "CID6",minQuantity: 24, maxQuantity: 50},},
   ];
 
   trades: Trade[] = [

@@ -7,42 +7,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginFormComponent implements OnInit {
 
-  // username: string;
-  // password: string;
+  defaultName: string = "";
+  registrationName: string = "registration";
 
-  //   Storeusername(event)
-  //   {
-  //     this.username = event.target.value;
-  //   }
+  username!: string;
+  password!: string;
 
-  //   Storepassword(event)
-  //   {
-  //     this.password = event.target.value;
-  //   }
+  Storeusername(event: any)
+  {
+    this.username = event.target.value;
+  }
+
+  Storepassword(event: any)
+  {
+    this.password = event.target.value;
+  }
 
   public ngOnInit(): void {
     /* This component requires some JavaScript functionality. Please enter it within this ngOnInit() function. */
-  
 
     var loginbutton = document.getElementById("login-button");
 
     loginbutton?.addEventListener('click',()=>{
 
-      // let JSON = {
-      //   "username":this.username,
-      //   "password":this.password,
-      //   "usernameEncoded":window.btoa(this.username),
-      //   "passwordEncoded":window.btoa(this.password)
-      // }
+      let JSON = {
+        "username":this.username,
+        "password":this.password,
+        "usernameEncoded":window.btoa(this.username),
+        "passwordEncoded":window.btoa(this.password)
+      }
 
       console.log(JSON);
-      // console.log("usernaame"+this.username);
-      // console.log("password"+this.password);
-      // console.log("json usernaame"+this.data.username);
-      // console.log("json password"+this.data.password);
-
-
+      console.log("usernaame"+this.username);
+      console.log("password"+this.password);
     })
-
-        }
   }
+}
