@@ -1,0 +1,22 @@
+<table>
+    <thead>
+    <th>InstrumentID</th>
+    <th>Quantity</th>
+    <th>Target Price</th>
+    <th>Direction</th>
+    <th>Client ID</th>
+    <th>Order ID</th>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let data of Alldata">
+            <td>{{ data.instrumentId }}</td>
+            <td>{{ data.quantity }}</td>
+            <td>{{ data.targetPrice }}</td>
+            <td>{{ data.direction }}</td>
+            <td>{{ data.clientId }}</td>
+            <td>{{ data.orderId }}</td>
+        </tr>
+
+    </tbody>
+
+</table>
