@@ -19,9 +19,24 @@ import { PasswordFormControlComponent } from './molecules/password-form-control/
 import { UsernameFormControlComponent } from './molecules/username-form-control/username-form-control.component';
 import { LoginFormComponent } from './organisms/login-form/login-form.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+
 import { AppRoutingModule } from './app-routing.module';
 import { RegPageComponent } from './pages/reg-page/reg-page.component';
 import { FormsModule } from '@angular/forms';
+
+import { TradePageComponent } from './pages/trade-page/trade-page.component';
+import { TradeButtonComponent } from './atoms/trade-button/trade-button.component';
+import { PreferencesPageComponent } from './pages/preferences-page/preferences-page.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCarouselModule } from 'ng-mat-carousel';
+import { MatSelectModule, } from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import {MatTabsModule} from '@angular/material/tabs';
+import { EnterPreferenceComponent } from './organisms/enter-preference/enter-preference.component';
+import { EditPreferenceComponent } from './organisms/edit-preference/edit-preference.component';
+import { TradeBuyComponent } from './organisms/trade-buy/trade-buy.component';
+import { TradeSellComponent } from './organisms/trade-sell/trade-sell.component';
 
 @NgModule({
   declarations: [
@@ -43,12 +58,25 @@ import { FormsModule } from '@angular/forms';
     UsernameFormControlComponent,
     LoginFormComponent,
     LoginPageComponent,
-    RegPageComponent
+    RegPageComponent,
+    TradePageComponent,
+    TradeButtonComponent,
+    PreferencesPageComponent,
+    EnterPreferenceComponent,
+    EditPreferenceComponent,
+    TradeBuyComponent,
+    TradeSellComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NoopAnimationsModule,
+    MatCarouselModule.forRoot(),
+    MatSelectModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

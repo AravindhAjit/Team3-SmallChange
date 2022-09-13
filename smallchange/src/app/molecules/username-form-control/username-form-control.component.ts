@@ -15,21 +15,21 @@ export class UsernameFormControlComponent implements OnInit {
     var err_msg=document.getElementById("username-check");
     var text_box = document.getElementById("username-form");
  
-    userName?.addEventListener('keyup', event =>{
+    // userName?.addEventListener('keyup', event =>{
 
-      // if((String(event.target.value).match('^[a-zA-Z0-9-_-]{3,18}$'))){
-      //   err_msg?.style.display="none";
-      //   text_box?.style.borderColor="black";
-      //   // console.log(String(event.target.value));
+    //   if((String(event.target.value).match('^[a-zA-Z0-9-_-]{3,18}$'))){
+    //     err_msg?.style.display="none";
+    //     text_box?.style.borderColor="black";
+    //     console.log(String(event.target.value));
 
-      // }
-      // else{
-      //   err_msg?.style.display="block";
-      //   text_box?.style.borderColor="red";
+    //   }
+    //   else{
+    //     err_msg?.style.display="block";
+    //     text_box?.style.borderColor="red";
 
         
-      // }
-    });
+    //   }
+    // });
   }
   }
 

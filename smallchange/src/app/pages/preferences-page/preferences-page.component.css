@@ -1,0 +1,44 @@
+.preferences-page-buttons{
+    text-align-last: center;
+}
+
+.enter-preference{
+    text-align-last: center;
+    background-color: lightgoldenrodyellow;
+
+}
+
+::ng-deep .mat-form-field .mat-input-element {   
+        color: slategray;
+}
+
+::ng-deep .mat-form-field .mat-form-field-label {
+    color: slategray;
+}
+
+::ng-deep .mat-form-field .mat-form-field-ripple {
+    background-color: slategray;
+}
+::ng-deep .mat-form-field .mat-form-field-required-marker {
+    color: slategray;
+}
+
+::ng-deep .mat-form-field .mat-select-value-text{
+    color: black
+}
+
+::ng-deep .mat-checkbox .mat-checkbox-inner-container{
+    background: black ;
+}
+
+.preference-page{
+    background-color: lightgray;
+}
+
+::ng-deep .mat-tab-group .mat-tab-body-content{
+    text-align: center;
+}
+
+::ng-deep .mat-tab-label .mat-tab-label-content{
+    color: black;
+}
