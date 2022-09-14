@@ -22,4 +22,10 @@ describe('FooterBarComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
+  it('should contain a p tag',()=>{
+    let p=fixture.debugElement.nativeElement.querySelector('p');
+
+    expect(p.textContent).toContain('Copyright');
+  })
 });

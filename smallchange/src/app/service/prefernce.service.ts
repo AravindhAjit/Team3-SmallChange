@@ -16,7 +16,6 @@ export class PrefernceService {
     this.preference.purposeOfInvestment = preferences.purposeOfInvestment;
     this.preference.preferenceSet = preferences.preferenceSet;
 
-
   }
 
   getPreferences(): Preference {

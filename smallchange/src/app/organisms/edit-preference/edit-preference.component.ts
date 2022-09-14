@@ -10,7 +10,6 @@ import { PrefernceService } from 'src/app/service/prefernce.service';
 export class EditPreferenceComponent implements OnInit {
 
   setEditTrue: boolean | undefined;
-  preferencesSet: boolean | undefined;
   riskTolerance = '';
   incomeCategory = '';
   investmentLength = ''
