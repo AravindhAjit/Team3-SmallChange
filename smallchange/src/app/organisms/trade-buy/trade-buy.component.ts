@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Instrument } from 'src/app/models/instrument';
 import { Trade } from 'src/app/models/trade';
 import { MockDataService } from 'src/app/service/mock-data.service';
+import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-trade-buy',
@@ -23,10 +24,12 @@ export class TradeBuyComponent implements OnInit {
   expandedinstrument: any | null;
   quanitity:Number=0;
   instruments :any;
+
   constructor(private dataService : MockDataService) {   }
   ngOnInit(): void {
    this.dataService.getInstruments().subscribe(response => {
       this.instruments = response;
+      
       
   });
   console.log(this.instruments[0].instrument);   
@@ -35,12 +38,16 @@ export class TradeBuyComponent implements OnInit {
 
 createTradeform(instrument:any){
   console.log(instrument.description);
-  
+ 
 }
+
+
    }
  
     
 
   
+
+
 
 

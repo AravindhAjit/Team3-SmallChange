@@ -18,8 +18,9 @@
             [(ngModel)]="quanitity">
           <button [disabled]="quanitity>instrument.maxQuantity || instrument.minQuantity>quanitity">BUY</button>
 
-          <div *ngIf="quanitity>instrument.maxQuantity || instrument.minQuantity>quanitity ">Enter between
+          <div *ngIf="(quanitity>instrument.maxQuantity || instrument.minQuantity>quanitity)">Enter between
             {{instrument.minQuantity}} and {{instrument.maxQuantity}} instruments</div>
+
 
         </div>
       </div>
@@ -31,5 +32,6 @@
     [class.example-expanded-row]="expandedinstrument === instrument"
     (click)="expandedinstrument = expandedinstrument === instrument ? null : instrument">
   </tr>
+
   <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
 </table>
