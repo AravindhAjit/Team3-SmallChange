@@ -22,4 +22,13 @@ describe('PageTitleComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render header text atom',()=>{
+    expect(fixture.debugElement.nativeElement.querySelector('app-header-text')).toBeTruthy();
+  })
+
+  it('should render paragraph text atom',()=>{
+    expect(fixture.debugElement.nativeElement.querySelector('app-paragraph-text')).toBeTruthy();
+
+  })
 });

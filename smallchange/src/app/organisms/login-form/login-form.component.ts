@@ -27,6 +27,8 @@ export class LoginFormComponent implements OnInit {
     /* This component requires some JavaScript functionality. Please enter it within this ngOnInit() function. */
 
     var loginbutton = document.getElementById("login-button");
+    var form = document.getElementsByClassName("login-box")[0];
+
 
     loginbutton?.addEventListener('click',()=>{
 
@@ -40,6 +42,19 @@ export class LoginFormComponent implements OnInit {
       console.log(JSON);
       console.log("usernaame"+this.username);
       console.log("password"+this.password);
+    });
+
+    form.addEventListener('onmousemove',()=>{
+      var username = document.getElementById('form-username')?.getElementsByTagName('div')[0];
+      var password = document.getElementById('form-password')?.getElementsByTagName('div')[0];
+      var loginButton = loginbutton?.getElementsByTagName('app-button')[0].getElementsByTagName('button')[0];
+      if(username?.style.display==='none' || password?.style.display==='none'){
+        loginButton!.disabled=true;
+      }
+      else{
+        loginButton!.disabled=false;
+      }
+      
     })
   }
 }

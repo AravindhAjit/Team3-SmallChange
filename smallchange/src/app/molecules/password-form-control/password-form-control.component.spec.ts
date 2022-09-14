@@ -22,4 +22,22 @@ describe('PasswordFormControlComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render password label atom',()=>{
+    expect(fixture.debugElement.nativeElement.querySelector('app-form-label')).toBeTruthy();
+  });
+
+  it('should render password text box atom',()=>{
+    expect(fixture.debugElement.nativeElement.querySelector('app-text-box-password')).toBeTruthy();
+  });
+
+  // it('should display error message until requirements satisfied',()=>{
+  //   var password=fixture.debugElement.nativeElement.querySelector('app-text-box-password').querySelector('input');
+  //   password.value='';
+  //   expect(fixture.debugElement.nativeElement.querySelector('div').display).toBe('none');
+  //   password.value='ABCDEF';
+  //   expect(fixture.debugElement.nativeElement.querySelector('div').display).toBe('block');
+
+  // })
+
 });
