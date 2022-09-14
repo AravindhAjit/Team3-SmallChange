@@ -37,6 +37,14 @@ import { EnterPreferenceComponent } from './organisms/enter-preference/enter-pre
 import { EditPreferenceComponent } from './organisms/edit-preference/edit-preference.component';
 import { TradeBuyComponent } from './organisms/trade-buy/trade-buy.component';
 import { TradeSellComponent } from './organisms/trade-sell/trade-sell.component';
+import { PortfolioPageComponent } from './pages/portfolio-page/portfolio-page.component';
+import { HomeComponent } from './atoms/home/home.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { FlipCardComponent } from './atoms/flip-card/flip-card.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from "@angular/material/card";
+import { MatGridListModule } from '@angular/material/grid-list';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -58,25 +66,37 @@ import { TradeSellComponent } from './organisms/trade-sell/trade-sell.component'
     UsernameFormControlComponent,
     LoginFormComponent,
     LoginPageComponent,
-    RegPageComponent,
     TradePageComponent,
     TradeButtonComponent,
     PreferencesPageComponent,
     EnterPreferenceComponent,
     EditPreferenceComponent,
     TradeBuyComponent,
-    TradeSellComponent
+    TradeSellComponent,
+    RegPageComponent,
+    HomePageComponent,
+    HomeComponent,
+    FlipCardComponent,
+    PortfolioPageComponent
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    FormsModule,
     NoopAnimationsModule,
     MatCarouselModule.forRoot(),
     MatSelectModule,
     MatInputModule,
     MatCheckboxModule,
-    MatTabsModule
+    MatTabsModule,
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    MatIconModule,
+    MatCardModule,
+    MatGridListModule,
+    MatTableModule
+  
+
   ],
   providers: [],
   bootstrap: [AppComponent]

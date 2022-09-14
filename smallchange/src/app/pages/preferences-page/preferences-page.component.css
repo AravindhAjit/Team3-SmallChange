@@ -2,11 +2,7 @@
     text-align-last: center;
 }
 
-.enter-preference{
-    text-align-last: center;
-    background-color: lightgoldenrodyellow;
 
-}
 
 ::ng-deep .mat-form-field .mat-input-element {   
         color: slategray;
@@ -31,9 +27,6 @@
     background: black ;
 }
 
-.preference-page{
-    background-color: lightgray;
-}
 
 ::ng-deep .mat-tab-group .mat-tab-body-content{
     text-align: center;
@@ -42,3 +35,9 @@
 ::ng-deep .mat-tab-label .mat-tab-label-content{
     color: black;
 }
+
+
+app-enter-preference{
+        text-align: -webkit-center;
+
+    }

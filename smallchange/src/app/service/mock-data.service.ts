@@ -74,16 +74,16 @@ export class MockDataService {
   ];
 
   instruments: Instrument[] = [
-    {instrument: "1", description: "INSTRUMENT 1 ", externalIdType: "ISIN", externalId: "ABC456", category: "CID101",minQuantity: 24, maxQuantity: 50},
-    {instrument: "3", description: "INSTRUMENT 2", externalIdType: "ISIN", externalId: "XYZ456", category: "CID101",minQuantity: 24, maxQuantity: 50},
-    {instrument: "2", description: "INSTRUMENT 3", externalIdType: "CUSIP", externalId: "ABC123", category: "CID101",minQuantity: 24, maxQuantity: 50},
-    {instrument: "4", description: "INSTRUMENT 4", externalIdType: "CUSIP", externalId: "ABC345", category: "CID101",minQuantity: 24, maxQuantity: 50},
-    {instrument: "5", description: "INSTRUMENT 5", externalIdType: "ISIN", externalId: "XYZ125", category: "CID101",minQuantity: 24, maxQuantity: 50},
-    {instrument: "6", description: "INSTRUMENT 6", externalIdType: "ISIN", externalId: "ABC459", category: "CID101",minQuantity: 24, maxQuantity: 50},
-    {instrument: "7", description: "INSTRUMENT 7", externalIdType: "CUSIP", externalId: "XYZ756", category: "CID101",minQuantity: 24, maxQuantity: 50},
-    {instrument: "8", description: "INSTRUMENT 8", externalIdType: "ISIN", externalId: "BCA456", category: "CID101",minQuantity: 24, maxQuantity: 50},
-    {instrument: "9", description: "INSTRUMENT 9", externalIdType: "CUSIP", externalId: "ZXY456", category: "CID101",minQuantity: 24, maxQuantity: 50},
-    {instrument: "10", description: "INSTRUMENT 10 ", externalIdType: "ISIN", externalId: "ABC056", category: "CID101",minQuantity: 24, maxQuantity: 50},
+    {instrumentId: "1", description: "instrumentId 1 ", externalIdType: "ISIN", externalId: "ABC456", category: "CID101",minQuantity: 24, maxQuantity: 50},
+    {instrumentId: "3", description: "instrumentId 2", externalIdType: "ISIN", externalId: "XYZ456", category: "CID101",minQuantity: 24, maxQuantity: 50},
+    {instrumentId: "2", description: "instrumentId 3", externalIdType: "CUSIP", externalId: "ABC123", category: "CID101",minQuantity: 24, maxQuantity: 50},
+    {instrumentId: "4", description: "instrumentId 4", externalIdType: "CUSIP", externalId: "ABC345", category: "CID101",minQuantity: 24, maxQuantity: 50},
+    {instrumentId: "5", description: "instrumentId 5", externalIdType: "ISIN", externalId: "XYZ125", category: "CID101",minQuantity: 24, maxQuantity: 50},
+    {instrumentId: "6", description: "instrumentId 6", externalIdType: "ISIN", externalId: "ABC459", category: "CID101",minQuantity: 24, maxQuantity: 50},
+    {instrumentId: "7", description: "instrumentId 7", externalIdType: "CUSIP", externalId: "XYZ756", category: "CID101",minQuantity: 24, maxQuantity: 50},
+    {instrumentId: "8", description: "instrumentId 8", externalIdType: "ISIN", externalId: "BCA456", category: "CID101",minQuantity: 24, maxQuantity: 50},
+    {instrumentId: "9", description: "instrumentId 9", externalIdType: "CUSIP", externalId: "ZXY456", category: "CID101",minQuantity: 24, maxQuantity: 50},
+    {instrumentId: "10", description: "instrumentId 10 ", externalIdType: "ISIN", externalId: "ABC056", category: "CID101",minQuantity: 24, maxQuantity: 50},
   ];
 
   prices: Price[] = [

@@ -1,19 +1,20 @@
 <!-- <div>     -->
 <div *ngIf="preferencesSet">
-    Cant enter preference , preference already set
+    Preferences are already set
 </div>
 <!-- <div> -->
     <div *ngIf="!preferencesSet" class="enter-preference">
     <div>
         <mat-form-field appearance="fill">
             <mat-label>Purpose of Investment</mat-label>
-            <input matInput>
+            <input matInput required>
         </mat-form-field>
     </div>
     <div>
         <mat-form-field appearance="fill">
             <mat-label>Risk Tolerance</mat-label>
-            <mat-select [(value)]="riskTolerance">
+
+            <mat-select [(value)]="riskTolerance" required>
                 <mat-option>None</mat-option>
                 <mat-option value="CONSERVATIVE">CONSERVATIVE</mat-option>
                 <mat-option value="BELOW AVERAGE">BELOW AVERAGE</mat-option>
@@ -26,7 +27,7 @@
     <div>
         <mat-form-field appearance="fill">
             <mat-label>Income Category</mat-label>
-            <mat-select [(value)]="incomeCategory">
+            <mat-select [(value)]="incomeCategory" required>
                 <mat-option>None</mat-option>
                 <mat-option value="0-20000">0-20000</mat-option>
                 <mat-option value="20001-40000">20001-40000</mat-option>
@@ -41,7 +42,7 @@
     <div>
         <mat-form-field appearance="fill">
             <mat-label>Length of Investment</mat-label>
-            <mat-select [(value)]="investmentLength">
+            <mat-select [(value)]="investmentLength" required>
                 <mat-option>None</mat-option>
                 <mat-option value="0-5 YEARS">0-5 YEARS</mat-option>
                 <mat-option value="5-7 YEARS">5-7 YEARS</mat-option>
