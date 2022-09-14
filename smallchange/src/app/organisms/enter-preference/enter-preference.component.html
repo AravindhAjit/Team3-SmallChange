@@ -7,47 +7,35 @@
     <div>
         <mat-form-field appearance="fill">
             <mat-label>Purpose of Investment</mat-label>
-            <input matInput required>
+            <input matInput required [(ngModel)]="investmentPurpose">
         </mat-form-field>
     </div>
     <div>
         <mat-form-field appearance="fill">
             <mat-label>Risk Tolerance</mat-label>
 
-            <mat-select [(value)]="riskTolerance" required>
-                <mat-option>None</mat-option>
-                <mat-option value="CONSERVATIVE">CONSERVATIVE</mat-option>
-                <mat-option value="BELOW AVERAGE">BELOW AVERAGE</mat-option>
-                <mat-option value="AVERAGE">AVERAGE</mat-option>
-                <mat-option value="ABOVE AVERAGE">ABOVE AVERAGE</mat-option>
-                <mat-option value="AGGRESSIVE">AGGRESSIVE</mat-option>
+            <mat-select [(value)]="riskTolerance" required  class="selectt">
+                
+                <mat-option *ngFor="let r of riskTolerances" [value]="r" class="optionn">{{r}}</mat-option>
+             
             </mat-select>
         </mat-form-field>
     </div>
     <div>
         <mat-form-field appearance="fill">
             <mat-label>Income Category</mat-label>
-            <mat-select [(value)]="incomeCategory" required>
-                <mat-option>None</mat-option>
-                <mat-option value="0-20000">0-20000</mat-option>
-                <mat-option value="20001-40000">20001-40000</mat-option>
-                <mat-option value="40001-60000">40001-60000</mat-option>
-                <mat-option value="60001-80000">60001-80000</mat-option>
-                <mat-option value="80001-100000">80001-100000</mat-option>
-                <mat-option value="100001-150000">100001-150000</mat-option>
-                <mat-option value="150000+">150000+</mat-option>
+            <mat-select [(value)]="incomeCategory" required class="selectt">
+                
+                <mat-option *ngFor="let i of incomeCategories" [value]="i" class="optionn">{{i}}</mat-option>
+           
             </mat-select>
         </mat-form-field>
     </div>
     <div>
         <mat-form-field appearance="fill">
             <mat-label>Length of Investment</mat-label>
-            <mat-select [(value)]="investmentLength" required>
-                <mat-option>None</mat-option>
-                <mat-option value="0-5 YEARS">0-5 YEARS</mat-option>
-                <mat-option value="5-7 YEARS">5-7 YEARS</mat-option>
-                <mat-option value="7-10 YEARS">7-10 YEARS</mat-option>
-                <mat-option value="10-15 YEARS">10-15 YEARS</mat-option>
+            <mat-select [(value)]="investmentLength" required  class="selectt">
+            <mat-option *ngFor="let i of investmentLengths" [value]="i" class="optionn">{{i}}</mat-option>
 
             </mat-select>
         </mat-form-field>
