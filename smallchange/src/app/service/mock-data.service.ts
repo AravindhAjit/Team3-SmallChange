@@ -135,7 +135,7 @@ export class MockDataService {
 
   portfolio: Portfolio[]=[
     {
-       username: 'jshew0',balance: 3779, stock: [
+      stock: [
        {symbol: 'NASDAQ',quantity: 64, value: 845.17},
        {symbol: 'ABNB',quantity: 64, value: 120},
        {symbol: 'ACR',quantity: 75, value: 456.21},

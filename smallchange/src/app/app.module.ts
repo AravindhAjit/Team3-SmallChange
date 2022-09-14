@@ -45,6 +45,13 @@ import { PortfolioPageComponent } from './pages/portfolio-page/portfolio-page.co
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator'; 
 import { TradeHistoryComponent } from './organisms/trade-history/trade-history.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatButtonModule} from '@angular/material/button';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { AccumulationChartModule } from '@syncfusion/ej2-angular-charts';
+import { PieSeriesService, AccumulationLegendService, AccumulationTooltipService, AccumulationAnnotationService,
+  AccumulationDataLabelService } from '@syncfusion/ej2-angular-charts';
+
 
 @NgModule({
   declarations: [
@@ -78,7 +85,7 @@ import { TradeHistoryComponent } from './organisms/trade-history/trade-history.c
     HomeComponent,
     FlipCardComponent,
     PortfolioPageComponent,
-    TradeHistoryComponent
+    TradeHistoryComponent,
   ],
 
   imports: [
@@ -96,10 +103,15 @@ import { TradeHistoryComponent } from './organisms/trade-history/trade-history.c
     MatCardModule,
     MatGridListModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatProgressBarModule,
+    AccumulationChartModule
 
   ],
-  providers: [],
+  providers: [PieSeriesService, AccumulationLegendService, AccumulationTooltipService, AccumulationDataLabelService,
+    AccumulationAnnotationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
