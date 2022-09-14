@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-login-form',
@@ -51,9 +52,12 @@ export class LoginFormComponent implements OnInit {
 
     if(this.check(JSON)==true){
       this.verification = true;
+      this.service.setLogIn();
     }
     else alert("Wrong Login or Password !");
   }
+
+  constructor(private service: AuthService){ }
 
   public ngOnInit(): void {
   }
