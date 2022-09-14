@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-login-form',
@@ -7,8 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginFormComponent implements OnInit {
 
-  defaultName: string = "";
-  registrationName: string = "registration";
+  @Input() verification = false;
 
   username!: string;
   password!: string;
@@ -23,23 +22,39 @@ export class LoginFormComponent implements OnInit {
     this.password = event.target.value;
   }
 
+  check(current: any){
+
+    const correctAUTH = {
+      "username": "admin",
+      "password": "admin",
+      "usernameEncoded": "YWRtaW4=",
+      "passwordEncoded": "YWRtaW4="
+    }
+
+    // console.log("CORRECT : ", correctAUTH);
+    // console.log("INPUT : ", current);
+    
+    if(JSON.stringify(current) === JSON.stringify(correctAUTH)) return true;
+    else return false;
+  }
+
+  onClick(){
+
+    let JSON = {
+      "username":this.username,
+      "password":this.password,
+      "usernameEncoded":window.btoa(this.username),
+      "passwordEncoded":window.btoa(this.password)
+    }
+
+    console.log(JSON);
+
+    if(this.check(JSON)==true){
+      this.verification = true;
+    }
+    else alert("Wrong Login or Password !");
+  }
+
   public ngOnInit(): void {
-    /* This component requires some JavaScript functionality. Please enter it within this ngOnInit() function. */
-
-    var loginbutton = document.getElementById("login-button");
-
-    loginbutton?.addEventListener('click',()=>{
-
-      let JSON = {
-        "username":this.username,
-        "password":this.password,
-        "usernameEncoded":window.btoa(this.username),
-        "passwordEncoded":window.btoa(this.password)
-      }
-
-      console.log(JSON);
-      console.log("usernaame"+this.username);
-      console.log("password"+this.password);
-    })
   }
 }
