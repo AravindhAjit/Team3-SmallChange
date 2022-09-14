@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-reg-page',
@@ -18,6 +18,10 @@ export class RegPageComponent implements OnInit {
     dob : "",
     ira : ""
   };
+
+  onClick(){
+    console.log("CLICK");
+  }
 
   constructor() { }
 
