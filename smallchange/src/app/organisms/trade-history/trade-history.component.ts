@@ -6,67 +6,37 @@ import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { Trade } from 'src/app/models/trade';
 
-export interface UserData {
-  id: string;
-  name: string;
-  progress: string;
-  fruit: string;
+export interface TradeData {
+  instrumentId : number ,
+  timestamp: string,
+  direction: string,
+  bidprice: number,
+  quantity: number,
+  category: string
 }
 
 /** Constants used to fill up our data base. */
-const FRUITS: string[] = [
-  'blueberry',
-  'lychee',
-  'kiwi',
-  'mango',
-  'peach',
-  'lime',
-  'pomegranate',
-  'pineapple',
+const direction: string[] = [
+  'buy',
+  'sell',
 ];
-const NAMES: string[] = [
-  'Maia',
-  'Asher',
-  'Olivia',
-  'Atticus',
-  'Amelia',
-  'Jack',
-  'Charlotte',
-  'Theodore',
-  'Isla',
-  'Oliver',
-  'Isabella',
-  'Jasper',
-  'Cora',
-  'Levi',
-  'Violet',
-  'Arthur',
-  'Mia',
-  'Thomas',
-  'Elizabeth',
-];
+
 
 @Component({
   selector: 'app-trade-history',
   templateUrl: './trade-history.component.html',
   styleUrls: ['./trade-history.component.css']
 })
-// export class TradeHistoryComponent implements OnInit {
-//   constructor(){}
-//   ngOnInit(): void {
-    
-//   }
-// }
 
 export class TradeHistoryComponent implements AfterViewInit {
-  displayedColumns: string[] = ['id', 'name', 'progress', 'fruit'];
-  dataSource: MatTableDataSource<UserData>;
+  displayedColumns: string[] = ['instrumentId', 'timestamp', 'direction', 'bidprice','quantity','category'];
+  dataSource: MatTableDataSource<TradeData>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   constructor() {
-    // Create 100 users
+    // Create 100 trades
     const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
 
     // Assign the data to the data source for the table to render
@@ -89,18 +59,25 @@ export class TradeHistoryComponent implements AfterViewInit {
 }
 
 /** Builds and returns a new User. */
-function createNewUser(id: number): UserData {
-  const name =
-    NAMES[Math.round(Math.random() * (NAMES.length - 1))] +
-    ' ' +
-    NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) +
-    '.';
-
+function createNewUser(id: number): TradeData {
+  // const name =
+  //   NAMES[Math.round(Math.random() * (NAMES.length - 1))] +
+  //   ' ' +
+  //   NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) +
+  //   '.';
+  const cat = "CID" + Math.round(Math.random() * 10).toString();
+  const ins = Math.floor(Math.random() * 100) + 100;
+  const ts = "2022" + Math.round(Math.random() * 28).toString() + Math.round(Math.random() * 12).toString() + "T" + Math.round(Math.random() * 24).toString() + Math.round(Math.random() * 60).toString() + Math.round(Math.random() * 60).toString() + "UTC";
+  const d = direction[Math.round(Math.random() * 1)];
+  const bp = Math.floor(Math.random() * 1000) + 3500 ;
+  const qua = Math.round(Math.random() * 20);
   return {
-    id: id.toString(),
-    name: name,
-    progress: Math.round(Math.random() * 100).toString(),
-    fruit: FRUITS[Math.round(Math.random() * (FRUITS.length - 1))],
+    instrumentId : ins ,
+    timestamp: ts ,
+    direction: d,
+    bidprice: bp,
+    quantity: qua,
+    category: cat
   };
 }
 

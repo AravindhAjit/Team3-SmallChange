@@ -43,7 +43,7 @@ import { MatCardModule } from "@angular/material/card";
 import { MatGridListModule } from '@angular/material/grid-list';
 import { PortfolioPageComponent } from './pages/portfolio-page/portfolio-page.component';
 import { MatTableModule } from '@angular/material/table';
-import { NgChartsModule } from 'ng2-charts';
+import { MatPaginatorModule } from '@angular/material/paginator'; 
 import { TradeHistoryComponent } from './organisms/trade-history/trade-history.component';
 
 @NgModule({
@@ -98,7 +98,8 @@ import { TradeHistoryComponent } from './organisms/trade-history/trade-history.c
     MatCardModule,
     MatGridListModule,
     MatTableModule,
-    NgChartsModule
+    MatPaginatorModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
