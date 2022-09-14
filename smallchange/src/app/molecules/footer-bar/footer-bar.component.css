@@ -1,19 +1,30 @@
+
+/**********************************************************************************
+  Note: SCSS is a superset of CSS3 - normal CSS will work in this file. SCSS adds
+  additional functionality such as variables and nesting.
+
+  If interested, check out: https://sass-lang.com/guide for additional information.
+***********************************************************************************/
+
+
+/* Your CSS goes here: */
 #footer-bar{
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 100%;
-    display: block;
-    position: relative;
-    bottom: 0;
-  }
-  #footer-text{
-    box-sizing: content-box;
-    margin: 0;
-    padding: 0.5rem 1rem;
-    font-family: Arial, sans-serif;
-    font-size: 18px;
-    line-height: 1.5em;
-    color: #000;
-    border-top: 1px solid black;
-  }
-  
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.5rem 1rem;
+  width: -webkit-fill-available;
+  display: block;
+  position: relative;
+  bottom: 0;
+}
+#footer-text{
+  box-sizing: content-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.5em;
+  color: #000;
+ border-top: 1px solid black;
+ 
+}

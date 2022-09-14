@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Preference } from 'src/app/models/preference';
+import { PrefernceService } from 'src/app/service/prefernce.service';
 
 @Component({
   selector: 'app-enter-preference',
@@ -18,18 +20,15 @@ export class EnterPreferenceComponent implements OnInit {
   investmentLength = ''
   investmentPurpose ='';
 
-
-  constructor() { }
+  constructor(private service:PrefernceService) { }
 
   ngOnInit(): void {
   }
 
   setPreference(): void {
       this.preferencesSet = true;
+      this.service.setPreferences(new Preference(this.investmentPurpose,this.riskTolerance,this.incomeCategory,this.investmentLength,this.preferencesSet));
   }
-
-
-  
 
   setflag():void {
     this.flag = true;
@@ -37,29 +36,23 @@ export class EnterPreferenceComponent implements OnInit {
     this.preferencesSet = true;
   }
 
-  editPreferences(): void {
-    this.enter = false;
-    if (this.edit==true)
-      this.edit = false;
-      
-    else
-      this.edit = true;
-    // if(this.preferencesSet==false)
   
-  }
 
 
   setAgreement():void{
+
+    {
     if(this.agreed==false)
     {
       this.agreed = true;
       // console.log(this.agreed);
       
     }
-    else{
+    else {
       this.agreed = false;
       // console.log(this.agreed);
     }
+  }
   }
 
 }

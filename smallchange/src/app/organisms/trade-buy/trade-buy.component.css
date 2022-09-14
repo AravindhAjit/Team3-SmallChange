@@ -1,0 +1,46 @@
+table {
+    width: 100%;
+  }
+  
+  tr.example-detail-row {
+    height: 0;
+  }
+  
+  tr.example-instrument-row:not(.example-expanded-row):hover {
+    background: whitesmoke;
+    /* color: black; */
+  }
+  
+  tr.example-instrument-row:not(.example-expanded-row):active {
+    background: #efefef;
+  }
+  
+  .example-instrument-row td {
+    border-bottom-width: 0;
+  }
+  
+  .example-instrument-detail {
+    overflow: hidden;
+    display: flex;
+    /* height: 20%; */
+  }
+  
+ 
+  
+  .example-instrument-symbol {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: normal;
+  }
+  
+  .example-instrument-description {
+    padding: 16px;
+  }
+  
+  .example-instrument-description-attribution {
+    opacity: 0.5;
+  }
+
+
+
+  

@@ -83,8 +83,6 @@ import { TradeHistoryComponent } from './organisms/trade-history/trade-history.c
 
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    FormsModule,
     NoopAnimationsModule,
     MatCarouselModule.forRoot(),
     MatSelectModule,
