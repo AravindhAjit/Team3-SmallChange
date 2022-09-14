@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
+
 import { AppComponent } from './app.component';
 import { ButtonComponent } from './atoms/button/button.component';
 import { FormLabelComponent } from './atoms/form-label/form-label.component';
@@ -43,7 +45,7 @@ import { MatCardModule } from "@angular/material/card";
 import { MatGridListModule } from '@angular/material/grid-list';
 import { PortfolioPageComponent } from './pages/portfolio-page/portfolio-page.component';
 import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator'; 
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { TradeHistoryComponent } from './organisms/trade-history/trade-history.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
@@ -51,6 +53,9 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { AccumulationChartModule } from '@syncfusion/ej2-angular-charts';
 import { PieSeriesService, AccumulationLegendService, AccumulationTooltipService, AccumulationAnnotationService,
   AccumulationDataLabelService } from '@syncfusion/ej2-angular-charts';
+import { RoboadvisorComponent } from './pages/roboadvisor/roboadvisor.component';
+
+
 
 
 @NgModule({
@@ -86,9 +91,12 @@ import { PieSeriesService, AccumulationLegendService, AccumulationTooltipService
     FlipCardComponent,
     PortfolioPageComponent,
     TradeHistoryComponent,
+    RoboadvisorComponent,
   ],
 
-  imports: [
+
+
+ imports: [
     BrowserModule,
     NoopAnimationsModule,
     MatCarouselModule.forRoot(),
@@ -109,7 +117,9 @@ import { PieSeriesService, AccumulationLegendService, AccumulationTooltipService
     MatProgressBarModule,
     AccumulationChartModule
 
-  ],
+
+
+ ],
   providers: [PieSeriesService, AccumulationLegendService, AccumulationTooltipService, AccumulationDataLabelService,
     AccumulationAnnotationService],
   bootstrap: [AppComponent]
