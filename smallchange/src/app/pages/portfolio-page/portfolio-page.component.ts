@@ -3,7 +3,8 @@ import { Component, ViewChild, OnInit } from '@angular/core';
 import { MockDataService } from '../../service/mock-data.service';
 import { Order } from 'src/app/models/order';
 import { Observable } from 'rxjs';
-import { MatTableDataSource } from '@angular/material/table';
+// import { ChartType, ChartOptions } from 'chart.js';
+//import { SingleDataSet, Label, monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip } from 'ng2-charts';
 
 export class pieData{
   constructor(
@@ -35,7 +36,7 @@ export class PortfolioPageComponent implements OnInit {
   ngOnInit(): void {
     this.dataService.getPortfolio().subscribe(response => {
       this.Portfoliodata = response;
-      this.dataSource = new MatTableDataSource(this.Portfoliodata);
+      // this.dataSource = new MatTableDataSource(this.Portfoliodata);
    
   });
   console.log(this.Portfoliodata.stock.symbol);

@@ -16,9 +16,9 @@ import { MockDataService } from 'src/app/service/mock-data.service';
 })
 export class TradeSellComponent implements OnInit {
 
-
+  quanitity:Number=0;
   selectedTrade = "";
-  columnsToDisplay = ['instrumentId', 'description', 'category'];
+  columnsToDisplay = ['instrumentId', 'description'];
   expandedinstrument: any | null;
 
   instruments :any;

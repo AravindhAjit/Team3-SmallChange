@@ -1,6 +1,33 @@
-.edit-preference{
+.edit-preferences{
     border: solid black;
     width: 50%;
     padding: 2rem 4rem 2rem 4rem;
+    margin-top: 3em;
 }
+
+.selectt ::content{
+
+    font-size: 12px;
+}
+.optionn{
+    background-color: antiquewhite;
+    color: black;
+}
+
+.pref{
+    margin-top: 10px;
+}
+
+.no-pref{
+    color: red;
+}
+
+.example-card {
+    margin-top: 3em;
+    max-width: 400px;
+  }
+
+  .editbtn{
+    margin-top: 2em;
+  }
 
