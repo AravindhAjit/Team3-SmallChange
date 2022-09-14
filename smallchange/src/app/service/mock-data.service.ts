@@ -133,32 +133,30 @@ export class MockDataService {
     tradeId: "401", cashValue: 1500}
   ];
 
-
-  portfolios: Portfolio[]=[
-    
-
+  portfolio: Portfolio[]=[
     {
-      username: 'jshew0',balance: 3779, stock: [
-      {symbol: 'NASDAQ',quantity: 64, value: 845.17}
-      ]
-    },
+       username: 'jshew0',balance: 3779, stock: [
+       {symbol: 'NASDAQ',quantity: 64, value: 845.17},
+       {symbol: 'ABNB',quantity: 64, value: 120},
+       {symbol: 'ACR',quantity: 75, value: 456.21},
+       {symbol: 'NYSE',quantity: 45, value: 231},
+       {symbol: 'AAPL',quantity: 23, value: 761.99},
+       {symbol: 'IRS',quantity: 190, value: 750}
+       ],
+       bonds: [
+        {symbol: 'NASDAQ',quantity: 64, value: 845.17},
+        {symbol: 'ABNB',quantity: 64, value: 120},
+        {symbol: 'AAPL',quantity: 23, value: 761.99},
+        {symbol: 'IRS',quantity: 190, value: 750}
+        ],
+        mutual_funds: [
+          {symbol: 'NYSE',quantity: 45, value: 231},
+          {symbol: 'AAPL',quantity: 23, value: 761.99},
+          {symbol: 'IRS',quantity: 190, value: 750}
+          ]
+     }
 
-    {
-      username: 'abhi23',balance: 45000, stock: [
-      {symbol: 'AAPL',quantity: 23, value: 761.99},
-      {symbol: 'IRS',quantity: 190, value: 750}
-      ]
-    },
-
-    {
-      username: 'johnsmith77',balance: 2300, stock: [
-      {symbol: 'ABNB',quantity: 64, value: 120},
-      {symbol: 'ACR',quantity: 75, value: 456.21},
-      {symbol: 'NYSE',quantity: 45, value: 231}
-
-      ]
-    }
-  ]
+   ]
 
   constructor(){}
 
@@ -180,9 +178,8 @@ export class MockDataService {
   getTrades(): Observable<Trade[]> {
     return of(this.trades);
   }
-
-  getPortfolios(): Observable<Portfolio[]>{
-    return of(this.portfolios)
+  getPortfolio(): Observable<Portfolio[]> {
+    return of(this.portfolio);
   }
 
 }

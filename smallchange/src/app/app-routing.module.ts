@@ -8,16 +8,11 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { PortfolioPageComponent } from './pages/portfolio-page/portfolio-page.component';
 import { PreferencesPageComponent } from './pages/preferences-page/preferences-page.component';
 import { TradePageComponent } from './pages/trade-page/trade-page.component';
-import { RegPageComponent } from './pages/reg-page/reg-page.component';
+import { RegPageComponent } from './pages/reg-page/reg-page.component'
 
 const routes: Routes = [
-  
-  // { path: '', component: LoginPageComponent }, 
-
-  { path: '',  component:  AppComponent },
-  
+  { path: '', component: LoginPageComponent },
   { path: 'registration', component: RegPageComponent },
-  
   { path: 'activity', component: ActivityPageComponent},
   { path: 'home', component: HomePageComponent },
   { path: 'login', component: LoginPageComponent },
@@ -29,10 +24,9 @@ const routes: Routes = [
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule.forRoot(routes)
   ],
   exports: [RouterModule]
 })
-
 export class AppRoutingModule { }
-

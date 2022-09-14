@@ -1,13 +1,27 @@
-import { Stock } from "./stock";
-
 export class Portfolio{
-    
-
     constructor(
-        username: string,
-        cashbalance: number,
-        stocks: Stock[]
-    ){
-        
-    }
+            username:string,
+            balance: number,
+            stock :[
+                {
+                   symbol : string,
+                   quantity : number,
+                   value : number
+                }
+                ],
+                bonds :[
+                    {
+                    symbol : string,
+                    quantity : number,
+                    value : number
+                    }
+                 ],
+                 mutual_funds :[
+                    {symbol : string,
+                    quantity : number,
+                    value : number
+                    }
+                 ],
+            
+    ){}
 }

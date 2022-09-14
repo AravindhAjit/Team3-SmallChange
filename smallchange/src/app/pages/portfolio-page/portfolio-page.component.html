@@ -1,22 +1,68 @@
-<table>
+<!-- <div class="chart-wrapper">
+  <canvas baseChart
+  [type]="'pie'"
+  [datasets]="pieChartDatasets"
+  [labels]="pieChartLabels"
+  [options]="pieChartOptions"
+  [plugins]="pieChartPlugins"
+  [legend]="pieChartLegend">
+</canvas> -->
+
+<!-- </div> -->
+<div><table>
     <thead>
-    <th>InstrumentID</th>
+    <th>Symbol</th>
     <th>Quantity</th>
-    <th>Target Price</th>
-    <th>Direction</th>
-    <th>Client ID</th>
-    <th>Order ID</th>
+    <th>Value</th>
     </thead>
-    <tbody>
-        <tr *ngFor = "let data of Alldata">
-            <td>{{ data.instrumentId }}</td>
-            <td>{{ data.quantity }}</td>
-            <td>{{ data.targetPrice }}</td>
-            <td>{{ data.direction }}</td>
-            <td>{{ data.clientId }}</td>
-            <td>{{ data.orderId }}</td>
+    <tbody *ngFor = "let data of Portfoliodata">
+        <tr class="stocks" *ngFor = "let stock of data.stock">
+            <td>{{ stock.symbol }}</td>
+            <td>{{ stock.quantity}}</td>
+            <td>{{ stock.value }}</td>
+        </tr>
+        <tr class="bonds" *ngFor = "let bond of data.bonds">
+            <td>{{ bond.symbol }}</td>
+            <td>{{ bond.quantity}}</td>
+            <td>{{ bond.value }}</td>
+        </tr>
+        <tr class="mutual_funds" *ngFor = "let mf of data.mutual_funds">
+            <td>{{ mf.symbol }}</td>
+            <td>{{ mf.quantity}}</td>
+            <td>{{ mf.value }}</td>
         </tr>
 
     </tbody>
 
 </table>
+
+</div>
+
+
+<!-- <mat-form-field appearance="standard">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event.target.val)" placeholder="Ex. ium" #input>
+  </mat-form-field>
+  
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+    <ng-container matColumnDef="symbol">
+        <th mat-header-cell *matHeaderCellDef> Symbol </th>
+        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+      </ng-container>
+  
+
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef> Quantity </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+  
+
+    <ng-container matColumnDef="value">
+      <th mat-header-cell *matHeaderCellDef> Value </th>
+      <td mat-cell *matCellDef="let element"> {{element.value}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table> -->
