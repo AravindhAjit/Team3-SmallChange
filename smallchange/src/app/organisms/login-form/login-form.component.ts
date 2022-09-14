@@ -55,10 +55,29 @@ export class LoginFormComponent implements OnInit {
       this.service.setLogIn();
     }
     else alert("Wrong Login or Password !");
-  }
+    }
 
   constructor(private service: AuthService){ }
 
-  public ngOnInit(): void {
+    
+  ngOnInit() {
+
+
+    var loginButton = document.getElementsByTagName('button')[0];
+    var form = document.getElementsByClassName("login-box")[0];
+
+    loginButton.disabled=true;
+
+    form.addEventListener('change',()=>{
+      var username = document.getElementById('form-username')?.getElementsByTagName('div')[0];
+      var password = document.getElementById('form-password')?.getElementsByTagName('div')[0];
+      var loginButton = document.getElementsByTagName('button')[0];
+      if(username?.style.display==='block' || password?.style.display==='block'){
+        loginButton!.disabled=true;
+      }
+      else{
+        loginButton!.disabled=false;
+      }
+  });
   }
 }
