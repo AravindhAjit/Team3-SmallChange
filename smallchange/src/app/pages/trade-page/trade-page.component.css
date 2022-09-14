@@ -1,3 +1,11 @@
 ::ng-deep .mat-tab-label .mat-tab-label-content{
     color: black;
 }
+
+
+app-trade-buy ,app-trade-sell {
+    text-align: -webkit-center;
+    padding: 2rem 4rem 2rem 4rem;
+
+}
+
