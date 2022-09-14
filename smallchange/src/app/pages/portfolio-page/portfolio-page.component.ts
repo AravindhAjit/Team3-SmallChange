@@ -3,7 +3,7 @@ import { Component, ViewChild, OnInit } from '@angular/core';
 import { MockDataService } from '../../service/mock-data.service';
 import { Order } from 'src/app/models/order';
 import { Observable } from 'rxjs';
-import { ChartType, ChartOptions } from 'chart.js';
+// import { ChartType, ChartOptions } from 'chart.js';
 //import { SingleDataSet, Label, monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip } from 'ng2-charts';
 
 
