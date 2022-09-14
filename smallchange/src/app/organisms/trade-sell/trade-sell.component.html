@@ -1,3 +1,5 @@
+<h1>SELL TRADE</h1>
+
 <table mat-table [dataSource]="instruments" multiTemplateDataRows class="mat-elevation-z8">
   <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
     <th mat-header-cell *matHeaderCellDef> {{column}} </th>
@@ -11,9 +13,14 @@
 
 
         <div class="example-instrument-description">
-         <span>SELL {{instrument.description}}</span> <input type="text" id="minQuantity" name="minQuantity" [(ngModel)]="instrument.minQuantity">
-         <button [disabled]="instrument.minQuantity>instrument.maxQuantity">SELL</button>
-         <div *ngIf="instrument.minQuantity>instrument.maxQuantity">Enter less than {{instrument.maxQuantity}} instruments</div>
+
+          <span>SELL {{instrument.description}}</span> <input type="text" id="minQuantity" name="minQuantity"
+            [(ngModel)]="quanitity">
+          <button [disabled]="quanitity>instrument.maxQuantity || instrument.minQuantity>quanitity">SELL</button>
+
+          <div *ngIf="quanitity>instrument.maxQuantity || instrument.minQuantity>quanitity " class="quantcheck">Enter between
+            {{instrument.minQuantity}} and {{instrument.maxQuantity}} instruments</div>
+
         </div>
       </div>
     </td>

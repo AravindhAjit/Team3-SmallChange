@@ -74,16 +74,12 @@ export class MockDataService {
   ];
 
   instruments: Instrument[] = [
-    {instrumentId: "1", description: "instrumentId 1 ", externalIdType: "ISIN", externalId: "ABC456", category: "CID101",minQuantity: 24, maxQuantity: 50},
-    {instrumentId: "3", description: "instrumentId 2", externalIdType: "ISIN", externalId: "XYZ456", category: "CID101",minQuantity: 24, maxQuantity: 50},
-    {instrumentId: "2", description: "instrumentId 3", externalIdType: "CUSIP", externalId: "ABC123", category: "CID101",minQuantity: 24, maxQuantity: 50},
-    {instrumentId: "4", description: "instrumentId 4", externalIdType: "CUSIP", externalId: "ABC345", category: "CID101",minQuantity: 24, maxQuantity: 50},
-    {instrumentId: "5", description: "instrumentId 5", externalIdType: "ISIN", externalId: "XYZ125", category: "CID101",minQuantity: 24, maxQuantity: 50},
-    {instrumentId: "6", description: "instrumentId 6", externalIdType: "ISIN", externalId: "ABC459", category: "CID101",minQuantity: 24, maxQuantity: 50},
-    {instrumentId: "7", description: "instrumentId 7", externalIdType: "CUSIP", externalId: "XYZ756", category: "CID101",minQuantity: 24, maxQuantity: 50},
-    {instrumentId: "8", description: "instrumentId 8", externalIdType: "ISIN", externalId: "BCA456", category: "CID101",minQuantity: 24, maxQuantity: 50},
-    {instrumentId: "9", description: "instrumentId 9", externalIdType: "CUSIP", externalId: "ZXY456", category: "CID101",minQuantity: 24, maxQuantity: 50},
-    {instrumentId: "10", description: "instrumentId 10 ", externalIdType: "ISIN", externalId: "ABC056", category: "CID101",minQuantity: 24, maxQuantity: 50},
+    {instrumentId: "1", description: "Instrument 1 ", externalIdType: "ISIN", externalId: "ABC456", category: "CID101",minQuantity: 10, maxQuantity: 50},
+    {instrumentId: "2", description: "Instrument 2", externalIdType: "ISIN", externalId: "XYZ456", category: "CID101",minQuantity: 20, maxQuantity: 100},
+    {instrumentId: "3", description: "Instrument 3", externalIdType: "CUSIP", externalId: "ABC123", category: "CID101",minQuantity: 30, maxQuantity: 150},
+    {instrumentId: "4", description: "Instrument 4", externalIdType: "CUSIP", externalId: "ABC345", category: "CID101",minQuantity: 40, maxQuantity: 200},
+    {instrumentId: "5", description: "Instrument 5", externalIdType: "ISIN", externalId: "XYZ125", category: "CID101",minQuantity: 50, maxQuantity: 250},
+    
   ];
 
   prices: Price[] = [
@@ -135,7 +131,7 @@ export class MockDataService {
 
   portfolio: Portfolio[]=[
     {
-       username: 'jshew0',balance: 3779, stock: [
+      stock: [
        {symbol: 'NASDAQ',quantity: 64, value: 845.17},
        {symbol: 'ABNB',quantity: 64, value: 120},
        {symbol: 'ACR',quantity: 75, value: 456.21},

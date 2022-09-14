@@ -19,9 +19,9 @@ import { MockDataService } from 'src/app/service/mock-data.service';
 export class TradeBuyComponent implements OnInit {
 
   selectedTrade = "";
-  columnsToDisplay = ['instrumentId', 'description', 'category'];
+  columnsToDisplay = ['instrumentId', 'description'];
   expandedinstrument: any | null;
-
+  quanitity:Number=0;
   instruments :any;
   constructor(private dataService : MockDataService) {   }
   ngOnInit(): void {
