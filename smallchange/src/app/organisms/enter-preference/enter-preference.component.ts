@@ -20,7 +20,6 @@ export class EnterPreferenceComponent implements OnInit {
   investmentLength = ''
   investmentPurpose ='';
 
-
   constructor(private service:PrefernceService) { }
 
   ngOnInit(): void {
@@ -41,16 +40,19 @@ export class EnterPreferenceComponent implements OnInit {
 
 
   setAgreement():void{
+
+    {
     if(this.agreed==false)
     {
       this.agreed = true;
       // console.log(this.agreed);
       
     }
-    else{
+    else {
       this.agreed = false;
       // console.log(this.agreed);
     }
+  }
   }
 
 }

@@ -25,8 +25,9 @@ export class TradeBuyComponent implements OnInit {
   instruments :any;
   constructor(private dataService : MockDataService) {   }
   ngOnInit(): void {
-    this.dataService.getInstruments().subscribe(response => {
+   this.dataService.getInstruments().subscribe(response => {
       this.instruments = response;
+      
   });
   console.log(this.instruments[0].instrument);   
 };

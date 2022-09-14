@@ -8,6 +8,7 @@ table {
   
   tr.example-instrument-row:not(.example-expanded-row):hover {
     background: whitesmoke;
+    /* color: black; */
   }
   
   tr.example-instrument-row:not(.example-expanded-row):active {
