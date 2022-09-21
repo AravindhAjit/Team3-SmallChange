@@ -1,12 +1,71 @@
-<div class="trade-page">
-<div class="tablist">
-  <mat-tab-group mat-stretch-tabs>
-  <mat-tab label="Trade Buy"  >
-      <app-trade-buy></app-trade-buy>
-</mat-tab>
-  <mat-tab label="Trade Sell"  > 
-      <app-trade-sell></app-trade-sell>
-  </mat-tab>
-</mat-tab-group>
-</div>
+<div class="tradepage">
+    <div class="tradetable">
+
+        <table mat-table [dataSource]="dataSource" matSort class="styled">
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="tradingsymbol">
+                <th mat-header-cell *matHeaderCellDef> Symbol </th>
+                <td mat-cell *matCellDef="let instrument"> {{instrument.tradingsymbol}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="tradingname">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let instrument"> {{instrument.tradingname}} </td>
+            </ng-container>
+
+            <!-- Price Column -->
+            <ng-container matColumnDef="tradingPrice">
+                <th mat-header-cell *matHeaderCellDef> Price </th>
+                <td mat-cell *matCellDef="let instrument"> {{instrument.tradingPrice}} </td>
+            </ng-container>
+
+            <!-- Growth Column -->
+            <ng-container matColumnDef="traddingPricePercentage">
+                <th mat-header-cell *matHeaderCellDef> Growth </th>
+                <td mat-cell *matCellDef="let instrument"> {{instrument.traddingPricePercentage}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="showtrade(row)"></tr>
+
+        </table>
+
+        <!-- need to fix pagination and add sort filters -->
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of trades ">
+        </mat-paginator>
+
+    </div>
+    <div id="secondDiv">
+        <div *ngIf="tradeselected">
+            <h2 class="selectedTradeName">{{selectedTrade.tradingname}}</h2>
+            <h3 class="selectedTradeSymbol">{{selectedTrade.tradingsymbol}}</h3>
+            <h5 class="selectedTradePrice">{{selectedTrade.tradingPrice}}</h5>
+            <div>
+                <button (click)="buyTrade(selectedTrade)">BUY</button>
+                <button (click)="sellTrade(selectedTrade)">SELL</button>
+            </div>
+            <div *ngIf="tradeActionselected" class="tradeaction">
+                <div>{{tradeAction}}</div>
+                <div>Enter Quantity <input type="number" placeholder="Enter Quantity" [(ngModel)]="tradeQuantity"></div>
+                <div>{{tradeQuantity * selectedTrade.tradingPrice}}</div>
+                <div><button (click)="placeOrder(selectedTrade,tradeAction,tradeQuantity)">PLACE ORDER</button></div>
+            </div>    
+            <button (click)="closeInstrument()">Close Instrument</button>
+
+
+        </div>
+        <div *ngIf="!tradeselected">
+            <div id="stepsToTrade">
+            <h3>SELECT A TRADE FROM THE LIST TO PERFORM A TRADE ACTION</h3>
+            <ol>
+                <li>Pick an instrument from the list</li>
+                <li>Choose your trade action (buy/sell)</li>
+                <li>Enter a valid Quantity of instruments (Between minimum and maximum quantity)</li>
+                <li>Click on the PLACE ORDER button</li>
+            </ol>
+        </div>
+    </div>
+    </div>
+
 </div>

@@ -20,7 +20,7 @@ export class EditPreferenceComponent implements OnInit {
   investmentLengths = ['None','0-5 YEARS','5-7 YEARS','7-10 YEARS','10-15 YEARS']
 
   constructor(private service:PrefernceService) {    
-    this.preference = this.service.getPreferences();
+    // this.preference = this.service.getPreferences();
     console.log(this.preference);
     
   }
@@ -35,7 +35,7 @@ export class EditPreferenceComponent implements OnInit {
 
   finishEdit():void{
     this.setEditTrue = false;
-    this.service.setPreferences(new Preference(this.investmentPurpose,this.riskTolerance,this.incomeCategory,this.investmentLength,true));
+    // this.service.setPreferences(new Preference(this.investmentPurpose,this.riskTolerance,this.incomeCategory,this.investmentLength,true));
 
 
   }

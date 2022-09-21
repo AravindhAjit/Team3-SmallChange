@@ -1,11 +1,96 @@
-::ng-deep .mat-tab-label .mat-tab-label-content{
+/* table {
+    width: 100%;
+    background: white;
+    table-layout: fixed;
+
+  } */
+
+  /* table, th, td {
+    border: 1px solid;
+  }
+
+  td, th {
+    height: 2em;
+}
+
+table {
+  color: #333;
+  width: 100%;
+  background:whitesmoke;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tr:hover td {
+  font-weight: bold;
+  color: #009879;
+}
+  
+th{
     color: black;
+    background: #DFDFDF;
+    font-weight: bold;
+}*/
+
+tr:nth-child(even) td {
+  background: green;
+  color: black;
+}
+tr:nth-child(odd) td {
+  background: whitesmoke;
+  color: black;
+
+}
+
+tr.mat-row::selection {
+  background: yellow;
 }
 
 
-app-trade-buy ,app-trade-sell {
-    text-align: -webkit-center;
-    padding: 2rem 4rem 2rem 4rem;
+/* td {
+  text-align: center;
+  color: black;
+}  */
+
+table{
+  
+  width: 100%;
+  /* background: white; */
+}
+
+tr.mat-header-row {
+  height: 56px;
+  background: #90EE90;
+}
+
+th.mat-header-cell[_ngcontent-hhx-c141] {
+  text-align: center;
+  color: black;
+}
+
+
+.mat-column-tradingsymbol {
+  flex: none;
+  width: 100px;
 
 }
 
+#secondDiv{
+  text-align: center;
+  width: 40%;
+}
+
+.tradetable{
+    width: 60%;
+}
+.tradepage{
+    display: flex;
+}
+
+th.mat-header-cell {
+    text-align: center;
+  }
+
+ 
