@@ -1,82 +1,78 @@
-/* table {
-    width: 100%;
-    background: white;
-    table-layout: fixed;
 
-  } */
-
-  /* table, th, td {
-    border: 1px solid;
-  }
-
-  td, th {
-    height: 2em;
-}
-
-table {
-  color: #333;
-  width: 100%;
-  background:whitesmoke;
-  border-collapse: collapse;
-  border-spacing: 0;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.tr:hover td {
-  font-weight: bold;
-  color: #009879;
-}
-  
-th{
-    color: black;
-    background: #DFDFDF;
-    font-weight: bold;
-}*/
 
 tr:nth-child(even) td {
-  background: green;
+  background: #B9D989;
   color: black;
 }
 tr:nth-child(odd) td {
-  background: whitesmoke;
+  background: #CFE5AE;
   color: black;
 
 }
+.instrumenttable tr:hover td{
+  background-color:#A3CF62;
+  color: darkgreen;
+  }
+    
 
-tr.mat-row::selection {
-  background: yellow;
-}
-
-
-/* td {
+td {
   text-align: center;
   color: black;
-}  */
+  margin: 1em 0.5em 1em 0.5em;
+} 
 
 table{
   
   width: 100%;
+  border-collapse: collapse;
   /* background: white; */
 }
 
-tr.mat-header-row {
-  height: 56px;
-  background: #90EE90;
+tr {
+  height: 3em;
+  background: #8DC63F;
 }
 
-th.mat-header-cell[_ngcontent-hhx-c141] {
+th {
   text-align: center;
   color: black;
 }
 
 
-.mat-column-tradingsymbol {
-  flex: none;
-  width: 100px;
+.buybutton{
+  background-color: green;
+  color: white;
+  margin: 1em 1em 1em 1em;
+ padding:  0.5em 2em 0.5em 2em}
+
+.sellbutton{
+  background-color: red;
+  color: white;
+  margin: 1em 1em 1em 1em;
+  padding:  0.5em 2em 0.5em 2em}
+
+.placeorderbuybutton{
+  background-color: darkgreen;
+  color: white;
+  margin-top: 1em;
+}
+
+.placeordersellbutton{
+  background-color: red;
+  color: white;
+  margin-top: 1em;
+}
+
+.exitbutton{
+  background: chocolate;
+  margin-top: 2em;
 
 }
 
+
+.pricevalue{
+  margin-left:4.9em;
+}
 #secondDiv{
   text-align: center;
   width: 40%;
@@ -93,4 +89,6 @@ th.mat-header-cell {
     text-align: center;
   }
 
- 
+  .mat-table tbody tr .mat-row{
+    background-color: wheat;
+  }

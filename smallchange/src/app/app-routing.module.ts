@@ -18,7 +18,7 @@ const routes: Routes = [
   // { path: 'registration', component: RegPageComponent },
   // { path: 'activity', component: ActivityPageComponent, canActivate:[AuthGuard]},
   // { path: 'home', component: HomePageComponent },
-  // // { path: 'login', component: LoginPageComponent },
+  { path: 'login', component: LoginPageComponent },
   // { path: 'portfolio', component: PortfolioPageComponent, canActivate:[AuthGuard] },
   // { path: 'preference', component: PreferencesPageComponent, canActivate:[AuthGuard] },
   // { path: 'trade', component: TradePageComponent, canActivate:[AuthGuard] },

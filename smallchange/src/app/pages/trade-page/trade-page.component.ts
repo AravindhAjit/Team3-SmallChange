@@ -28,31 +28,21 @@ export class TradePageComponent implements  AfterViewInit {
   tradeActionselected:boolean = false;
   tradeAction:string = '';
   tradeQuantity:number = 1;
+  selectedRowIndex:number
+  
 
 
   constructor(private dataService : MockDataService , private  dialogRef : MatDialog ) {      
   this.dataService.getNewInstruments().subscribe(data=>this.instruments=data)
   this.dataSource = this.instruments;
-  // console.log(this.instruments);
    }
 
-  //  openDialog() {
-  //   this.dialog.open(DialogDataExampleDialog, {
-  //     data: {
-  //       animal: 'panda',
-  //     },
-  //   });
-  // }
 
    showtrade(trade:any):void{
     console.log(trade);
     this.tradeActionselected = false;
     this.tradeselected = true;
     this.selectedTrade = trade;
-    // this.selectedTradeName = trade.tradingname
-    // this.selectedTradePrice = trade.tradingPrice
-    // this.selectedTradeSymbol = trade.tradingsymbol
-    // this.selectedTradeId = trade.id;
     
    }
 
@@ -98,8 +88,11 @@ export class TradePageComponent implements  AfterViewInit {
     this.tradeAction = ""
     this.tradeQuantity = 1
     this.tradeActionselected = false;
-
    }
+
+   highlight(row: number) {
+    this.selectedRowIndex = row;
+}
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngAfterViewInit() {
