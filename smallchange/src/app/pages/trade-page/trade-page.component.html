@@ -1,12 +1,71 @@
-<div class="trade-page">
-<div class="tablist">
-  <mat-tab-group mat-stretch-tabs>
-  <mat-tab label="Trade Buy"  >
-      <app-trade-buy></app-trade-buy>
-</mat-tab>
-  <mat-tab label="Trade Sell"  > 
-      <app-trade-sell></app-trade-sell>
-  </mat-tab>
-</mat-tab-group>
-</div>
+<div class="tradepage">
+    <div class="tradetable">
+
+        <table class="instrumenttable">
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Name</th>
+                    <th>Current Price</th>
+                    <th>Growth</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let instrument of instruments" (click)="showtrade(instrument)">
+                    <!-- <td [ngClass]="{'highlight': selectedRowIndex == row}"
+                    (click)="highlight(row.index)">
+                    {{filter.viewType | filter: filterTypes }}</td> -->
+                    
+                    <td>{{instrument.tradingsymbol}}</td>
+                    <td>{{instrument.tradingname}}</td>
+                    <td>{{instrument.tradingPrice}}</td>
+                    <td>{{instrument.traddingPricePercentage}}</td>
+                    <!-- <td><button>BUY</button></td>
+                    <td><button>SELL</button></td> -->
+                </tr>
+
+            </tbody>
+        </table>
+   </div>
+    <div id="secondDiv">
+        <div *ngIf="tradeselected">
+            <h2 class="selectedTradeName">{{selectedTrade.tradingname}}</h2>
+            <h3 class="selectedTradeSymbol">{{selectedTrade.tradingsymbol}}</h3>
+            <h5 class="selectedTradePrice">{{selectedTrade.tradingPrice}}</h5>
+            <div>
+                <button mat-button color="accent" (click)="buyTrade(selectedTrade)" class="buybutton">BUY</button>
+                <button mat-button color="accent" (click)="sellTrade(selectedTrade)" class="sellbutton">SELL</button>
+
+            </div>
+            <div *ngIf="tradeActionselected" class="tradeaction">
+                <div>Enter Quantity <input type="number" placeholder="Enter Quantity" [(ngModel)]="tradeQuantity" required></div>
+                <div>Price          <input type="number" placeholder="Enter Quantity" [(ngModel)]="tradeQuantity" class="pricevalue" value="{{tradeQuantity * selectedTrade.tradingPrice}}" readonly></div>
+                <div *ngIf="tradeAction=='BUY'">
+                    <button mat-button color="accent" (click)="placeOrder(selectedTrade,tradeAction,tradeQuantity)" class="placeorderbuybutton">CONFIRM BUY</button>
+                </div>
+                <div *ngIf="tradeAction=='SELL'">
+                    <button mat-button color="accent" (click)="placeOrder(selectedTrade,tradeAction,tradeQuantity)" class="placeordersellbutton">CONFIRM SELL</button>
+                </div>
+            </div>
+          
+            <button mat-mini-fab color="warn" (click)="closeInstrument()" aria-label="Example icon button with a filter list icon" class="exitbutton">
+                <mat-icon>exit_to_app</mat-icon>
+            </button>
+
+
+
+        </div>
+        <div *ngIf="!tradeselected">
+            <div id="stepsToTrade">
+                <h3>SELECT A TRADE FROM THE LIST TO PERFORM A TRADE ACTION</h3>
+                <ol>
+                    <li>Pick an instrument from the list</li>
+                    <li>Choose your trade action (buy/sell)</li>
+                    <li>Enter a valid Quantity of instruments (Between minimum and maximum quantity)</li>
+                    <li>Click on the PLACE ORDER button</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
 </div>

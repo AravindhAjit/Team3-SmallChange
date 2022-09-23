@@ -17,7 +17,7 @@ export class PasswordFormControlComponent implements OnInit {
     password_content?.addEventListener('keyup', function(){
 
         
-        if((String(password_content!.value).match('^[a-zA-Z0-9-_-]{6,24}$'))){
+        if((String(password_content!.value).match('^[a-zA-Z0-9-_-]{5,24}$'))){
           err_msg!.style.display="none";
           text_box!.style.borderColor="black";
   
