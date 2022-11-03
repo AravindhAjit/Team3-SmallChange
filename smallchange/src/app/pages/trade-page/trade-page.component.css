@@ -92,3 +92,32 @@ th.mat-header-cell {
   .mat-table tbody tr .mat-row{
     background-color: wheat;
   }
+
+  .button-row{
+    text-align: center;
+  }
+  .button-row button{
+    width:20%;
+    margin: 2.5%;
+  }
+  .quantspan{
+    margin: 1em 2em 1em 2em;
+  }
+
+  #stepsToTrade{
+    margin-top: 5em;
+  }
+
+  #selectedTrade{
+    margin-top: 5em;
+
+  }
+
+  #buysellbuttons{
+    margin-top: 4em;
+  }
+
+
+.tradeactionfield{
+  margin-top: 1em;
+}

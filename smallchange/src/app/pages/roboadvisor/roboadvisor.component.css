@@ -1,11 +1,153 @@
-.example-card{
-    width: 50%;
-    margin-top: 5em;
-    text-align: center;
+h1 {
+  margin-bottom: 3rem;
 }
 
 
-.robo{
-    text-align: -webkit-center;
+::ng-deep .ngx-slider.animate .ngx-slider-pointer {
+  background-color: #568200;
+}
 
+
+.spacer {
+  height: 50px;
+}
+
+.checkbox-section {
+  margin-top: 10px;
+  text-decoration:none
+}
+
+.button-row button {
+  width: 45%;
+  margin: 2.5%;
+}
+
+h5 {
+  margin-top: 20px;
+  align-self: baseline;
+}
+
+#enterpreferencediv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* margin: 1rem 2rem; */
+}
+
+#error-page {
+  position: absolute;
+  top: 10%;
+  left: 15%;
+  right: 15%;
+  bottom: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+#error-page .content {
+  max-width: 600px;
+  text-align: center;
+}
+
+.content h2.header {
+  font-size: 18vw;
+  line-height: 1em;
+  position: relative;
+}
+
+
+#enterrequest {
+  font-size: large;
+  color: #568200;
+}
+
+#slider{
+  margin: 1em 1em 1em 1em;
+  width: 70%;
+}
+.preference {
+  margin: 2em 0em 1em 0em;
+  width: 80%;
+}
+
+section{
+  margin-top: 10px;
+  border: 2px solid #568200;
+  /* background-color: #70a702; */
+  border-radius: 20px;
+}
+
+.card-title{
+  border-bottom: 2px solid white;
+    background-color: #70a702;
+
+}
+
+.card-header{
+  color:white;
+  background-color: #70a702;
+
+}
+
+/* h3{
+  color: b
+} */
+#details{
+  border-top: 2px solid black;
+}
+p:first-child{
+  padding-top: 15px;
+}
+p{
+  padding-bottom: 4px;
+  border-bottom: 1px solid white;
+}
+
+
+.card-body {
+  color: black;
+}
+
+.confirmbutton {
+  border: none;
+  color: white;
+  background-color: #568200;
+  padding: 1rem 2rem;
+  text-align: center;
+  display: inline-block;
+  font-size: large;
+  margin: 1rem 1rem 1rem 1rem;
+  text-decoration:none
+
+
+}
+
+button:disabled {
+  background-color: transparent;
+  color: green;
+}
+
+
+/* ------------------ */
+
+#preferencefield {
+  /* background-color: #568200;
+  width: 100%;
+  color: white; */
+  width: 70%;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  margin: 1rem 2rem 1rem 1rem;
+  font-size: large;
+}
+
+mat-label{
+  font-weight: bold;
+  font-size: large;
 }

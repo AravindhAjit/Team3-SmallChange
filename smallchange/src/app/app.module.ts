@@ -52,7 +52,8 @@ import { PieSeriesService, AccumulationLegendService, AccumulationTooltipService
 import { RoboadvisorComponent } from './pages/roboadvisor/roboadvisor.component';
 import { PopupComponent } from './organisms/popup/popup.component';
 import { MatDialogModule } from '@angular/material/dialog';
-
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 
 
@@ -89,6 +90,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     TradeHistoryComponent,
     RoboadvisorComponent,
     PopupComponent,
+    
   ],
 
 
@@ -113,7 +115,11 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatButtonModule,
     MatProgressBarModule,
     AccumulationChartModule,
-    MatDialogModule 
+    MatDialogModule,
+    NgxSliderModule, 
+    BrowserModule,
+    HttpClientModule,
+    
 
 
 

@@ -3,12 +3,14 @@ import { ClientIdentification } from "./clientIdentification";
 export class Client{
     
     constructor(
-        clientId: string,
-        email: string,
-        dateOfBirth: string,
-        country: string,
-        postalCode: string,
-        identification: ClientIdentification[]
+        public clientId: number,
+        public email: string,
+        public dateOfBirth: string,
+        public country: string,
+        public name: string,
+        public familyname: string,
+        public funds:number,
+        public identification: ClientIdentification
     ){
 
     }

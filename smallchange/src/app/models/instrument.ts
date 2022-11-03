@@ -2,7 +2,7 @@ export class Instrument{
 
     constructor(
         instrumentId: string,
-        description: string,
+        instrumentDescription: string,
         externalIdType: string,
         externalId: string,
         categoryId: string,
