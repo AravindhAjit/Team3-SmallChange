@@ -1,54 +1,68 @@
 <div class="tradepage">
     <div class="tradetable">
-
+        <div class="button-row">
+            <button mat-raised-button color="green" (click)="getPricesGOVT()">GOVT</button>
+            <button mat-raised-button color="green" (click)="getPricesSTOCK()">STOCK</button>
+            <button mat-raised-button color="green" (click)="getPricesCD()">CD</button>
+        </div>
         <table class="instrumenttable">
             <thead>
                 <tr>
                     <th>Symbol</th>
                     <th>Name</th>
                     <th>Current Price</th>
-                    <th>Growth</th>
+                    <!-- <th>Growth</th> -->
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let instrument of instruments" (click)="showtrade(instrument)">
+                <tr *ngFor="let instrument of instrumentPrices" (click)="showtrade(instrument)">
                     <!-- <td [ngClass]="{'highlight': selectedRowIndex == row}"
                     (click)="highlight(row.index)">
                     {{filter.viewType | filter: filterTypes }}</td> -->
-                    
-                    <td>{{instrument.tradingsymbol}}</td>
-                    <td>{{instrument.tradingname}}</td>
-                    <td>{{instrument.tradingPrice}}</td>
-                    <td>{{instrument.traddingPricePercentage}}</td>
+
+                    <td>{{instrument.instrument.categoryId}}</td>
+                    <td>{{instrument.instrument.instrumentDescription}}</td>
+                    <td>{{instrument.askPrice}}</td>
+                    <!-- <td>{{instrument.priceTimestamp}}</td> -->
                     <!-- <td><button>BUY</button></td>
                     <td><button>SELL</button></td> -->
                 </tr>
 
             </tbody>
         </table>
-   </div>
+    </div>
     <div id="secondDiv">
-        <div *ngIf="tradeselected">
-            <h2 class="selectedTradeName">{{selectedTrade.tradingname}}</h2>
-            <h3 class="selectedTradeSymbol">{{selectedTrade.tradingsymbol}}</h3>
-            <h5 class="selectedTradePrice">{{selectedTrade.tradingPrice}}</h5>
-            <div>
+        <div *ngIf="tradeselected" id="selectedTrade">
+            <h2 class="selectedTradeName">{{selectedTrade.instrument.instrumentDescription}}</h2>
+            <!-- <h5 class="selectedTradePrice">{{selectedTrade.askPrice}}</h5> -->
+            <div id="buysellbuttons">
                 <button mat-button color="accent" (click)="buyTrade(selectedTrade)" class="buybutton">BUY</button>
                 <button mat-button color="accent" (click)="sellTrade(selectedTrade)" class="sellbutton">SELL</button>
-
+            </div>
+            <div *ngIf="tradeActionselected && tradeAction=='BUY'">
+                <span class="quantspan"><b>Min Quantity   </b>{{selectedTrade.instrument.minQuantity}}</span>
+                <span class="quantspan"><b>Max Quantity   </b>{{selectedTrade.instrument.maxQuantity}}</span>
             </div>
             <div *ngIf="tradeActionselected" class="tradeaction">
-                <div>Enter Quantity <input type="number" placeholder="Enter Quantity" [(ngModel)]="tradeQuantity" required></div>
-                <div>Price          <input type="number" placeholder="Enter Quantity" [(ngModel)]="tradeQuantity" class="pricevalue" value="{{tradeQuantity * selectedTrade.tradingPrice}}" readonly></div>
+                <div class="tradeactionfield">Quantity
+                    <div><input type="number" [(ngModel)]="tradeQuantity" class="tradeactionfield"
+                         required>
+                </div></div>
+                <div class="tradeactionfield">Price
+                    <div><input type="number" [(ngModel)]="tradePrice" class="tradeactionfield"
+                        value="{{tradeQuantity * selectedTrade.askPrice}}" readonly></div></div>
                 <div *ngIf="tradeAction=='BUY'">
-                    <button mat-button color="accent" (click)="placeOrder(selectedTrade,tradeAction,tradeQuantity)" class="placeorderbuybutton">CONFIRM BUY</button>
+                    <button mat-button color="accent" (click)="placeOrder(selectedTrade,tradeAction,tradeQuantity)"
+                        class="placeorderbuybutton">CONFIRM BUY</button>
                 </div>
                 <div *ngIf="tradeAction=='SELL'">
-                    <button mat-button color="accent" (click)="placeOrder(selectedTrade,tradeAction,tradeQuantity)" class="placeordersellbutton">CONFIRM SELL</button>
+                    <button mat-button color="accent" (click)="placeOrder(selectedTrade,tradeAction,tradeQuantity)"
+                        class="placeordersellbutton">CONFIRM SELL</button>
                 </div>
             </div>
-          
-            <button mat-mini-fab color="warn" (click)="closeInstrument()" aria-label="Example icon button with a filter list icon" class="exitbutton">
+
+            <button mat-mini-fab color="warn" (click)="closeInstrument()"
+                aria-label="Example icon button with a filter list icon" class="exitbutton">
                 <mat-icon>exit_to_app</mat-icon>
             </button>
 

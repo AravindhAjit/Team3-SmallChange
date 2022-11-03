@@ -1,11 +1,13 @@
 import { AfterViewInit, Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatTableDataSource } from '@angular/material/table';
 import { NewInstrument } from 'src/app/models/NewInstrument';
-import { LoginFormComponent } from 'src/app/organisms/login-form/login-form.component';
 import { MockDataService } from 'src/app/service/mock-data.service';
 import { MatDialog } from  '@angular/material/dialog';
 import { PopupComponent } from 'src/app/organisms/popup/popup.component';
+import { PriceService } from 'src/app/service/price.service';
+import { Order } from 'src/app/models/order';
+import {v4 as uuidv4} from 'uuid';
+
 
 @Component({
   selector: 'app-trade-page',
@@ -16,8 +18,7 @@ import { PopupComponent } from 'src/app/organisms/popup/popup.component';
 export class TradePageComponent implements  AfterViewInit {
 
   instruments:any;
-  dataSource: MatTableDataSource<NewInstrument>;
-  displayedColumns = ['tradingsymbol','tradingname','tradingPrice','traddingPricePercentage']
+
   tradeselected:boolean = false;
   selectedTrade:any;
   selectedTradeSymbol:string
@@ -27,14 +28,13 @@ export class TradePageComponent implements  AfterViewInit {
   selectedTradeMaxQuantity:string
   tradeActionselected:boolean = false;
   tradeAction:string = '';
-  tradeQuantity:number = 1;
+  tradeQuantity:number;
+  tradePrice:number;
   selectedRowIndex:number
-  
+  instrumentPrices:any 
+  constructor(private dataService : MockDataService , private  dialogRef : MatDialog, private service:PriceService) {
 
-
-  constructor(private dataService : MockDataService , private  dialogRef : MatDialog ) {      
-  this.dataService.getNewInstruments().subscribe(data=>this.instruments=data)
-  this.dataSource = this.instruments;
+  this.getAllPrice()
    }
 
 
@@ -43,6 +43,8 @@ export class TradePageComponent implements  AfterViewInit {
     this.tradeActionselected = false;
     this.tradeselected = true;
     this.selectedTrade = trade;
+    this.tradeActionselected = false;
+
     
    }
 
@@ -61,25 +63,52 @@ export class TradePageComponent implements  AfterViewInit {
     this.tradeActionselected = true;
     this.tradeAction = 'SELL'
    }
+
+   getAllPrice():void{
+    this.service.getAllPrices().subscribe(users => { this.instrumentPrices = users });
+    console.log(this.instrumentPrices);     
+  }
+
+  getPricesGOVT():void{
+    this.service.getPricesByCategory("GOVT").subscribe(users => { this.instrumentPrices = users });
+    console.log(this.instrumentPrices);     
+  }
+
+  getPricesSTOCK():void{
+    this.service.getPricesByCategory("STOCK").subscribe(users => { this.instrumentPrices = users });
+    console.log(this.instrumentPrices);     
+  }
+
+  getPricesCD():void{
+    this.service.getPricesByCategory("CD").subscribe(users => { this.instrumentPrices = users });
+    console.log(this.instrumentPrices);     
+  }
  
    placeOrder(trade:any,tradeAction:string,tradeQuantity:number):void{
+    if(tradeQuantity>trade.instrument.maxQuantity || tradeQuantity<trade.instrument.minQuantity){
+      alert("Enter quantity according to instrument");
+    }
+    else{
     console.log(trade);
     console.log(tradeAction + " " + tradeQuantity);
-    console.log(tradeQuantity*trade.tradingPrice);
+    console.log(tradeQuantity*trade.askPrice);
     this.dialogRef.open(PopupComponent,{
       data:{
         trade:trade,
         tradeAction:tradeAction,
         tradeQuantity:tradeQuantity,
       }
-    });
-
+    } );
+  
+    var order = new Order(trade.instrument.instrumentId,tradeQuantity,tradeQuantity*trade.bidPrice,tradeAction,"clientid",uuidv4());
+    console.log(order);
+    
     this.tradeselected = false;
     this.selectedTrade = null
     this.tradeAction = ""
     this.tradeQuantity = 1
     this.tradeActionselected = false;
-    
+  }
    }
 
    closeInstrument():void{
@@ -96,7 +125,6 @@ export class TradePageComponent implements  AfterViewInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
   }
 
 }

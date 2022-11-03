@@ -6,7 +6,9 @@ export class NewInstrument {
         tradingsymbol: string,
         tradingPrice: number,
         traddingPricePercentage: number,
-        logo: boolean
+        logo: boolean,
+        maxQuantity:number,
+        minQuantity:number
 
     ) {
 
