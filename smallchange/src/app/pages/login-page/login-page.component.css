@@ -1,4 +1,4 @@
-.login-page{
+/* .login-page{
     max-width: 100%;
     margin-bottom: 3rem;
 }
@@ -6,4 +6,101 @@
     padding-top: 4em 1em 4em 1em;
     margin-left: auto;
     margin-right: auto;
+} */
+
+.mat-focused .forminput {
+    color: black;
 }
+
+.forminput {
+    width: 100%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    margin-bottom: 2rem;
+    color:black;
+}
+
+.formbutton{
+border: none;
+color: white;
+padding: 1rem 2rem;
+text-align: center;
+display: inline-block;
+font-size: 16px;
+margin: 0rem 1rem 0rem 1rem ;
+}
+
+
+
+.formbutton:focus {
+outline-color: transparent;
+outline-style:solid;
+box-shadow: 0 0 0 1px black;
+}
+
+
+
+
+
+#login{
+background-color: green;
+}
+
+#signup{
+background-color:red;
+}
+
+
+/* Split the screen in half */
+.splitleft{
+    height: 100%;
+    width: 55%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+    left: 0;
+    background-color: #ffffff;
+  }
+  
+
+  /* Split the screen in half */
+.splitright{
+  height: 100%;
+  width: 45%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+  right: 0;
+  background-color: #a3cf62;
+}
+  
+  /* Control the right side */
+  .right {
+    right: 0;
+    background-color: #a3cf62;
+  }
+  
+  /* If you want the content centered horizontally and vertically */
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .logo{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 7em;
+    color: #8dc63f;
+  }
+
+  h5{
+    font-size: 2em;
+  }

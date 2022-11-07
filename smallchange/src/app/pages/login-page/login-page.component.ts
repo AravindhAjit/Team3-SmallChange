@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor() { }
-
   ngOnInit(): void {
   }
 
+  login():void{
+    console.log("login");
+  }
+
+  signup(value: any) {
+    console.log(value);
+    // this.service.setRegistrationpreference(value);
+  }
 }

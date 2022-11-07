@@ -27,7 +27,7 @@ const routes: Routes = [
 
   { path: 'activity', component: ActivityPageComponent},
   { path: 'home', component: HomePageComponent },
-  { path: 'portfolio', component: PortfolioPageComponent },
+{ path: 'portfolio', component: PortfolioPageComponent },
   { path: 'trade', component: TradePageComponent },
   { path: 'roboAdvisor', component: RoboadvisorComponent },
   {path: 'tradehistory', component:TradeHistoryComponent},

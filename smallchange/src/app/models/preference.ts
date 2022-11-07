@@ -4,6 +4,7 @@ export class Preference{
         public riskTolerance:string|undefined,
         public incomeCategory:string,
         public investmentLength:string,
-        public preferenceSet:boolean
+        public preferenceSet:boolean,
+        public clientId:number
     ){}
 }

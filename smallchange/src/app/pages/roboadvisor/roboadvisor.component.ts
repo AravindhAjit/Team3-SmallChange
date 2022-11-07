@@ -10,7 +10,7 @@ import { PrefernceService } from 'src/app/service/prefernce.service';
 })
 export class RoboadvisorComponent implements OnInit {
   value: number = 1;
-  preference = new Preference('', '', '', '', false);
+preference = new Preference('', '', '', '', false,0);
 
   investmentPurpose: string = '';
   riskTolerance: string = '';
