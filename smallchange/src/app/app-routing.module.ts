@@ -15,24 +15,14 @@ import { TradeHistoryComponent } from './organisms/trade-history/trade-history.c
 const routes: Routes = [
 
   { path: '', component: LoginPageComponent },
-  // { path: 'registration', component: RegPageComponent },
-  // { path: 'activity', component: ActivityPageComponent, canActivate:[AuthGuard]},
-  // { path: 'home', component: HomePageComponent },
   { path: 'login', component: LoginPageComponent },
-  // { path: 'portfolio', component: PortfolioPageComponent, canActivate:[AuthGuard] },
-  // { path: 'preference', component: PreferencesPageComponent, canActivate:[AuthGuard] },
-  // { path: 'trade', component: TradePageComponent, canActivate:[AuthGuard] },
-  // { path: 'roboAdvisor', component: RoboadvisorComponent, canActivate:[AuthGuard] },
-  // {path: 'tradehistory', component:TradeHistoryComponent,canActivate:[AuthGuard]}
-
-  { path: 'activity', component: ActivityPageComponent},
+  { path: 'activity', component: ActivityPageComponent, canActivate:[AuthGuard]},
   { path: 'home', component: HomePageComponent },
-{ path: 'portfolio', component: PortfolioPageComponent },
-  { path: 'trade', component: TradePageComponent },
-  { path: 'roboAdvisor', component: RoboadvisorComponent },
-  {path: 'tradehistory', component:TradeHistoryComponent},
-  {path: 'reg', component:RegPageComponent},
-  
+  { path: 'portfolio', component: PortfolioPageComponent, canActivate:[AuthGuard] },
+  { path: 'trade', component: TradePageComponent, canActivate:[AuthGuard] },
+  { path: 'roboAdvisor', component: RoboadvisorComponent, canActivate:[AuthGuard] },
+  { path: 'tradehistory', component:TradeHistoryComponent, canActivate:[AuthGuard] },
+  { path: 'reg', component:RegPageComponent },
 
 ];
 

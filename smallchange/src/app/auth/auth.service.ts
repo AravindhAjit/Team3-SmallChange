@@ -6,7 +6,8 @@ import { RegPageComponent } from '../pages/reg-page/reg-page.component';
 })
 export class AuthService {
 
-  isLoggedIn = false;
+  // Toggle for logged in or not
+  isLoggedIn = true;
 
   setLogIn(){
     this.isLoggedIn = true;
