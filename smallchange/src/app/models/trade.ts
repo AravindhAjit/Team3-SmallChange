@@ -10,7 +10,8 @@ export class Trade{
         clientId: string,
         order: Order,
         tradeId: string,
-        cashValue: number
+        cashValue: number,
+        portfolioId:number
     ){
 
     }

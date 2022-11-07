@@ -7,7 +7,7 @@ import { Preference } from '../models/preference';
 })
 export class PrefernceService {
 
-  preference = new Preference('', '', '', '',false);
+  preference = new Preference('', '', '', '',false,0);
   constructor() { }
 
 

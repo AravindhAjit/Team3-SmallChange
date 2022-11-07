@@ -87,3 +87,23 @@ label{
   margin-right: -15px;
   margin-left: -15px;
 }
+
+
+#registerbutton{
+  background-color: green;
+}
+
+input[type=checkbox] {
+  accent-color: green;
+
+}
+
+a{
+  color: green;
+}
+
+.titletext {
+  /* font-size: 2.5rem; */
+  text-align: center;
+  color: green;
+}
