@@ -1,11 +1,9 @@
 import { AfterViewInit, Component, Inject, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
 import { NewInstrument } from 'src/app/models/NewInstrument';
 import { MockDataService } from 'src/app/service/mock-data.service';
 import { MatDialog } from  '@angular/material/dialog';
 import { PopupComponent } from 'src/app/organisms/popup/popup.component';
 import { PriceService } from 'src/app/service/price.service';
-import { Order } from 'src/app/models/order';
 import {v4 as uuidv4} from 'uuid';
 import { Trade } from 'src/app/models/trade';
 import { Price } from 'src/app/models/price';
@@ -35,7 +33,6 @@ export class TradePageComponent  {
   selectedRowIndex:number
   instrumentPrices:any 
 
-  dataSource:any;
   category: string = "";
   showModal: boolean;
   instrument: Price;
@@ -53,7 +50,8 @@ export class TradePageComponent  {
   fetch(category: string){
     this.service.getInstruments(category).subscribe(data=>{
       this.instruments = data;
-
+      console.log(this.instruments);
+      
     });}
 
 

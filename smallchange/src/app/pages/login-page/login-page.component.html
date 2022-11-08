@@ -13,8 +13,8 @@
 <div class="splitright">
     <div class="centered">
         <h2>Login</h2>
-        <div><input matInput placeholder="Email" type="text" class="forminput"></div>
-        <div><input matInput placeholder="Password" type="password" class="forminput"></div>
+        <div><input matInput placeholder="Email" type="text" class="forminput" [(ngModel)]="email"></div>
+        <div><input matInput placeholder="Password" type="password" class="forminput" [(ngModel)]="password"></div>
         <div>
             <button mat-raised-button color="primary" class="formbutton" id="login" (click)="login()" [routerLink]="['/' + 'login']">Login</button>
             <button mat-raised-button color="primary" class="formbutton" id="signup"
