@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EnterPreferenceComponent } from './enter-preference.component';
+import { PopupComponent } from './popup.component';
 
-describe('EnterPreferenceComponent', () => {
-  let component: EnterPreferenceComponent;
-  let fixture: ComponentFixture<EnterPreferenceComponent>;
+describe('PopupComponent', () => {
+  let component: PopupComponent;
+  let fixture: ComponentFixture<PopupComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EnterPreferenceComponent ]
+      declarations: [ PopupComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EnterPreferenceComponent);
+    fixture = TestBed.createComponent(PopupComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

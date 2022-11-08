@@ -1,12 +1,128 @@
-<div class="trade-page">
-<div class="tablist">
-  <mat-tab-group mat-stretch-tabs>
-  <mat-tab label="Trade Buy"  >
-      <app-trade-buy></app-trade-buy>
-</mat-tab>
-  <mat-tab label="Trade Sell"  > 
-      <app-trade-sell></app-trade-sell>
-  </mat-tab>
-</mat-tab-group>
-</div>
-</div>
+ <app-nav-bar></app-nav-bar>
+<!--
+<div class="tradepage">
+    <div class="tradetable">
+        <div class="button-row">
+            <button mat-raised-button color="green" (click)="getPricesGOVT()">GOVT</button>
+            <button mat-raised-button color="green" (click)="getPricesSTOCK()">STOCK</button>
+            <button mat-raised-button color="green" (click)="getPricesCD()">CD</button>
+        </div>
+        <table class="instrumenttable">
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Name</th>
+                    <th>Current Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let instrument of instrumentPrices" (click)="showtrade(instrument)">
+
+                    <td>{{instrument.instrument.categoryId}}</td>
+                    <td>{{instrument.instrument.instrumentDescription}}</td>
+                    <td>{{instrument.askPrice}}</td>
+
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <div id="secondDiv">
+        <div *ngIf="tradeselected" id="selectedTrade">
+            <h2 class="selectedTradeName">{{selectedTrade.instrument.instrumentDescription}}</h2>
+            <div id="buysellbuttons">
+                <button mat-button color="accent" (click)="buyTrade(selectedTrade)" class="buybutton">BUY</button>
+                <button mat-button color="accent" (click)="sellTrade(selectedTrade)" class="sellbutton">SELL</button>
+            </div>
+            <div *ngIf="tradeActionselected && tradeAction=='BUY'">
+                <span class="quantspan"><b>Min Quantity   </b>{{selectedTrade.instrument.minQuantity}}</span>
+                <span class="quantspan"><b>Max Quantity   </b>{{selectedTrade.instrument.maxQuantity}}</span>
+            </div>
+            <div *ngIf="tradeActionselected" class="tradeaction">
+                <div class="tradeactionfield">Quantity
+                    <div><input type="number" [(ngModel)]="tradeQuantity" class="tradeactionfield"
+                         required>
+                </div></div>
+                <div class="tradeactionfield">Price
+                    <div><input type="number" [(ngModel)]="tradePrice" class="tradeactionfield"
+                        value="{{tradeQuantity * selectedTrade.askPrice}}" readonly></div></div>
+                <div *ngIf="tradeAction=='BUY'">
+                    <button mat-button color="accent" (click)="placeOrder(selectedTrade,tradeAction,tradeQuantity)"
+                        class="placeorderbuybutton">CONFIRM BUY</button>
+                </div>
+                <div *ngIf="tradeAction=='SELL'">
+                    <button mat-button color="accent" (click)="placeOrder(selectedTrade,tradeAction,tradeQuantity)"
+                        class="placeordersellbutton">CONFIRM SELL</button>
+                </div>
+            </div>
+
+            <button mat-mini-fab color="warn" (click)="closeInstrument()"
+                aria-label="Example icon button with a filter list icon" class="exitbutton">
+                <mat-icon>exit_to_app</mat-icon>
+            </button>
+
+
+
+        </div>
+        <div *ngIf="!tradeselected">
+            <div id="stepsToTrade">
+                <h3>SELECT A TRADE FROM THE LIST TO PERFORM A TRADE ACTION</h3>
+                <ol>
+                    <li>Pick an instrument from the list</li>
+                    <li>Choose your trade action (buy/sell)</li>
+                    <li>Enter a valid Quantity of instruments (Between minimum and maximum quantity)</li>
+                    <li>Click on the PLACE ORDER button</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+</div> -->
+
+<script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+
+
+<section class="text-center opt">
+    <span id="categorySelecter">
+      Select the Category of Instruments to trade: </span>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="categoryID" id="all" value="" [(ngModel)]="category"
+        #categoryID="ngModel" (change)="fetch('')">
+      <label class="form-check-label" for="all">ALL</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="categoryID" id="stock" value="STOCK" [(ngModel)]="category"
+        #categoryID="ngModel" (change)="fetch('STOCK')">
+      <label class="form-check-label" for="stock">STOCK</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="categoryID" id="govt" value="GOVT" [(ngModel)]="category"
+        #categoryID="ngModel" (change)="fetch('GOVT')">
+      <label class="form-check-label" for="govt">GOVT</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="categoryID" id="cd" value="CD" [(ngModel)]="category"
+        #categoryID="ngModel" (change)="fetch('CD')">
+      <label class="form-check-label" for="govt">CD</label>
+    </div>
+  </section>
+  <table class="instrumenttable table table-striped ">
+    <thead>
+        <tr>
+            <th>Instrument</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Activity</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let instrument of instruments" (click)="showtrade(instrument)">
+
+            <td><div>{{instrument.instrument.instrumentId}}</div><div>{{instrument.instrument.instrumentDescription}}categoryId</div></td>
+            <td>{{instrument.askPrice}}</td>
+            <td>{{instrument.instrument.categoryId}}</td>
+            <td><button class="btn btn-success" (click)="displayModal(instrument)">BUY</button></td>
+        </tr>
+
+    </tbody>
+</table>

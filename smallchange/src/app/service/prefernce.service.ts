@@ -1,3 +1,4 @@
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { Injectable } from '@angular/core';
 import { Preference } from '../models/preference';
 
@@ -6,16 +7,16 @@ import { Preference } from '../models/preference';
 })
 export class PrefernceService {
 
-  preference = new Preference('', '', '', '',false);
+  preference = new Preference('', '', '', '',false,0);
   constructor() { }
+
 
   setPreferences(preferences: Preference): void {
     this.preference.investmentLength = preferences.investmentLength;
     this.preference.incomeCategory = preferences.incomeCategory;
     this.preference.riskTolerance = preferences.riskTolerance;
-    this.preference.purposeOfInvestment = preferences.purposeOfInvestment;
+    this.preference.investmentPurpose = preferences.investmentPurpose;
     this.preference.preferenceSet = preferences.preferenceSet;
-
 
   }
 

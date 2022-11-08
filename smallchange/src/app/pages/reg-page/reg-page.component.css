@@ -38,3 +38,72 @@ label{
   width: 100%;
   display: block;
 }
+
+
+/* -------------------------------------- */
+
+#regpage{
+  margin: 1em 2em 1em 3em;
+}
+.half, .half .container>.row {
+  height: 100vh;
+  min-height: 900px;
+}
+
+.half .bg {
+  background-size: cover;
+  background-position: center;
+}
+
+.half .contents {
+  background: #f6f7fc;
+}
+
+.half .contents {
+    background: #f6f7fc;
+}.half .contents .form-control, .half .bg .form-control {
+  border: none;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
+  border-radius: 4px;
+  height: 54px;
+  background: #fff;
+}
+
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+ transition: border-color .15s ease-in-out , box-shadow .15s ease-in-out , -webkit-box-shadow .15s ease-in-out;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+
+#registerbutton{
+  background-color: green;
+}
+
+input[type=checkbox] {
+  accent-color: green;
+
+}
+
+a{
+  color: green;
+}
+
+.titletext {
+  /* font-size: 2.5rem; */
+  text-align: center;
+  color: green;
+}

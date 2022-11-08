@@ -1,11 +1,142 @@
-::ng-deep .mat-tab-label .mat-tab-label-content{
-    color: black;
+/* 
+
+tr:nth-child(even) td {
+  background: #B9D989;
+  color: black;
+}
+tr:nth-child(odd) td {
+  background: #CFE5AE;
+  color: black;
+
+}
+.instrumenttable tr:hover td{
+  background-color:#A3CF62;
+  color: darkgreen;
+  }
+    
+
+td {
+  text-align: center;
+  color: black;
+  margin: 1em 0.5em 1em 0.5em;
+} 
+
+table{
+  
+  width: 100%;
+  border-collapse: collapse;
+}
+
+tr {
+  height: 3em;
+  background: #8DC63F;
+}
+
+th {
+  text-align: center;
+  color: black;
 }
 
 
-app-trade-buy ,app-trade-sell {
-    text-align: -webkit-center;
-    padding: 2rem 4rem 2rem 4rem;
+.buybutton{
+  background-color: green;
+  color: white;
+  margin: 1em 1em 1em 1em;
+ padding:  0.5em 2em 0.5em 2em}
+
+.sellbutton{
+  background-color: red;
+  color: white;
+  margin: 1em 1em 1em 1em;
+  padding:  0.5em 2em 0.5em 2em}
+
+.placeorderbuybutton{
+  background-color: darkgreen;
+  color: white;
+  margin-top: 1em;
+}
+
+.placeordersellbutton{
+  background-color: red;
+  color: white;
+  margin-top: 1em;
+}
+
+.exitbutton{
+  background: chocolate;
+  margin-top: 2em;
 
 }
 
+
+.pricevalue{
+  margin-left:4.9em;
+}
+#secondDiv{
+  text-align: center;
+  width: 40%;
+}
+
+.tradetable{
+    width: 60%;
+}
+.tradepage{
+    display: flex;
+}
+
+th.mat-header-cell {
+    text-align: center;
+  }
+
+  .mat-table tbody tr .mat-row{
+    background-color: wheat;
+  }
+
+  .button-row{
+    text-align: center;
+  }
+  .button-row button{
+    width:20%;
+    margin: 2.5%;
+  }
+  .quantspan{
+    margin: 1em 2em 1em 2em;
+  }
+
+  #stepsToTrade{
+    margin-top: 5em;
+  }
+
+  #selectedTrade{
+    margin-top: 5em;
+
+  }
+
+  #buysellbuttons{
+    margin-top: 4em;
+  }
+
+
+.tradeactionfield{
+  margin-top: 1em;
+} */
+
+
+/* copied */
+
+section{
+  padding: 30px 20px;
+}
+.opt{
+  background-color: #acd55e40;
+}
+
+:host ::ng-deep  .p-datatable.p-datatable-sm .p-datatable-thead th{
+  text-align: center;
+}
+#symbol{
+  color: slateblue;
+}
+#categorySelecter{
+  font-weight: 500;
+}

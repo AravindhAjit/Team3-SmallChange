@@ -22,4 +22,9 @@ describe('HeaderBarComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render app-logo properly',()=>{
+
+    expect(fixture.debugElement.nativeElement.querySelector('app-logo')).toBeTruthy();
+  })
 });

@@ -1,0 +1,91 @@
+<app-nav-bar></app-nav-bar>
+
+
+<div *ngIf="preference.preferenceSet && !editStarted">
+  <section class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="card text-white mb-3">
+          <div class="card-header">
+            <h3>Your Investment Preference</h3>
+          </div>
+          <div class="card-body">
+            <p>Investment Purpose : {{preference.investmentPurpose}}</p>
+            <p> length of Invetsment : {{preference.investmentLength}}</p>
+            <p> Income Category : {{preference.incomeCategory}}</p>
+            <p> Rish Tolerance: {{preference.riskTolerance}} </p>
+          </div>
+          <div class="card-footer">
+            <div class="col-12" style="text-align: center;">
+              <a style="margin-bottom:10px;" class="btn btn-primary" class="confirmbutton"
+                [routerLink]="['/preference','edit']" (click)="startEdit()">Update Investment Preference</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div *ngIf="!preference.preferenceSet" class="editpref">
+  <div *ngIf="!enterStarted && !editStarted">
+
+    <div id="error-page">
+      <div class="content">
+
+        <h4 data-text="Opps! Page not found">
+          RoboAdvisor not available
+        </h4>
+        <p>
+          Please enter your investment preferences to acceess the full benifits of the robo advisor
+        </p>
+        <div class="btns">
+          <a id="enterrequest" (click)="startEnter()">Enter your preference</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="enterStarted || editStarted" id="enterpreferencediv">
+
+
+  <h3 *ngIf="enterStarted">Enter Preferences</h3>
+  <h3 *ngIf="editStarted">Edit Preferences</h3>
+
+  <div class="preference">
+    <mat-label>Investment Purpose</mat-label>
+    <input matInput [(ngModel)]="investmentPurpose" required id="preferencefield">
+  </div>
+  <div class="preference">
+
+    <mat-label>Risk Tolerance</mat-label>
+    <ngx-slider [(value)]="value" [options]="options" id="slider"></ngx-slider>
+  </div>
+
+  <div class="preference">
+
+    <div class="spacer"></div>
+    <mat-label>Income Category</mat-label>
+    <select [(ngModel)]="incomeCategory" id="preferencefield">
+      <option *ngFor="let i of incomeCategories" [value]="i" class="optionn">{{i}}</option>
+    </select>
+  </div>
+
+  <div class="preference">
+
+    <mat-label>Length of investment</mat-label>
+    <select [(ngModel)]="investmentLength" id="preferencefield">
+      <option *ngFor="let i of investmentLengths" [value]="i" class="optionn">{{i}}</option>
+    </select>
+  </div>
+  <div class="checkbox-section">
+    <mat-checkbox class="example-margin" (click)="agreeRoboAdvisor()">Click me to confirm preferences!</mat-checkbox>
+
+  </div>
+
+  <div>
+    <div>
+      <button (click)="finishEnter()" [disabled]="!roboAdvisoragreed" class="confirmbutton">Save Preferences</button>
+    </div>
+  </div>
+</div>

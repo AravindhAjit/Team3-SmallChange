@@ -39,7 +39,7 @@ export class PortfolioPageComponent implements OnInit {
       // this.dataSource = new MatTableDataSource(this.Portfoliodata);
    
   });
-  console.log(this.Portfoliodata.stock.symbol);
+  //console.log(this.Portfoliodata.stock.symbol);
 }
 
 }

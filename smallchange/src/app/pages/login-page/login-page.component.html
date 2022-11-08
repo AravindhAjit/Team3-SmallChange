@@ -1,4 +1,24 @@
-<div class="login-page">
+<!-- <div class="login-page">
     <app-page-title></app-page-title>
     <app-login-form></app-login-form>
+</div> -->
+
+<div class="splitleft">
+    <div class="centered">
+        <h2 class="logo">Smallchange</h2>
+        <h5>Smallchange.Invest small.Grow large</h5>
+    </div>
+</div>
+
+<div class="splitright">
+    <div class="centered">
+        <h2>Login</h2>
+        <div><input matInput placeholder="Email" type="text" class="forminput" [(ngModel)]="email"></div>
+        <div><input matInput placeholder="Password" type="password" class="forminput" [(ngModel)]="password"></div>
+        <div>
+            <button mat-raised-button color="primary" class="formbutton" id="login" (click)="login()" [routerLink]="['/' + 'login']">Login</button>
+            <button mat-raised-button color="primary" class="formbutton" id="signup"
+                (click)="signup(true)" [routerLink]="['/' + 'signup']">Signup</button>
+        </div>
+    </div>
 </div>

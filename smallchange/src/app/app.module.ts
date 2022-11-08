@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
+
 import { AppComponent } from './app.component';
 import { ButtonComponent } from './atoms/button/button.component';
 import { FormLabelComponent } from './atoms/form-label/form-label.component';
@@ -21,17 +23,13 @@ import { LoginFormComponent } from './organisms/login-form/login-form.component'
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { TradePageComponent } from './pages/trade-page/trade-page.component';
 import { TradeButtonComponent } from './atoms/trade-button/trade-button.component';
-import { PreferencesPageComponent } from './pages/preferences-page/preferences-page.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCarouselModule } from 'ng-mat-carousel';
 import { MatSelectModule, } from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import {MatTabsModule} from '@angular/material/tabs';
-import { EnterPreferenceComponent } from './organisms/enter-preference/enter-preference.component';
 import { EditPreferenceComponent } from './organisms/edit-preference/edit-preference.component';
-import { TradeBuyComponent } from './organisms/trade-buy/trade-buy.component';
-import { TradeSellComponent } from './organisms/trade-sell/trade-sell.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RegPageComponent } from './pages/reg-page/reg-page.component';
 import { FormsModule } from '@angular/forms';
@@ -43,7 +41,7 @@ import { MatCardModule } from "@angular/material/card";
 import { MatGridListModule } from '@angular/material/grid-list';
 import { PortfolioPageComponent } from './pages/portfolio-page/portfolio-page.component';
 import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator'; 
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { TradeHistoryComponent } from './organisms/trade-history/trade-history.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
@@ -51,6 +49,17 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { AccumulationChartModule } from '@syncfusion/ej2-angular-charts';
 import { PieSeriesService, AccumulationLegendService, AccumulationTooltipService, AccumulationAnnotationService,
   AccumulationDataLabelService } from '@syncfusion/ej2-angular-charts';
+import { RoboadvisorComponent } from './pages/roboadvisor/roboadvisor.component';
+import { PopupComponent } from './organisms/popup/popup.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import {MatSliderModule} from '@angular/material/slider';
+import { ActivityPageComponent } from './pages/activity-page/activity-page.component';
+
+
+
+
 
 
 @NgModule({
@@ -75,20 +84,22 @@ import { PieSeriesService, AccumulationLegendService, AccumulationTooltipService
     LoginPageComponent,
     TradePageComponent,
     TradeButtonComponent,
-    PreferencesPageComponent,
-    EnterPreferenceComponent,
     EditPreferenceComponent,
-    TradeBuyComponent,
-    TradeSellComponent,
     RegPageComponent,
     HomePageComponent,
     HomeComponent,
     FlipCardComponent,
     PortfolioPageComponent,
     TradeHistoryComponent,
+    RoboadvisorComponent,
+    PopupComponent,
+    ActivityPageComponent
+    
   ],
 
-  imports: [
+
+
+ imports: [
     BrowserModule,
     NoopAnimationsModule,
     MatCarouselModule.forRoot(),
@@ -107,9 +118,16 @@ import { PieSeriesService, AccumulationLegendService, AccumulationTooltipService
     MatToolbarModule,
     MatButtonModule,
     MatProgressBarModule,
-    AccumulationChartModule
+    AccumulationChartModule,
+    MatDialogModule,
+    NgxSliderModule, 
+    BrowserModule,
+    HttpClientModule,
+    MatSliderModule,
 
-  ],
+
+
+ ],
   providers: [PieSeriesService, AccumulationLegendService, AccumulationTooltipService, AccumulationDataLabelService,
     AccumulationAnnotationService],
   bootstrap: [AppComponent]
