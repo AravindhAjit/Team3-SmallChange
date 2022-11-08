@@ -7,6 +7,8 @@ import { PopupComponent } from 'src/app/organisms/popup/popup.component';
 import { PriceService } from 'src/app/service/price.service';
 import { Order } from 'src/app/models/order';
 import {v4 as uuidv4} from 'uuid';
+import { Trade } from 'src/app/models/trade';
+import { Price } from 'src/app/models/price';
 
 
 @Component({
@@ -15,7 +17,7 @@ import {v4 as uuidv4} from 'uuid';
   styleUrls: ['./trade-page.component.css']
 })
 
-export class TradePageComponent implements  AfterViewInit {
+export class TradePageComponent  {
 
   instruments:any;
 
@@ -32,10 +34,27 @@ export class TradePageComponent implements  AfterViewInit {
   tradePrice:number;
   selectedRowIndex:number
   instrumentPrices:any 
+
+  dataSource:any;
+  category: string = "";
+  showModal: boolean;
+  instrument: Price;
+  order: any;
+
+
   constructor(private dataService : MockDataService , private  dialogRef : MatDialog, private service:PriceService) {
 
-  this.getAllPrice()
    }
+
+   ngOnInit(): void {
+    this.fetch('')
+  }
+
+  fetch(category: string){
+    this.service.getInstruments(category).subscribe(data=>{
+      this.instruments = data;
+
+    });}
 
 
    showtrade(trade:any):void{
@@ -64,26 +83,7 @@ export class TradePageComponent implements  AfterViewInit {
     this.tradeAction = 'SELL'
    }
 
-   getAllPrice():void{
-    this.service.getAllPrices().subscribe(users => { this.instrumentPrices = users });
-    console.log(this.instrumentPrices);     
-  }
-
-  getPricesGOVT():void{
-    this.service.getPricesByCategory("GOVT").subscribe(users => { this.instrumentPrices = users });
-    console.log(this.instrumentPrices);     
-  }
-
-  getPricesSTOCK():void{
-    this.service.getPricesByCategory("STOCK").subscribe(users => { this.instrumentPrices = users });
-    console.log(this.instrumentPrices);     
-  }
-
-  getPricesCD():void{
-    this.service.getPricesByCategory("CD").subscribe(users => { this.instrumentPrices = users });
-    console.log(this.instrumentPrices);     
-  }
- 
+  
    placeOrder(trade:any,tradeAction:string,tradeQuantity:number):void{
     if(tradeQuantity>trade.instrument.maxQuantity || tradeQuantity<trade.instrument.minQuantity){
       alert("Enter quantity according to instrument");
@@ -99,9 +99,10 @@ export class TradePageComponent implements  AfterViewInit {
         tradeQuantity:tradeQuantity,
       }
     } );
-  
-    var order = new Order(trade.instrument.instrumentId,tradeQuantity,tradeQuantity*trade.bidPrice,tradeAction,"clientid",uuidv4());
-    console.log(order);
+    var tradevalue = tradeQuantity*trade.bidPrice;
+
+    var tradee = new Trade(trade.instrument.instrumentId,tradeQuantity,trade.bidPrice,tradeAction,1,uuidv4(),tradevalue,1); 
+    console.log(tradee);
     
     this.tradeselected = false;
     this.selectedTrade = null
@@ -122,10 +123,14 @@ export class TradePageComponent implements  AfterViewInit {
    highlight(row: number) {
     this.selectedRowIndex = row;
 }
-  @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  ngAfterViewInit() {
-  }
+displayModal(instrument: Price) {
+  this.dialogRef.open(PopupComponent,{
+    data:{
+      trade:instrument,
+    }
+  });
+}
 
 }
 

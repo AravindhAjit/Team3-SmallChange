@@ -1,4 +1,4 @@
-
+/* 
 
 tr:nth-child(even) td {
   background: #B9D989;
@@ -25,7 +25,6 @@ table{
   
   width: 100%;
   border-collapse: collapse;
-  /* background: white; */
 }
 
 tr {
@@ -120,4 +119,24 @@ th.mat-header-cell {
 
 .tradeactionfield{
   margin-top: 1em;
+} */
+
+
+/* copied */
+
+section{
+  padding: 30px 20px;
+}
+.opt{
+  background-color: #acd55e40;
+}
+
+:host ::ng-deep  .p-datatable.p-datatable-sm .p-datatable-thead th{
+  text-align: center;
+}
+#symbol{
+  color: slateblue;
+}
+#categorySelecter{
+  font-weight: 500;
 }

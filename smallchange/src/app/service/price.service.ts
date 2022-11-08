@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { InstrumentPrice } from '../models/instrumentprice';
+import { Price } from '../models/price';
 import { LoginFormComponent } from '../organisms/login-form/login-form.component';
 
 @Injectable({
@@ -11,20 +12,23 @@ export class PriceService {
 
   constructor(private http: HttpClient) { }
 
-  private instrumentUrl:string='http://localhost:3000/fmts/trades/prices/'
-
-  getAllPrices() :Observable<InstrumentPrice[]> {
-
-    // getting the insruments from the server and then populating the instrument id
-    return this.http.get<InstrumentPrice[]>(this.instrumentUrl);
+  baseUrl: string = "http://localhost:3000/fmts/trades/";
+  
+  
+  getInstruments(category: string): Observable<Price[]> {
+    return this.http.get<Price[]>( `${this.baseUrl}prices/${category}`)
   }
+  // getAllPrices() :Observable<InstrumentPrice[]> {
 
-  getPricesByCategory(category:String) :Observable<InstrumentPrice[]> {
+  //   return this.http.get<InstrumentPrice[]>(this.instrumentUrl);
+  // }
 
-    // getting the insruments from the server and then populating the instrument id
-      console.log(this.instrumentUrl+category);
+  // getPricesByCategory(category:String) :Observable<InstrumentPrice[]> {
+
+  //   // getting the insruments from the server and then populating the instrument id
+  //     console.log(this.instrumentUrl+category);
       
-    return this.http.get<InstrumentPrice[]>(this.instrumentUrl+category);
-  }
+  //   return this.http.get<InstrumentPrice[]>(this.instrumentUrl+category);
+  // }
  }
 
