@@ -3,15 +3,15 @@ import { Order } from "./order";
 export class Trade{
 
     constructor(
-        instrumentId: string,
-        quantity: number,
-        executionPrice: number,
-        direction: string,
-        clientId: string,
-        order: Order,
-        tradeId: string,
-        cashValue: number,
-        portfolioId:number
+        public instrumentId: string,
+        public quantity: number,
+        public executionPrice: number,
+        public direction: string,
+        public clientId: number,
+        // order: Order,
+        public tradeId: string,
+        public cashValue: number,
+        public portfolioId:number
     ){
 
     }

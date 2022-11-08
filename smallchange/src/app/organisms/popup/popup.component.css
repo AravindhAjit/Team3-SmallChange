@@ -1,0 +1,30 @@
+::ng-deep .mat-dialog-container {
+        color: black;
+    background-color: whitesmoke;
+}
+
+h2,h4{
+    color:green;
+}
+
+::ng-deep .mat-slider-horizontal .mat-slider-wrapper .mat-slider-thumb-container .mat-slider-thumb{
+    background-color: lightgreen;
+}
+
+::ng-deep .mat-slider-horizontal .mat-slider-ticks-container{
+    background-color: darkgreen;
+}
+
+::ng-deep .mat-slider.mat-slider-horizontal .mat-slider-wrapper {
+    top: 18px;
+    min-width: 200px;
+  }
+
+button{
+    margin: 1em 1em 1em 1em;    
+  }
+
+.butttonnnn{
+align-items: center;
+}
+

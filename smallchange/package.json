@@ -15,7 +15,7 @@
   "dependencies": {
     "@angular-material-extensions/input-counter": "^1.0.1",
     "@angular-slider/ngx-slider": "^2.0.4",
-    "@angular/animations": "~13.1.0",
+    "@angular/animations": "13.0.1",
     "@angular/cdk": "^13.3.9",
     "@angular/common": "~13.1.0",
     "@angular/compiler": "~13.1.0",
