@@ -1,1 +1,27 @@
-<h3>This page is used for client reports - will be developed later as mentioned in the documentation</h3>
+<app-nav-bar></app-nav-bar>
+<div style="text-align: center;"><h3>Trade history</h3></div>
+
+<table class="instrumenttable table table-striped ">
+    <thead>
+        <tr>
+            <th>Instrument</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Direction</th>
+            <th>CashValue</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let instrument of instruments" >
+
+            <td><div>{{instrument.instrument.instrumentId}}</div><div>{{instrument.instrument.instrumentDescription}}categoryId</div></td>
+            <td>{{instrument.askPrice}}</td>
+            <td>{{instrument.instrument.categoryId}}</td>
+            <td><button class="btn btn-success" >BUY</button></td>        
+            <td><button class="btn btn-success" >BUY</button></td>
+
+        </tr>
+
+
+    </tbody>
+</table>

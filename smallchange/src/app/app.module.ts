@@ -55,6 +55,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import {MatSliderModule} from '@angular/material/slider';
+import { ActivityPageComponent } from './pages/activity-page/activity-page.component';
 
 
 
@@ -92,6 +93,7 @@ import {MatSliderModule} from '@angular/material/slider';
     TradeHistoryComponent,
     RoboadvisorComponent,
     PopupComponent,
+    ActivityPageComponent
     
   ],
 
