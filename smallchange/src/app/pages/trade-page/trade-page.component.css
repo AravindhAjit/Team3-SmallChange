@@ -125,7 +125,9 @@ th.mat-header-cell {
 /* copied */
 
 section{
+  margin: 1em 0em 1em 0em;
   padding: 30px 20px;
+  font-size: large;
 }
 .opt{
   background-color: #acd55e40;
@@ -139,4 +141,23 @@ section{
 }
 #categorySelecter{
   font-weight: 500;
+}
+
+
+#iid{
+  /* color: #8DC63F; */
+  font-weight: bold;
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+  background-color: #CFE5AE;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #E5F1D4;
+}
+
+th{
+  color:GREEN;
+  font-size: larger;
 }
