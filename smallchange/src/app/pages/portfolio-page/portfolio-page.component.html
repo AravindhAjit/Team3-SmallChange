@@ -23,12 +23,17 @@
           
             </div> -->
 
+
             <div class="card" >
                 <img src="../../assets/user.png" alt="user image" style="width:50%; margin: auto;" >
                 <h2>{{client.name}}</h2>
                 <h3>Cash Balance</h3>
                 <p class="price">{{client.funds}}</p>
                 <p>Add Funds to make more trades</p>
+                <button class = "funds_button" mat-raised-button [routerLink]="['/' + 'stats']">
+                  View Stats
+              </button>
+              <br>
                 <p><button class = "funds_button" mat-raised-button (click) = "addFunds()" >
                     ADD FUNDS
                 </button></p>

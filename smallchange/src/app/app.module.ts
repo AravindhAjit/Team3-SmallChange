@@ -57,9 +57,9 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import {MatSliderModule} from '@angular/material/slider';
 import { ActivityPageComponent } from './pages/activity-page/activity-page.component';
 import { FundPopupComponent } from './organisms/fund-popup/fund-popup.component';
-
-
-
+import { HighchartsChartComponent, HighchartsChartModule } from 'highcharts-angular';
+import { NgApexchartsModule } from 'ng-apexcharts';
+import { StatsComponent } from './organisms/stats/stats.component';
 
 
 
@@ -95,7 +95,9 @@ import { FundPopupComponent } from './organisms/fund-popup/fund-popup.component'
     RoboadvisorComponent,
     PopupComponent,
     ActivityPageComponent,
-    FundPopupComponent
+    FundPopupComponent,
+    StatsComponent,
+    
     
   ],
 
@@ -126,9 +128,8 @@ import { FundPopupComponent } from './organisms/fund-popup/fund-popup.component'
     BrowserModule,
     HttpClientModule,
     MatSliderModule,
-
-
-
+    HighchartsChartModule,
+    NgApexchartsModule
  ],
   providers: [PieSeriesService, AccumulationLegendService, AccumulationTooltipService, AccumulationDataLabelService,
     AccumulationAnnotationService],

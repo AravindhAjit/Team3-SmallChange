@@ -12,6 +12,9 @@ import { PortfolioService } from 'src/app/service/portfolio.service';
 import { Trade } from 'src/app/models/trade';
 import { Logarithmic } from '@syncfusion/ej2-angular-charts';
 import { TradeHistory } from 'src/app/models/tradehistory';
+import { Portfolio } from '../../models/portfolio';
+import { Stock } from 'src/app/models/stock';
+
 // import { ThemeService } from 'ng2-charts';
 // import { ChartType, ChartOptions } from 'chart.js';
 //import { SingleDataSet, Label, monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip } from 'ng2-charts';
@@ -25,11 +28,14 @@ import { TradeHistory } from 'src/app/models/tradehistory';
 
 // }
 
+
 @Component({
   selector: 'app-portfolio-page',
   templateUrl: './portfolio-page.component.html',
   styleUrls: ['./portfolio-page.component.css']
 })
+  
+
 export class PortfolioPageComponent implements OnInit {
   // data : pieData[] = [
   //   {name : "stocks", value: 41.67, text: 41.67},
@@ -37,7 +43,6 @@ export class PortfolioPageComponent implements OnInit {
   //   {name : "mutual funds", value: 25, text: 25},
   // ]
   // displayedColumns: string[] = ['symbol', 'quantity', 'value'];
-  
   fund : Number;
   Portfoliodata : any;
   dataSource : any;
@@ -46,6 +51,9 @@ export class PortfolioPageComponent implements OnInit {
   govt:TradeHistory[]
   stock:TradeHistory[]
   cd:TradeHistory[]
+  value: Portfolio[];
+  total: any;
+
   constructor(private dataService : MockDataService, public dialog: MatDialog, private clientService:ClientService,private portfolioService:PortfolioService) { 
     }
   ngOnInit(): void {
@@ -75,6 +83,15 @@ this.portfolioService.getAllTradesGOVT(this.client)
 
 
   }
+//   findsum(response: Portfolio[]) {
+//     this.value= response;  
+//     console.log(this.value[0]);  
+//     for(let j=0;j<response.length;j++){   
+//          //this.total+= this.value[j].cash_value; 
+//          console.log(this.total)  
+//   }
+// }
+
   addFunds(){
     const dialogConfig = new MatDialogConfig;
     dialogConfig.width = "60%";

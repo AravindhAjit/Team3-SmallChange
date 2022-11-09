@@ -11,6 +11,7 @@ import { RegPageComponent } from './pages/reg-page/reg-page.component'
 import { AuthGuard } from './auth/auth.guard';
 import { RoboadvisorComponent } from './pages/roboadvisor/roboadvisor.component';
 import { TradeHistoryComponent } from './organisms/trade-history/trade-history.component';
+import { StatsComponent } from './organisms/stats/stats.component';
 
 const routes: Routes = [
 
@@ -22,6 +23,10 @@ const routes: Routes = [
   { path: 'trade', component: TradePageComponent, canActivate:[AuthGuard] },
   { path: 'roboAdvisor', component: RoboadvisorComponent, canActivate:[AuthGuard] },
   { path: 'tradehistory', component:TradeHistoryComponent, canActivate:[AuthGuard] },
+  { path: 'reg', component:RegPageComponent },
+  { path: 'stats', component:StatsComponent },
+  
+
   { path: 'signup', component:RegPageComponent },
 
 ];
