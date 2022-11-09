@@ -15,9 +15,18 @@ export class ClientService {
     this.url = 'http://localhost:8080/smallchange/';
   }
 
-  getAllClients():Observable<Client[]>{
-    return this.http.get<Client[]>(this.url+'clients');
+  client:Client
 
+  getCurrentClient():Client{
+    return this.client;
+  }
+
+  setCurrentClient(client:Client):void{
+    this.client=client;
+  }
+
+  getAllClients(): Observable<Client[]> {
+    return this.http.get<Client[]>(this.url+"clients")
   }
 
 
@@ -30,13 +39,13 @@ export class ClientService {
       client, { headers: headers }));  
   }
 
-  getClient(client: Login): Observable<any> {
+  getClient(client: Login): Observable<Client> {
     console.log(client);
     
     const headers = new HttpHeaders({
       'Content-type': 'application/json'
     });
-    return of(this.http.post<Client>(this.url+"getClient",
+    return (this.http.post<Client>(this.url+"getClient",
       client, { headers: headers }));  
   }
 }

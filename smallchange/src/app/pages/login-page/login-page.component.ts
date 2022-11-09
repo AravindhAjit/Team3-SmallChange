@@ -29,13 +29,8 @@ export class LoginPageComponent implements OnInit {
     // console.log(client);
     // console.log(this.service.authClient(client).subscribe(data=>this.clientAuth=data));
     // console.log(this.client.email+" "+this.client.password);
-    // this.service.getClient(login).subscribe(data=>this.client=data);
-    console.log(this.client.clientId);
-    
-    // this.service.getAllClients().subscribe(data => {
-    //   this.clients= data;
-    // });    
-    console.log(this.clients);
+    this.service.getClient(login).subscribe(data=>this.client=data);
+    this.service.setCurrentClient(this.client);
 
     this.router.navigateByUrl('portfolio')
     
