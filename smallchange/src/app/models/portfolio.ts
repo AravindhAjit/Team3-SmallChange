@@ -22,9 +22,10 @@ export class Portfolio{
             //         value : number
             //         }
             //      ],
-            portfolioId:number,
-            portfolioName:string,
-            clientId:number,
+            ins_name: string,
+            quantity: number,
+            ins_price: number,
+            cash_value : number
             
     ){}
 }

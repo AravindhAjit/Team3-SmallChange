@@ -56,6 +56,7 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import {MatSliderModule} from '@angular/material/slider';
 import { ActivityPageComponent } from './pages/activity-page/activity-page.component';
+import { FundPopupComponent } from './organisms/fund-popup/fund-popup.component';
 
 
 
@@ -93,7 +94,8 @@ import { ActivityPageComponent } from './pages/activity-page/activity-page.compo
     TradeHistoryComponent,
     RoboadvisorComponent,
     PopupComponent,
-    ActivityPageComponent
+    ActivityPageComponent,
+    FundPopupComponent
     
   ],
 
