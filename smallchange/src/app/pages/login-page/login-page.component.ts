@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Client } from 'src/app/models/client';
+import { Login } from 'src/app/models/login';
 import { ClientService } from 'src/app/service/client.service';
 
 @Component({
@@ -13,21 +15,27 @@ export class LoginPageComponent implements OnInit {
   password:string;
   res:number[];
   clients: Client[];
-  constructor(private service:ClientService){}
+  clientAuth:number;
+  client:Client;
+
+  constructor(private service:ClientService,private router:Router){}
   ngOnInit(): void {
   }
 
   login():void{
     console.log("login");
     var client = new Client(3,'','',this.email,new Date(),'',this.password,0);
+    var login = new Login(this.email,this.password)
     // console.log(client);
-    console.log(this.service.authClient(client));
+    // console.log(this.service.authClient(client).subscribe(data=>this.clientAuth=data));
+    // console.log(this.client.email+" "+this.client.password);
+    this.service.getClient(login).subscribe(data=>this.client=data);
+    this.service.setCurrentClient(this.client);
 
+    this.router.navigateByUrl('portfolio')
     
-    // this.service.getAllClients().subscribe(data => {
-    //   this.clients= data;
-    // });    
-    console.log(this.clients);
+    
+    
     
   }
 

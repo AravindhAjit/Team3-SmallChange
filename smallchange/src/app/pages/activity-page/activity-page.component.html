@@ -3,6 +3,7 @@
 <table class="instrumenttable table table-striped ">
     <thead>
         <tr>
+            <th>Trade Id</th>
             <th>Instrument</th>
             <th>Quantity</th>
             <th>Price</th>
@@ -13,11 +14,12 @@
     <tbody>
         <tr *ngFor="let instrument of instruments" >
 
-            <td><div>{{instrument.instrument.instrumentId}}</div><div>{{instrument.instrument.instrumentDescription}}categoryId</div></td>
-            <td>{{instrument.askPrice}}</td>
-            <td>{{instrument.instrument.categoryId}}</td>
-            <td><button class="btn btn-success" >BUY</button></td>        
-            <td><button class="btn btn-success" >BUY</button></td>
+    <td>{{instrument.tradeId}}</td>
+     <td>{{instrument.instrumentDescription}}</td>
+     <td>{{instrument.quantity}}</td>
+     <td>{{instrument.executionPrice}}</td>
+     <td>{{instrument.direction}}</td>
+     <td>{{instrument.cashValue}}</td>
 
         </tr>
 
