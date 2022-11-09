@@ -879,30 +879,30 @@ export class MockDataService {
   //   {},
   // ];
 
-  portfolio: Portfolio[]=[
-    {
-      Portfolio1: [
-       {ins_name: 'NASDAQ',quantity: 64, ins_price: 845.17,cash_value : 54090.88},
-       {ins_name: 'ABNB',quantity: 64, ins_price: 120,cash_value : 7680 },
-       {ins_name: 'ACR',quantity: 75,ins_price: 456.21,cash_value : 34215.75},
-       {ins_name: 'NYSE',quantity: 45,ins_price: 231,cash_value : 10395},
-       {ins_name: 'AAPL',quantity: 23,ins_price: 761.99,cash_value : 17525.77},
-       {ins_name: 'IRS',quantity: 190,ins_price: 750,cash_value : 142500}
-       ],
-       Portfolio2: [
-        {ins_name: 'NASDAQ',quantity: 64,ins_price: 845.17,cash_value : 54090.88},
-        {ins_name: 'ABNB',quantity: 64,ins_price: 120,cash_value : 7680},
-        {ins_name: 'AAPL',quantity: 23,ins_price: 761.99,cash_value : 17525.77},
-        {ins_name: 'IRS',quantity: 190,ins_price: 750,cash_value : 142500}
-        ],
-        Portfolio3: [
-          {ins_name: 'NYSE',quantity: 45,ins_price: 231,cash_value : 10395},
-          {ins_name: 'AAPL',quantity: 23,ins_price: 761.99,cash_value : 17525.77},
-          {ins_name: 'IRS',quantity: 190,ins_price: 750,cash_value : 142500}
-          ]
-     }
+  // portfolio: Portfolio[]=[
+  //   {
+  //     Portfolio1: [
+  //      {ins_name: 'NASDAQ',quantity: 64, ins_price: 845.17,cash_value : 54090.88},
+  //      {ins_name: 'ABNB',quantity: 64, ins_price: 120,cash_value : 7680 },
+  //      {ins_name: 'ACR',quantity: 75,ins_price: 456.21,cash_value : 34215.75},
+  //      {ins_name: 'NYSE',quantity: 45,ins_price: 231,cash_value : 10395},
+  //      {ins_name: 'AAPL',quantity: 23,ins_price: 761.99,cash_value : 17525.77},
+  //      {ins_name: 'IRS',quantity: 190,ins_price: 750,cash_value : 142500}
+  //      ],
+  //      Portfolio2: [
+  //       {ins_name: 'NASDAQ',quantity: 64,ins_price: 845.17,cash_value : 54090.88},
+  //       {ins_name: 'ABNB',quantity: 64,ins_price: 120,cash_value : 7680},
+  //       {ins_name: 'AAPL',quantity: 23,ins_price: 761.99,cash_value : 17525.77},
+  //       {ins_name: 'IRS',quantity: 190,ins_price: 750,cash_value : 142500}
+  //       ],
+  //       Portfolio3: [
+  //         {ins_name: 'NYSE',quantity: 45,ins_price: 231,cash_value : 10395},
+  //         {ins_name: 'AAPL',quantity: 23,ins_price: 761.99,cash_value : 17525.77},
+  //         {ins_name: 'IRS',quantity: 190,ins_price: 750,cash_value : 142500}
+  //         ]
+  //    }
 
-   ]
+  //  ]
 
   constructor(){}
 
@@ -919,8 +919,8 @@ export class MockDataService {
     return of(this.orders);
   }
 
-  getPortfolio(): Observable<Portfolio[]> {
-    return of(this.portfolio);
-  }
+  // getPortfolio(): Observable<Portfolio[]> {
+  //   return of(this.portfolio);
+  // }
 
 }

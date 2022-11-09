@@ -7,6 +7,11 @@ import { PriceService } from 'src/app/service/price.service';
 import {v4 as uuidv4} from 'uuid';
 import { Trade } from 'src/app/models/trade';
 import { Price } from 'src/app/models/price';
+import { ClientService } from 'src/app/service/client.service';
+import { Client } from 'src/app/models/client';
+import { PortfolioService } from 'src/app/service/portfolio.service';
+import { Portfolio } from 'src/app/models/portfolio';
+import { TradeService } from 'src/app/service/trade.service';
 
 
 @Component({
@@ -38,13 +43,16 @@ export class TradePageComponent  {
   instrument: Price;
   order: any;
 
+  client:Client;
+  portfolios:Portfolio[];
 
-  constructor(private dataService : MockDataService , private  dialogRef : MatDialog, private service:PriceService) {
+  constructor(private dataService : MockDataService , private  dialogRef : MatDialog, private service:PriceService,private clientService:ClientService,private tradeService:TradeService) {
 
    }
 
    ngOnInit(): void {
     this.fetch('')
+    this.client = this.clientService.getCurrentClient();
   }
 
   fetch(category: string){
@@ -65,21 +73,6 @@ export class TradePageComponent  {
     
    }
 
-   buyTrade(trade:NewInstrument):void{
-    console.log("tradebuy");
-    console.log(trade);
-    this.tradeActionselected = true;
-    this.tradeAction = 'BUY'
-    
-    
-   }
-
-   sellTrade(trade:NewInstrument):void{
-    console.log("tradesell");
-    console.log(trade);
-    this.tradeActionselected = true;
-    this.tradeAction = 'SELL'
-   }
 
   
    placeOrder(trade:any,tradeAction:string,tradeQuantity:number):void{
@@ -99,8 +92,8 @@ export class TradePageComponent  {
     } );
     var tradevalue = tradeQuantity*trade.bidPrice;
 
-    var tradee = new Trade(trade.instrument.instrumentId,tradeQuantity,trade.bidPrice,tradeAction,1,uuidv4(),tradevalue,1); 
-    console.log(tradee);
+    // var tradee = new Trade(trade.instrument.instrumentId,tradeQuantity,trade.bidPrice,tradeAction,this.client.clientId,trade.instrument.categoryId,uuidv4(),tradevalue,100); 
+    // console.log(tradee);
     
     this.tradeselected = false;
     this.selectedTrade = null
@@ -110,17 +103,7 @@ export class TradePageComponent  {
   }
    }
 
-   closeInstrument():void{
-    this.tradeselected = false;
-    this.selectedTrade = null
-    this.tradeAction = ""
-    this.tradeQuantity = 1
-    this.tradeActionselected = false;
-   }
 
-   highlight(row: number) {
-    this.selectedRowIndex = row;
-}
 
 displayModal(instrument: Price) {
   this.dialogRef.open(PopupComponent,{

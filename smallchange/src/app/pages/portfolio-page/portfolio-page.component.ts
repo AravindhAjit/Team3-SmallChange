@@ -6,6 +6,12 @@ import { Observable } from 'rxjs';
 import { MatDialog,MatDialogConfig } from  '@angular/material/dialog';
 import { PopupComponent } from 'src/app/organisms/popup/popup.component';
 import { FundPopupComponent } from 'src/app/organisms/fund-popup/fund-popup.component';
+import { ClientService } from 'src/app/service/client.service';
+import { Client } from 'src/app/models/client';
+import { PortfolioService } from 'src/app/service/portfolio.service';
+import { Trade } from 'src/app/models/trade';
+import { Logarithmic } from '@syncfusion/ej2-angular-charts';
+import { TradeHistory } from 'src/app/models/tradehistory';
 // import { ThemeService } from 'ng2-charts';
 // import { ChartType, ChartOptions } from 'chart.js';
 //import { SingleDataSet, Label, monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip } from 'ng2-charts';
@@ -35,23 +41,38 @@ export class PortfolioPageComponent implements OnInit {
   fund : Number;
   Portfoliodata : any;
   dataSource : any;
-  constructor(private dataService : MockDataService, public dialog: MatDialog) { 
+  client:Client
+
+  govt:TradeHistory[]
+  stock:TradeHistory[]
+  cd:TradeHistory[]
+  constructor(private dataService : MockDataService, public dialog: MatDialog, private clientService:ClientService,private portfolioService:PortfolioService) { 
     }
   ngOnInit(): void {
-    this.dataService.getPortfolio().subscribe(response => {
-      this.Portfoliodata = response;
-      // this.dataSource = new MatTableDataSource(this.Portfoliodata);
-   
-  });
+      this.client = this.clientService.getCurrentClient();
 
-  // openDialog(): void {
-  //   let dialogRef = this.dialog.open(FundPopupComponent, {
-  //     width: '250px', 
-  //     data: {fund: this.fund } 
-  //   });
-  //   dialogRef.afterClosed().subscribe((result: any) => {
-  //     this.fund = result;
-  //   });
+
+this.portfolioService.getAllTradesGOVT(this.client)
+.subscribe((users) => {
+        this.govt = users
+        console.log(this.govt);
+    });
+
+    this.portfolioService.getAllTradesSTOCK(this.client)
+.subscribe((users) => {
+        this.stock = users
+        console.log(this.stock);
+    });
+
+    this.portfolioService.getAllTradesCD(this.client)
+.subscribe((users) => {
+        this.cd = users
+        console.log(this.cd);
+    });
+    
+  console.log(this.govt);
+  
+
 
   }
   addFunds(){

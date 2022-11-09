@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'trade', component: TradePageComponent, canActivate:[AuthGuard] },
   { path: 'roboAdvisor', component: RoboadvisorComponent, canActivate:[AuthGuard] },
   { path: 'tradehistory', component:TradeHistoryComponent, canActivate:[AuthGuard] },
-  { path: 'reg', component:RegPageComponent },
+  { path: 'signup', component:RegPageComponent },
 
 ];
 

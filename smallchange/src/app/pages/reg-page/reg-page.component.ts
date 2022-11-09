@@ -1,8 +1,10 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { lowerFirst } from 'cypress/types/lodash';
 import { Client } from 'src/app/models/client';
 import { ClientIdentification } from 'src/app/models/clientIdentification';
 import { LoginFormComponent } from 'src/app/organisms/login-form/login-form.component';
+import { ClientService } from 'src/app/service/client.service';
 
 @Component({
   selector: 'app-reg-page',
@@ -23,22 +25,13 @@ export class RegPageComponent implements OnInit {
   identificationvalue:string;
   country:string;
 
-
-  public data: any = {
-    emailAdd : "",
-    password : "",
-    country : "",
-    familyName : "",
-    personalName : "",
-    dob : "",
-    ira : ""
-  };
+  regClient:Client;
 
   onClick(){
     console.log("CLICK");
   }
 
-  constructor() { }
+  constructor(private clientservice:ClientService,private router:Router) { }
 
   ngOnInit(): void {
 
@@ -77,11 +70,28 @@ export class RegPageComponent implements OnInit {
 
   registerUser():void{
 
-  //  var user = new Client(1,this.email,this.dob,this.fname,this.lname,0,new ClientIdentification(this.identificationtype,this.identificationvalue));
-  //   console.log(user);
-      console.log(this.identificationtype);
-      console.log(this.identificationvalue);
+    if(this.password!=this.repassword){
+      alert("Incorrect confirm password")
+    }
+    var user = new Client(this.clientservice.getLastClientId()+1,this.fname,this.lname,this.email,this.dob,this.country,this.password,0);
+    this.clientservice.setLastClientId(user.clientId)
+    console.log("Created client obj");
+    console.log(user);
     
+      // console.log(this.identificationtype);
+      // console.log(this.identificationvalue);
+      console.log("calling service");
+      
+      this.clientservice.addClient(user).subscribe(data=>this.regClient=data);
+      console.log("registered");
+      console.log(this.regClient);
+      
+      setTimeout(() => {
+        this.router.navigateByUrl('login');
+      }, (2000));
+      
+      
   }
+
 
 }

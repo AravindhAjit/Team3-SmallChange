@@ -118,7 +118,7 @@
     <tbody>
         <tr *ngFor="let instrument of instruments" (click)="showtrade(instrument)">
 
-            <td><div id="iid">{{instrument.instrument.instrumentId}}</div><div>{{instrument.instrument.instrumentDescription}}categoryId</div></td>
+            <td><div id="iid">{{instrument.instrument.instrumentId}}</div><div>{{instrument.instrument.instrumentDescription}}</div></td>
             <td>{{instrument.askPrice}}</td>
             <td>{{instrument.instrument.categoryId}}</td>
             <td><button class="btn btn-success" (click)="displayModal(instrument)">BUY</button></td>

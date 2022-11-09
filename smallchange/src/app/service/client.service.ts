@@ -16,13 +16,28 @@ export class ClientService {
   }
 
   client:Client
+  lastClientid=4
 
+  getLastClientId(){
+    return this.lastClientid
+  }
+
+  setLastClientId(id:number){
+    this.lastClientid=id;
+  }
   getCurrentClient():Client{
     return this.client;
   }
 
+  getCurrentClientFunds():number{
+    return this.client.funds;
+  }
   setCurrentClient(client:Client):void{
     this.client=client;
+  }
+
+  setCurrentClientFunds(funds:number):void{
+    this.client.funds+=funds;
   }
 
   getAllClients(): Observable<Client[]> {
@@ -46,6 +61,37 @@ export class ClientService {
       'Content-type': 'application/json'
     });
     return (this.http.post<Client>(this.url+"getClient",
+      client, { headers: headers }));  
+  }
+
+  addFunds(client: Client):Observable<any>{
+        
+    const headers = new HttpHeaders({
+      'Content-type': 'application/json'
+    });
+    return (this.http.post<Client>(this.url+"funds",
+      client, { headers: headers }));  
+  }
+
+  checkEmail(client:Client):number{
+     
+    var auth=0;
+    const headers = new HttpHeaders({
+      'Content-type': 'application/json'
+    });
+     (this.http.post<number>(this.url+"check",
+      client, { headers: headers })).subscribe(data=>auth=data);
+      console.log("auth "+auth);
+      
+      return 111;
+  }
+
+  addClient(client:Client):Observable<Client>{
+        
+    const headers = new HttpHeaders({
+      'Content-type': 'application/json'
+    });
+    return (this.http.post<Client>(this.url+"addclient",
       client, { headers: headers }));  
   }
 }
