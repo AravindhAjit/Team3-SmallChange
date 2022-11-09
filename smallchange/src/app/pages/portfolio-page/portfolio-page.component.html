@@ -23,6 +23,7 @@
           
             </div> -->
 
+
             <div class="card" >
                 <img src="../../assets/user.png" alt="user image" style="width:50%; margin: auto;" >
                 <h1>User Info</h1>
@@ -30,6 +31,10 @@
                 <h3>Cash Balance</h3>
                 <p class="price">$19.99</p>
                 <p>Add Funds to make more trades</p>
+                <button class = "funds_button" mat-raised-button [routerLink]="['/' + 'stats']">
+                  View Stats
+              </button>
+              <br>
                 <p><button class = "funds_button" mat-raised-button (click) = "addFunds()" >
                     ADD FUNDS
                 </button></p>
@@ -40,7 +45,7 @@
 <table class="instrumenttable table table-striped ">
     <thead>
         <tr>
-          <th colspan="4">Portfolio 1</th>
+          <th colspan="5">Stocks</th>
         </tr>
         <tr>
             <th>Instrument Name</th>
@@ -51,7 +56,7 @@
         </tr>
     </thead>
     <tbody *ngFor="let data of Portfoliodata">
-        <tr *ngFor="let p1 of data.Portfolio1" >
+        <tr *ngFor="let p1 of data.Stock" >
             <td>{{p1.ins_name}}</td>
             <td>{{p1.quantity}}</td>
             <td>{{p1.ins_price}}</td>
@@ -68,7 +73,7 @@
 <table class="instrumenttable table table-striped ">
   <thead>
       <tr>
-        <th colspan="4">Portfolio 2</th>
+        <th colspan="5">Government</th>
       </tr>
       <tr>
           <th>Instrument Name</th>
@@ -79,7 +84,7 @@
       </tr>
   </thead>
   <tbody *ngFor="let data of Portfoliodata">
-      <tr *ngFor="let p1 of data.Portfolio2" >
+      <tr *ngFor="let p1 of data.Govt" >
           <td>{{p1.ins_name}}</td>
           <td>{{p1.quantity}}</td>
           <td>{{p1.ins_price}}</td>
@@ -96,7 +101,7 @@
 <table class="instrumenttable table table-striped ">
   <thead>
       <tr>
-        <th colspan="4">Portfolio 3</th>
+        <th colspan="5">CD</th>
       </tr>
       <tr>
           <th>Instrument Name</th>
@@ -108,7 +113,7 @@
       </tr>
   </thead>
   <tbody *ngFor="let data of Portfoliodata">
-      <tr *ngFor="let p1 of data.Portfolio3" >
+      <tr *ngFor="let p1 of data.CD" >
           <td>{{p1.ins_name}}</td>
           <td>{{p1.quantity}}</td>
           <td>{{p1.ins_price}}</td>
