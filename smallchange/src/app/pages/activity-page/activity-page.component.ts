@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { TradeHistory } from 'src/app/models/tradehistory';
+import { AcivityService } from 'src/app/service/acivity.service';
 import { MockDataService } from 'src/app/service/mock-data.service';
 import { PriceService } from 'src/app/service/price.service';
 
@@ -11,7 +13,7 @@ import { PriceService } from 'src/app/service/price.service';
 export class ActivityPageComponent implements OnInit {
   instruments:any;
 
-  constructor(private dataService : MockDataService , private  dialogRef : MatDialog, private service:PriceService) {
+  constructor(private dataService : MockDataService , private  dialogRef : MatDialog, private service:AcivityService) {
 
   }
 
@@ -19,7 +21,7 @@ export class ActivityPageComponent implements OnInit {
    this.fetch('')
  }
  fetch(category: string){
-   this.service.getInstruments(category).subscribe(data=>{
+   this.service.getTradeHistory(category).subscribe(data=>{
      this.instruments = data;
 
    });}

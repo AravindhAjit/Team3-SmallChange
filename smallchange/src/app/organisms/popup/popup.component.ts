@@ -15,9 +15,12 @@ export class PopupComponent implements OnInit {
   tradeQuantity:number
   tradePrice:number
   portfolioId:number
+  currentportfolio:number
+  portfolios = [1,2,3,4]
 
   constructor(@Inject(MAT_DIALOG_DATA) public data:any) {
     this.trade = data.trade
+    this.tradeQuantity = this.trade.instrument.minQuantity
   }
   ngOnInit(): void {
   }
