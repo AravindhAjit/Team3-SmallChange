@@ -33,6 +33,7 @@ export class PopupComponent implements OnInit {
     console.log("selected trade"+this.trade);
     
     this.tradeQuantity = this.trade.instrument.minQuantity
+    this.tradePrice = this.tradeQuantity*this.trade.askPrice
     this.client = this.clientService.getCurrentClient();
   }
   ngOnInit(): void {
@@ -58,7 +59,7 @@ export class PopupComponent implements OnInit {
     this.tradeService.executeTrade(tradee).subscribe(data=>this.executedTrade=data);
     alert("Order placed succesfully with id "+tradee.tradeId)
     this.client.funds-=cashvalue
-    this.clientService.addFunds(this.client).subscribe((data)=>{console.log(data);
+    this.clientService.updatefunds(this.client).subscribe((data)=>{console.log(data);
     });
     this.client=this.clientService.getCurrentClient();
     
@@ -66,7 +67,7 @@ export class PopupComponent implements OnInit {
     var th = new TradeHistory(tradee.instrumentId,tradee.quantity,tradee.executionPrice,tradee.direction,tradee.tradeId,tradee.cashValue,tradee.clientId,this.trade.instrument.instrumentDescription,tradee.categoryid);
     console.log("trade history");
     console.log(th);
-    this.acivityService.addTradeHistory(th).subscribe(data=>this.recentTradeHistory=data);
+    // this.acivityService.addTradeHistory(th).subscribe(data=>this.recentTradeHistory=data);
       }
           
   }}

@@ -67,7 +67,7 @@ export class ClientService {
       client, { headers: headers }));  
   }
 
-  addFunds(client: Client):Observable<any>{
+  updatefunds(client: Client):Observable<any>{
         
     const headers = new HttpHeaders({
       'Content-type': 'application/json'

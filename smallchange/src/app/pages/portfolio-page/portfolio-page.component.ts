@@ -108,6 +108,8 @@ this.portfolioService.getAllTradesGOVT(this.client)
         trade:p1,
       }
   });
+
+ 
     // this.dialogRef.open(PopupComponent,
 
 }

@@ -27,7 +27,7 @@ add(){
   
   // this.clientService.setCurrentClientFunds(this.client.funds);
   // this.client=this.clientService.getCurrentClient();
-  this.clientService.addFunds(this.client).subscribe((data)=>{console.log(data);
+  this.clientService.updatefunds(this.client).subscribe((data)=>{console.log(data);
   });
   this.client=this.clientService.getCurrentClient();
 

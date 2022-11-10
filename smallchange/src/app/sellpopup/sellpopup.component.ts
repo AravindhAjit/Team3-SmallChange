@@ -7,6 +7,7 @@ import { AcivityService } from '../service/acivity.service';
 import { ClientService } from '../service/client.service';
 import { TradeService } from '../service/trade.service';
 import {v4 as uuidv4} from 'uuid';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sellpopup',
@@ -21,19 +22,26 @@ export class SellpopupComponent implements OnInit {
   tradeCashvalue:number
   executedTrade:Trade
   recentTradeHistory: TradeHistory;
-  constructor(@Inject(MAT_DIALOG_DATA) public data:any,private clientService:ClientService,private tradeService:TradeService,private acivityService:AcivityService) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data:any,private router:Router,private clientService:ClientService,private tradeService:TradeService,private acivityService:AcivityService) {
 
     this.trade = data.trade
+
+    
     this.tradeQuantity = this.trade.quantity
-    this.tradeCashvalue = this.trade.executionPrice;
-    console.log("selected trade"+this.trade);
+    this.tradeCashvalue = this.trade.executionPrice*this.tradeQuantity;
+    console.log("entered modal");
+    console.log(this.trade);
+    
     this.client = this.clientService.getCurrentClient();
 
   }
   ngOnInit(): void {
   }
 
+
   sell(){
+    // console.log("entered modal");
+    // console.log(this.trade);
     if(this.tradeQuantity>this.trade.quantity)
     {
       alert("Cannot sell more than you own")
@@ -43,11 +51,14 @@ export class SellpopupComponent implements OnInit {
     }
     else{
 
-      var tradee = new Trade(this.trade.instrument.instrumentId,this.tradeQuantity-this.tradeQuantity,this.trade.executionPrice,'S',this.trade.cashValue-this.tradeCashvalue,100,this.client.clientId,uuidv4(),this.trade.categoryId,this.trade.instrumentDescription);
+      console.log(this.trade);
+      console.log("tradeee");
+      
+      var tradee = new Trade(this.trade.instrumentId,this.tradeQuantity,this.trade.executionPrice,'S',this.tradeCashvalue,100,this.client.clientId,uuidv4(),this.trade.categoryid,this.trade.instrumentdescription);
       console.log(tradee);
       
       this.client.funds += this.tradeCashvalue
-      this.clientService.addFunds(this.client).subscribe((data)=>{console.log(data)});
+      this.clientService.updatefunds(this.client).subscribe((data)=>{console.log(data)});
       this.client=this.clientService.getCurrentClient();
 
       if(this.tradeQuantity==this.trade.quantity)
@@ -58,17 +69,19 @@ export class SellpopupComponent implements OnInit {
       }
       else{
         //modify record in portfolio with lesser price,cashvalue based on trade instrument id equal value
-        this.tradeService.executeTrade(tradee).subscribe(data=>this.executedTrade=data);
-
+        this.tradeService.updateTradesubract(tradee).subscribe(data=>this.executedTrade=data);
+        this.tradeService.updateTradesubract(tradee);
       }
  
 
-    var th = new TradeHistory(tradee.instrumentId,this.tradeQuantity,this.trade.executionPrice,'S',tradee.tradeId,this.tradeCashvalue,this.client.clientId,this.trade.instrumentDescription,this.trade.categoryid)
+    var th = new TradeHistory(tradee.instrumentId,this.tradeQuantity,this.trade.executionPrice,'S',tradee.tradeId,this.tradeCashvalue,this.client.clientId,this.trade.instrumentdescription,this.trade.categoryid)
     console.log(th);
     alert("Trade sell succesful with id"+tradee.tradeId)
 
     this.acivityService.addTradeHistory(th).subscribe(data=>this.recentTradeHistory=data);
-
+    setTimeout(() => {
+      this.router.navigateByUrl('portfolio');
+    }, (2000));
     }
     
   }
