@@ -10,7 +10,8 @@ export class TradeHistory{
         public   tradeId:string,
         public   cashValue:number,
         public   clientId:number,
-        public  instrumentDescription:string
+        public  instrumentDescription:string,
+        public categoryid:String
     ){}
 }
 

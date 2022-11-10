@@ -21,7 +21,7 @@ export class ActivityPageComponent implements OnInit {
    this.fetch('')
  }
  fetch(category: string){
-   this.service.getTradeHistory(category).subscribe(data=>{
+   this.service.getTradeHistory().subscribe(data=>{
      this.instruments = data;
 
    });}

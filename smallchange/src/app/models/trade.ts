@@ -7,11 +7,13 @@ export class Trade{
         public quantity: number,
         public executionPrice: number,
         public direction: string,
-        public clientId: number,
-        // order: Order,
-        public tradeId: string,
         public cashValue: number,
-        public portfolioId:number
+        public portfolioId:number,
+        public clientId: number,
+        public tradeId: string,
+        public categoryid: String,
+        public instrumentdescription:string
+
     ){
 
     }

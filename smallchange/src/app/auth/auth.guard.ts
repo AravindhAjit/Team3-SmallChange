@@ -12,7 +12,7 @@ export class AuthGuard implements CanActivate {
   
   canActivate( next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
 
-    console.log('CanActivate called');
+    // console.log('CanActivate called');
 
     let isAuthenticated = this.authService.isAuthenticated();
 

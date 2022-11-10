@@ -1,6 +1,13 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Client } from 'src/app/models/client';
+import { Portfolio } from 'src/app/models/portfolio';
 import { Trade } from 'src/app/models/trade';
+import { TradeHistory } from 'src/app/models/tradehistory';
+import { AcivityService } from 'src/app/service/acivity.service';
+import { ClientService } from 'src/app/service/client.service';
+import { PortfolioService } from 'src/app/service/portfolio.service';
+import { TradeService } from 'src/app/service/trade.service';
 import {v4 as uuidv4} from 'uuid';
 
 @Component({
@@ -16,31 +23,52 @@ export class PopupComponent implements OnInit {
   tradePrice:number
   portfolioId:number
   currentportfolio:number
-  portfolios = [1,2,3,4]
-
-  constructor(@Inject(MAT_DIALOG_DATA) public data:any) {
+  portfolios : Portfolio[];
+  client:Client;
+  executedTrade:Trade
+  recentTradeHistory:TradeHistory
+  
+  constructor(@Inject(MAT_DIALOG_DATA) public data:any,private clientService:ClientService,private tradeService:TradeService,private acivityService:AcivityService) {
     this.trade = data.trade
+    console.log("selected trade"+this.trade);
+    
     this.tradeQuantity = this.trade.instrument.minQuantity
+    this.client = this.clientService.getCurrentClient();
   }
   ngOnInit(): void {
   }
   
  
-  placeOrderBUY(trade:any,tradeQuantity:number,tradePrice:number,portfolioId:number):void{
-    if(tradeQuantity>trade.instrument.maxQuantity || tradeQuantity<trade.instrument.minQuantity){
+  placeOrderBUY(selectedtrade:any,tradeQuantity:number,portfolioId:number):void{
+    if(tradeQuantity>selectedtrade.instrument.maxQuantity || tradeQuantity<selectedtrade.instrument.minQuantity){
       alert("Enter quantity according to instrument");
     }
     else{
-    console.log(trade);
-    console.log( "BUY " + tradeQuantity);
-    console.log(tradePrice);
-
-
-    var tradee = new Trade(trade.instrument.instrumentId,tradeQuantity,trade.bidPrice,"B",1,uuidv4(),tradePrice,portfolioId); 
-    console.log(tradee);
-    alert("Order placed succesfully with id "+tradee.tradeId)
+      if((this.trade.askPrice*tradeQuantity)>this.client.funds){
+        alert("No sufficient funds");
+      }
+      else{
+    // console.log(tradeQuantity);
+        console.log("popup");
+        
+    var cashvalue = this.trade.askPrice*tradeQuantity
+    var tradee=new Trade(this.trade.instrument.instrumentId,this.tradeQuantity,this.trade.askPrice,'B',cashvalue,100,this.client.clientId,uuidv4(),this.trade.instrument.categoryId,this.trade.instrument.instrumentDescription)
     
-      
+    console.log(tradee);
+    this.tradeService.executeTrade(tradee).subscribe(data=>this.executedTrade=data);
+    alert("Order placed succesfully with id "+tradee.tradeId)
+    this.client.funds-=cashvalue
+    this.clientService.addFunds(this.client).subscribe((data)=>{console.log(data);
+    });
+    this.client=this.clientService.getCurrentClient();
+    
+
+    var th = new TradeHistory(tradee.instrumentId,tradee.quantity,tradee.executionPrice,tradee.direction,tradee.tradeId,tradee.cashValue,tradee.clientId,this.trade.instrument.instrumentDescription,tradee.categoryid);
+    console.log("trade history");
+    console.log(th);
+    this.acivityService.addTradeHistory(th).subscribe(data=>this.recentTradeHistory=data);
+      }
+          
   }}
 
 }

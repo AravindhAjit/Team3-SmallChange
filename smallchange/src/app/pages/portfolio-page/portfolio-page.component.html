@@ -26,10 +26,9 @@
 
             <div class="card" >
                 <img src="../../assets/user.png" alt="user image" style="width:50%; margin: auto;" >
-                <h1>User Info</h1>
-                <!-- <h2>{{name}}</h2> -->
+                <h2>{{client.name}}</h2>
                 <h3>Cash Balance</h3>
-                <p class="price">$19.99</p>
+                <p class="price">{{client.funds}}</p>
                 <p>Add Funds to make more trades</p>
                 <button class = "funds_button" mat-raised-button [routerLink]="['/' + 'stats']">
                   View Stats
@@ -45,7 +44,7 @@
 <table class="instrumenttable table table-striped ">
     <thead>
         <tr>
-          <th colspan="5">Stocks</th>
+          <th colspan="4">GOVT</th>
         </tr>
         <tr>
             <th>Instrument Name</th>
@@ -55,41 +54,13 @@
             <th>Activity</th>
         </tr>
     </thead>
-    <tbody *ngFor="let data of Portfoliodata">
-        <tr *ngFor="let p1 of data.Stock" >
-            <td>{{p1.ins_name}}</td>
-            <td>{{p1.quantity}}</td>
-            <td>{{p1.ins_price}}</td>
-            <td>{{p1.cash_value}}</td>
-            <td><button class="btn btn-danger">SELL </button></td>
-
-        </tr>
-
-
-    </tbody>
-</table>
-<br><br>
-
-<table class="instrumenttable table table-striped ">
-  <thead>
-      <tr>
-        <th colspan="5">Government</th>
-      </tr>
-      <tr>
-          <th>Instrument Name</th>
-          <th>Quantity</th>
-          <th>Instrument Price</th>
-          <th>CashValue</th>
-          <th>Activity</th>
-      </tr>
-  </thead>
-  <tbody *ngFor="let data of Portfoliodata">
-      <tr *ngFor="let p1 of data.Govt" >
-          <td>{{p1.ins_name}}</td>
+    <tbody>
+      <tr *ngFor="let p1 of govt" >
+      <td>{{p1.instrumentdescription}}</td> 
           <td>{{p1.quantity}}</td>
-          <td>{{p1.ins_price}}</td>
-          <td>{{p1.cash_value}}</td>
-          <td><button class="btn btn-danger">SELL </button></td>
+          <td>{{p1.executionPrice}}</td>
+          <td>{{p1.cashValue}}</td>
+          <td><button class="btn btn-danger" (click)="displayModal(p1)">SELL </button></td>
 
       </tr>
 
@@ -101,7 +72,35 @@
 <table class="instrumenttable table table-striped ">
   <thead>
       <tr>
-        <th colspan="5">CD</th>
+        <th colspan="4">STOCKS</th>
+      </tr>
+      <tr>
+          <th>Instrument Name</th>
+          <th>Quantity</th>
+          <th>Instrument Price</th>
+          <th>CashValue</th>
+          <th>Activity</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let p1 of stock" >
+          <td>{{p1.instrumentdescription}}</td>
+          <td>{{p1.quantity}}</td>
+          <td>{{p1.executionPrice}}</td>
+          <td>{{p1.cashValue}}</td>
+          <td><button class="btn btn-danger" (click)="displayModal(p1)">SELL </button></td>
+
+      </tr>
+
+
+  </tbody>
+</table>
+<br><br>
+
+<table class="instrumenttable table table-striped ">
+  <thead>
+      <tr>
+        <th colspan="4">CD</th>
       </tr>
       <tr>
           <th>Instrument Name</th>
@@ -112,15 +111,16 @@
           
       </tr>
   </thead>
-  <tbody *ngFor="let data of Portfoliodata">
-      <tr *ngFor="let p1 of data.CD" >
-          <td>{{p1.ins_name}}</td>
+  <tbody>
+    <tr *ngFor="let p1 of cd" >
+          <td>{{p1.instrumentdescription}}</td>
           <td>{{p1.quantity}}</td>
-          <td>{{p1.ins_price}}</td>
-          <td>{{p1.cash_value}}</td>
-          <td><button class="btn btn-danger">SELL </button></td>
-      </tr>
+        <td>{{p1.executionPrice}}</td>
+        <td>{{p1.cashValue}}</td>
+        <td><button class="btn btn-danger" (click)="(p1)">SELL </button></td>
+
+    </tr>
 
 
-  </tbody>
+</tbody>
 </table>

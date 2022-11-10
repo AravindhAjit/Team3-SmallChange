@@ -27,6 +27,8 @@ const routes: Routes = [
   { path: 'stats', component:StatsComponent },
   
 
+  { path: 'signup', component:RegPageComponent },
+
 ];
 
 @NgModule({

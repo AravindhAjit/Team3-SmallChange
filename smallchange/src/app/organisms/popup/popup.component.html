@@ -4,16 +4,6 @@
 <!-- <span class="quantspan"><b>Min Quantity   </b>{{trade.instrument.minQuantity}}</span>
 <span class="quantspan"><b>Max Quantity   </b>{{trade.instrument.maxQuantity}}</span> -->
 
-<div>
-    Choose portfolio 
-    <!-- <input type="number" [(ngModel)]="portfolioId" class="tradeactionfield"> -->
-    <select name="Portfolio" id="Portfolio">
-        <option value="default">----</option>
-        <option *ngFor="let portfolio of portfolios" [value]="currentportfolio">
-            {{portfolio}}
-        </option>
-      </select>
-</div>
 <span >Quantity
     <span><input type="number" class="tradeactionfield" [(ngModel)]="tradeQuantity" class="tradeactionfield" value="trade.instrument.minQuantity"
          required style="margin-left: 3.4em;">
@@ -34,6 +24,6 @@
         value="{{tradeQuantity * trade.askPrice}}" readonly class="tradeactionfield"  style="margin-left:5em;"></span></div>
 <div>
 <div class="butttonnnn">
-<button class="btn btn-success" (click)="placeOrderBUY(trade,tradeQuantity,tradePrice,portfolioId)">EXECUTE BUY</button></div>
+<button class="btn btn-success" (click)="placeOrderBUY(trade,tradeQuantity,portfolioId)">EXECUTE BUY</button></div>
 </div>
 

@@ -1,0 +1,20 @@
+<h2>BUY</h2>
+<h4>{{trade.instrumentDescription}}</h4>
+<h6>{{trade.executionPrice}}</h6>
+<h6>{{trade.cashValue}}</h6>
+
+<span >Quantity
+    <span><input type="number" class="tradeactionfield" [(ngModel)]="tradeQuantity" class="tradeactionfield" value="trade.quantity"
+         required style="margin-left: 3.4em;">
+    </span>
+
+
+    <div >Price
+        <span ><input type="number" [(ngModel)]="tradeCashvalue" 
+            value="{{tradeQuantity * trade.executionPrice}}" readonly class="tradeactionfield"  style="margin-left:5em;"></span></div>
+    <div>
+    <div class="butttonnnn">
+    <button class="btn btn-danger" (click)="sell()">EXECUTE SELL</button></div>
+    </div>
+
+    <!-- (click)="placeOrderBUY(trade,tradeQuantity,portfolioId) -->

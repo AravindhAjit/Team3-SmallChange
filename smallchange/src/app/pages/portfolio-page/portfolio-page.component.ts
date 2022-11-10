@@ -6,8 +6,15 @@ import { Observable } from 'rxjs';
 import { MatDialog,MatDialogConfig } from  '@angular/material/dialog';
 import { PopupComponent } from 'src/app/organisms/popup/popup.component';
 import { FundPopupComponent } from 'src/app/organisms/fund-popup/fund-popup.component';
+import { ClientService } from 'src/app/service/client.service';
+import { Client } from 'src/app/models/client';
+import { PortfolioService } from 'src/app/service/portfolio.service';
+import { Trade } from 'src/app/models/trade';
+import { Logarithmic } from '@syncfusion/ej2-angular-charts';
+import { TradeHistory } from 'src/app/models/tradehistory';
 import { Portfolio } from '../../models/portfolio';
 import { Stock } from 'src/app/models/stock';
+import { SellpopupComponent } from 'src/app/sellpopup/sellpopup.component';
 
 // import { ThemeService } from 'ng2-charts';
 // import { ChartType, ChartOptions } from 'chart.js';
@@ -40,20 +47,42 @@ export class PortfolioPageComponent implements OnInit {
   fund : Number;
   Portfoliodata : any;
   dataSource : any;
+  client:Client
+
+  govt:Trade[]
+  stock:Trade[]
+  cd:Trade[]
   value: Portfolio[];
   total: any;
 
-  constructor(private dataService : MockDataService, public dialog: MatDialog) { 
+  constructor(private  dialogRef : MatDialog,private dataService : MockDataService, public dialog: MatDialog, private clientService:ClientService,private portfolioService:PortfolioService) { 
     }
   ngOnInit(): void {
-    this.dataService.getPortfolio().subscribe(response => {
-      this.Portfoliodata = response;
-      console.log(response)
-      // this.findsum(response);
-      //const stocksTotal = response.0.Stock.reduce((sum, item) => sum + item.cash_value, 0);
-      // this.dataSource = new MatTableDataSource(this.Portfoliodata);
-   
-  });
+      this.client = this.clientService.getCurrentClient();
+
+
+this.portfolioService.getAllTradesGOVT(this.client)
+.subscribe((users) => {
+        this.govt = users
+        console.log(this.govt);
+    });
+
+    this.portfolioService.getAllTradesSTOCK(this.client)
+.subscribe((users) => {
+        this.stock = users
+        console.log(this.stock);
+    });
+
+    this.portfolioService.getAllTradesCD(this.client)
+.subscribe((users) => {
+        this.cd = users
+        console.log(this.cd);
+    });
+    
+  console.log(this.govt);
+  
+
+
   }
 //   findsum(response: Portfolio[]) {
 //     this.value= response;  
@@ -69,12 +98,23 @@ export class PortfolioPageComponent implements OnInit {
     dialogConfig.width = "60%";
     this.dialog.open(FundPopupComponent , {width : '500px', height : '500px'});
   }
+
+  displayModal(p1:Trade){
+    console.log(p1);
+    const dialogConfig = new MatDialogConfig;
+    dialogConfig.width = "60%";
+    this.dialog.open(SellpopupComponent , {
+      data:{
+        trade:p1,
+      }
+  });
+    // this.dialogRef.open(PopupComponent,
+
 }
 
-
+}
 
 
 // function openDialog() {
 //   throw new Error('Function not implemented.');
 // }
-

@@ -31,8 +31,17 @@ export class LoginPageComponent implements OnInit {
     // console.log(this.client.email+" "+this.client.password);
     this.service.getClient(login).subscribe(data=>this.client=data);
     this.service.setCurrentClient(this.client);
+console.log(this.client);
 
+if(this.client!=undefined){
+  if(this.client.clientId==0)
+    {
+      alert("Invalid credentials")
+    }
+    else
     this.router.navigateByUrl('portfolio')
+   
+}
     
     
     

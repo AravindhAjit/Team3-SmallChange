@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TradeHistory } from '../models/tradehistory';
@@ -12,7 +12,17 @@ export class AcivityService {
 
   url: string = "http://localhost:8080/smallchange/";
 
-  getTradeHistory(category: string): Observable<TradeHistory[]> {
+  
+
+  getTradeHistory(): Observable<TradeHistory[]> {
     return this.http.get<TradeHistory[]>(this.url+"getth")
+  }
+
+  addTradeHistory(th: TradeHistory): Observable<TradeHistory> {
+
+    const headers = new HttpHeaders({
+      'Content-type': 'application/json'
+    });
+    return this.http.post<TradeHistory>(this.url+"addth",th,{ headers: headers })
   }
 }
