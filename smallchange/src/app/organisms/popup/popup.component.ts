@@ -67,7 +67,7 @@ export class PopupComponent implements OnInit {
     var th = new TradeHistory(tradee.instrumentId,tradee.quantity,tradee.executionPrice,tradee.direction,tradee.tradeId,tradee.cashValue,tradee.clientId,this.trade.instrument.instrumentDescription,tradee.categoryid);
     console.log("trade history");
     console.log(th);
-    // this.acivityService.addTradeHistory(th).subscribe(data=>this.recentTradeHistory=data);
+    this.acivityService.addTradeHistory(th).subscribe(data=>this.recentTradeHistory=data);
       }
           
   }}

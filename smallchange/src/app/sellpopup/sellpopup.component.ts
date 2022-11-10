@@ -54,7 +54,7 @@ export class SellpopupComponent implements OnInit {
       console.log(this.trade);
       console.log("tradeee");
       
-      var tradee = new Trade(this.trade.instrumentId,this.tradeQuantity,this.trade.executionPrice,'S',this.tradeCashvalue,100,this.client.clientId,uuidv4(),this.trade.categoryid,this.trade.instrumentdescription);
+      var tradee = new Trade(this.trade.instrumentId,this.tradeQuantity,this.trade.executionPrice,'S',this.tradeQuantity*this.trade.executionPrice,100,this.client.clientId,uuidv4(),this.trade.categoryid,this.trade.instrumentdescription);
       console.log(tradee);
       
       this.client.funds += this.tradeCashvalue
@@ -70,11 +70,10 @@ export class SellpopupComponent implements OnInit {
       else{
         //modify record in portfolio with lesser price,cashvalue based on trade instrument id equal value
         this.tradeService.updateTradesubract(tradee).subscribe(data=>this.executedTrade=data);
-        this.tradeService.updateTradesubract(tradee);
       }
  
 
-    var th = new TradeHistory(tradee.instrumentId,this.tradeQuantity,this.trade.executionPrice,'S',tradee.tradeId,this.tradeCashvalue,this.client.clientId,this.trade.instrumentdescription,this.trade.categoryid)
+    var th = new TradeHistory(tradee.instrumentId,this.tradeQuantity,this.trade.executionPrice,'S',tradee.tradeId,tradee.cashValue,this.client.clientId,this.trade.instrumentdescription,this.trade.categoryid)
     console.log(th);
     alert("Trade sell succesful with id"+tradee.tradeId)
 

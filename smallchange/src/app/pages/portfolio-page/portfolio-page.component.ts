@@ -49,6 +49,9 @@ export class PortfolioPageComponent implements OnInit {
   dataSource : any;
   client:Client
 
+govtsize:number
+stocksize:number
+cdsize:number
   govt:Trade[]
   stock:Trade[]
   cd:Trade[]
@@ -79,8 +82,13 @@ this.portfolioService.getAllTradesGOVT(this.client)
         console.log(this.cd);
     });
     
-  console.log(this.govt);
+  // console.log(this.govt);
   
+
+
+    this.govtsize=(Object.keys(this.govt).length);
+    console.log(this.govtsize);
+    
 
 
   }

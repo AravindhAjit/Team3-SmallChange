@@ -135,14 +135,14 @@
         <div>
           <div class="title">Cash Value</div>
           <i class='fa fa-dollar'></i>
-          <div class="value">27</div>
+          <div class="value">{{client.funds}}</div>
         </div>
      
       </div>
     </div>
   </div>
   <div class="general">
-    <h1 style="color: white;">HI {{client.name}} !</h1>
+    <h2 style="color: white;">HI {{client.name}} !</h2>
     <button class="funds_button" mat-raised-button [routerLink]="['/' + 'stats']">
       View Stats
     </button>
