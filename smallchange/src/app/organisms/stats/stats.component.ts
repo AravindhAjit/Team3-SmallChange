@@ -27,7 +27,7 @@ export class StatsComponent implements OnInit {
   };
   barChartSeries1 : ApexAxisChartSeries = [
     {
-      name: "My-series",
+      name: "quantity",
       data: [150,122,119,102,100]
     }
   ];
@@ -45,7 +45,7 @@ export class StatsComponent implements OnInit {
 
   barChartSeries2 : ApexAxisChartSeries = [
     {
-      name: "My-series",
+      name: "Cash-Value",
       data: [45000,32000,20000,15000,13000]
     }
   ];
