@@ -17,27 +17,27 @@ export class PortfolioService {
   url: string = "http://localhost:8080/smallchange/";
   
 
-  getAllTradesGOVT(client: Client): Observable<TradeHistory[]> {
+  getAllTradesGOVT(client: Client): Observable<Trade[]> {
     const headers = new HttpHeaders({
       'Content-type': 'application/json'
     });
-    return this.http.get<TradeHistory[]>(this.url+"govt/"+Number(client.clientId))
+    return this.http.get<Trade[]>(this.url+"govt/"+Number(client.clientId))
   }
 
   
-  getAllTradesSTOCK(client: Client): Observable<TradeHistory[]> {
+  getAllTradesSTOCK(client: Client): Observable<Trade[]> {
     const headers = new HttpHeaders({
       'Content-type': 'application/json'
     });
-    return this.http.get<TradeHistory[]>(this.url+"stock/"+Number(client.clientId))
+    return this.http.get<Trade[]>(this.url+"stock/"+Number(client.clientId))
   }
 
 
-  getAllTradesCD(client: Client): Observable<TradeHistory[]> {
+  getAllTradesCD(client: Client): Observable<Trade[]> {
     const headers = new HttpHeaders({
       'Content-type': 'application/json'
     });
-    return this.http.get<TradeHistory[]>(this.url+"cd/"+Number(client.clientId))
+    return this.http.get<Trade[]>(this.url+"cd/"+Number(client.clientId))
   }
 
 }

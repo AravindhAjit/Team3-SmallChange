@@ -56,11 +56,11 @@
     </thead>
     <tbody>
       <tr *ngFor="let p1 of govt" >
-          <td>{{p1.instrumentDescription}}</td>
+      <td>{{p1.instrumentdescription}}</td> 
           <td>{{p1.quantity}}</td>
           <td>{{p1.executionPrice}}</td>
           <td>{{p1.cashValue}}</td>
-          <td><button class="btn btn-danger">SELL </button></td>
+          <td><button class="btn btn-danger" (click)="displayModal(p1)">SELL </button></td>
 
       </tr>
 
@@ -84,11 +84,11 @@
   </thead>
   <tbody>
       <tr *ngFor="let p1 of stock" >
-          <td>{{p1.instrumentDescription}}</td>
+          <td>{{p1.instrumentdescription}}</td>
           <td>{{p1.quantity}}</td>
           <td>{{p1.executionPrice}}</td>
           <td>{{p1.cashValue}}</td>
-          <td><button class="btn btn-danger">SELL </button></td>
+          <td><button class="btn btn-danger" (click)="displayModal(p1)">SELL </button></td>
 
       </tr>
 
@@ -113,11 +113,11 @@
   </thead>
   <tbody>
     <tr *ngFor="let p1 of cd" >
-        <td>{{p1.instrumentDescription}}</td>
-        <td>{{p1.quantity}}</td>
+          <td>{{p1.instrumentdescription}}</td>
+          <td>{{p1.quantity}}</td>
         <td>{{p1.executionPrice}}</td>
         <td>{{p1.cashValue}}</td>
-        <td><button class="btn btn-danger">SELL </button></td>
+        <td><button class="btn btn-danger" (click)="(p1)">SELL </button></td>
 
     </tr>
 

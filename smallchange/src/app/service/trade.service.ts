@@ -20,4 +20,18 @@ export class TradeService {
     });
     return this.http.post<Trade>(this.url+"executetrade",trade, { headers: headers })
   }
+
+  updateTrade(trade:Trade): Observable<Trade> {
+    const headers = new HttpHeaders({
+      'Content-type': 'application/json'
+    });
+    return this.http.post<Trade>(this.url+"updaretrade",trade, { headers: headers })
+  }
+
+  deleteTrade(trade:Trade): Observable<Trade> {
+    const headers = new HttpHeaders({
+      'Content-type': 'application/json'
+    });
+    return this.http.post<Trade>(this.url+"deletetrade",trade, { headers: headers })
+  }
 }

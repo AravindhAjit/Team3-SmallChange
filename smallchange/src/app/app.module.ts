@@ -60,6 +60,7 @@ import { FundPopupComponent } from './organisms/fund-popup/fund-popup.component'
 import { HighchartsChartComponent, HighchartsChartModule } from 'highcharts-angular';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { StatsComponent } from './organisms/stats/stats.component';
+import { SellpopupComponent } from './sellpopup/sellpopup.component';
 
 
 
@@ -97,6 +98,7 @@ import { StatsComponent } from './organisms/stats/stats.component';
     ActivityPageComponent,
     FundPopupComponent,
     StatsComponent,
+    SellpopupComponent,
     
     
   ],

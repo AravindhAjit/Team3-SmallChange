@@ -14,6 +14,7 @@ import { Logarithmic } from '@syncfusion/ej2-angular-charts';
 import { TradeHistory } from 'src/app/models/tradehistory';
 import { Portfolio } from '../../models/portfolio';
 import { Stock } from 'src/app/models/stock';
+import { SellpopupComponent } from 'src/app/sellpopup/sellpopup.component';
 
 // import { ThemeService } from 'ng2-charts';
 // import { ChartType, ChartOptions } from 'chart.js';
@@ -48,13 +49,13 @@ export class PortfolioPageComponent implements OnInit {
   dataSource : any;
   client:Client
 
-  govt:TradeHistory[]
-  stock:TradeHistory[]
-  cd:TradeHistory[]
+  govt:Trade[]
+  stock:Trade[]
+  cd:Trade[]
   value: Portfolio[];
   total: any;
 
-  constructor(private dataService : MockDataService, public dialog: MatDialog, private clientService:ClientService,private portfolioService:PortfolioService) { 
+  constructor(private  dialogRef : MatDialog,private dataService : MockDataService, public dialog: MatDialog, private clientService:ClientService,private portfolioService:PortfolioService) { 
     }
   ngOnInit(): void {
       this.client = this.clientService.getCurrentClient();
@@ -97,12 +98,23 @@ this.portfolioService.getAllTradesGOVT(this.client)
     dialogConfig.width = "60%";
     this.dialog.open(FundPopupComponent , {width : '500px', height : '500px'});
   }
+
+  displayModal(p1:Trade){
+    console.log(p1);
+    const dialogConfig = new MatDialogConfig;
+    dialogConfig.width = "60%";
+    this.dialog.open(SellpopupComponent , {
+      data:{
+        trade:p1,
+      }
+  });
+    // this.dialogRef.open(PopupComponent,
+
 }
 
-
+}
 
 
 // function openDialog() {
 //   throw new Error('Function not implemented.');
 // }
-

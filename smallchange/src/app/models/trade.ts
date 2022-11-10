@@ -12,6 +12,7 @@ export class Trade{
         public clientId: number,
         public tradeId: string,
         public categoryid: String,
+        public instrumentdescription:string
 
     ){
 

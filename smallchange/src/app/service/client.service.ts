@@ -36,8 +36,11 @@ export class ClientService {
     this.client=client;
   }
 
-  setCurrentClientFunds(funds:number):void{
+  setCurrentClientFundsadd(funds:number):void{
     this.client.funds+=funds;
+  }
+  setCurrentClientFundssubract(funds:number):void{
+    this.client.funds-=funds;
   }
 
   getAllClients(): Observable<Client[]> {

@@ -44,21 +44,30 @@ export class PopupComponent implements OnInit {
       alert("Enter quantity according to instrument");
     }
     else{
-
-    console.log(portfolioId);
-    console.log(tradeQuantity);
+      if((this.trade.askPrice*tradeQuantity)>this.client.funds){
+        alert("No sufficient funds");
+      }
+      else{
+    // console.log(tradeQuantity);
+        console.log("popup");
+        
+    var cashvalue = this.trade.askPrice*tradeQuantity
+    var tradee=new Trade(this.trade.instrument.instrumentId,this.tradeQuantity,this.trade.askPrice,'B',cashvalue,100,this.client.clientId,uuidv4(),this.trade.instrument.categoryId,this.trade.instrument.instrumentDescription)
     
-    var tradee = new Trade(this.trade.instrument.instrumentId,tradeQuantity,this.trade.askPrice,'B',this.trade.askPrice*tradeQuantity,100,this.client.clientId,uuidv4(),selectedtrade.instrument.categoryId);
     console.log(tradee);
     this.tradeService.executeTrade(tradee).subscribe(data=>this.executedTrade=data);
     alert("Order placed succesfully with id "+tradee.tradeId)
+    this.client.funds-=cashvalue
+    this.clientService.addFunds(this.client).subscribe((data)=>{console.log(data);
+    });
+    this.client=this.clientService.getCurrentClient();
     
 
     var th = new TradeHistory(tradee.instrumentId,tradee.quantity,tradee.executionPrice,tradee.direction,tradee.tradeId,tradee.cashValue,tradee.clientId,this.trade.instrument.instrumentDescription,tradee.categoryid);
     console.log("trade history");
     console.log(th);
     this.acivityService.addTradeHistory(th).subscribe(data=>this.recentTradeHistory=data);
-
+      }
           
   }}
 

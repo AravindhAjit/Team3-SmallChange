@@ -75,33 +75,33 @@ export class TradePageComponent  {
 
 
   
-   placeOrder(trade:any,tradeAction:string,tradeQuantity:number):void{
-    if(tradeQuantity>trade.instrument.maxQuantity || tradeQuantity<trade.instrument.minQuantity){
-      alert("Enter quantity according to instrument");
-    }
-    else{
-    console.log(trade);
-    console.log(tradeAction + " " + tradeQuantity);
-    console.log(tradeQuantity*trade.askPrice);
-    this.dialogRef.open(PopupComponent,{
-      data:{
-        trade:trade,
-        tradeAction:tradeAction,
-        tradeQuantity:tradeQuantity,
-      }
-    } );
-    var tradevalue = tradeQuantity*trade.bidPrice;
+  //  placeOrder(trade:any,tradeAction:string,tradeQuantity:number):void{
+  //   if(tradeQuantity>trade.instrument.maxQuantity || tradeQuantity<trade.instrument.minQuantity){
+  //     alert("Enter quantity according to instrument");
+  //   }
+  //   else{
+  //   console.log(trade);
+  //   console.log(tradeAction + " " + tradeQuantity);
+  //   console.log(tradeQuantity*trade.askPrice);
+  //   this.dialogRef.open(PopupComponent,{
+  //     data:{
+  //       trade:trade,
+  //       tradeAction:tradeAction,
+  //       tradeQuantity:tradeQuantity,
+  //     }
+  //   } );
+  //   var tradevalue = tradeQuantity*trade.bidPrice;
 
-    // var tradee = new Trade(trade.instrument.instrumentId,tradeQuantity,trade.bidPrice,tradeAction,this.client.clientId,trade.instrument.categoryId,uuidv4(),tradevalue,100); 
-    // console.log(tradee);
+  //   // var tradee = new Trade(trade.instrument.instrumentId,tradeQuantity,trade.bidPrice,tradeAction,this.client.clientId,trade.instrument.categoryId,uuidv4(),tradevalue,100); 
+  //   // console.log(tradee);
     
-    this.tradeselected = false;
-    this.selectedTrade = null
-    this.tradeAction = ""
-    this.tradeQuantity = 1
-    this.tradeActionselected = false;
-  }
-   }
+  //   this.tradeselected = false;
+  //   this.selectedTrade = null
+  //   this.tradeAction = ""
+  //   this.tradeQuantity = 1
+  //   this.tradeActionselected = false;
+  // }
+  //  }
 
 
 
