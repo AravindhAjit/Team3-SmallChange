@@ -21,12 +21,10 @@ const routes: Routes = [
   { path: 'home', component: HomePageComponent },
   { path: 'portfolio', component: PortfolioPageComponent, canActivate:[AuthGuard] },
   { path: 'trade', component: TradePageComponent, canActivate:[AuthGuard] },
-  { path: 'roboAdvisor', component: RoboadvisorComponent, canActivate:[AuthGuard] },
+  { path: 'preferences', component: RoboadvisorComponent, canActivate:[AuthGuard] },
   { path: 'tradehistory', component:TradeHistoryComponent, canActivate:[AuthGuard] },
   { path: 'reg', component:RegPageComponent },
   { path: 'stats', component:StatsComponent },
-  
-
   { path: 'signup', component:RegPageComponent },
 
 ];

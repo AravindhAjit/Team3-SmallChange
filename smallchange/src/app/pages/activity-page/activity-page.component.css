@@ -1,0 +1,12 @@
+.table-striped tbody tr:nth-of-type(even) {
+    background-color: #CFE5AE;
+  }
+  
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: #E5F1D4;
+  }
+  
+  th{
+    color:GREEN;
+    font-size: larger;
+  }
