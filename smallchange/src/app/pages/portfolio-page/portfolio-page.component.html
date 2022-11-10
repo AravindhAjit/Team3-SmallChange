@@ -22,12 +22,8 @@
               <button>Add fund</button>
           
             </div> -->
-
-
-            <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
 
 <div class="card">
   <div class="additional">
@@ -45,21 +41,15 @@
             fill: #eab38f;
           }
 
-
-
-         .eyes {
+          .eyes {
             fill: #1f1f1f;
           }
 
-
-
-         .hair {
+          .hair {
             fill: #2f1b0d;
           }
 
-
-
-         .line {
+          .line {
             fill: none;
             stroke: #2f1b0d;
             stroke-width: 2px;
@@ -126,9 +116,7 @@
         </g>
       </svg>
     </div>
-
     <div class="more-info">
-      <h1>{{client.name}}</h1>
       <div class="coords">
         <span>Client ID</span>
         <span>Email ID</span>
@@ -137,35 +125,24 @@
         <span>{{client.clientId}}</span>
         <span>{{client.email}}</span>
 
-
-
-     </div>
+      </div>
       <div class="stats">
         <div>
-          <div class="title">Awards</div>
-          <i class="fa fa-trophy"></i>
+          <div class="title">Holdings</div>
+          <i class='fa fa-bank'></i>
           <div class="value">2</div>
         </div>
         <div>
-          <div class="title">Matches</div>
-          <i class="fa fa-gamepad"></i>
+          <div class="title">Cash Value</div>
+          <i class='fa fa-dollar'></i>
           <div class="value">27</div>
         </div>
-        <div>
-          <div class="title">Pals</div>
-          <i class="fa fa-group"></i>
-          <div class="value">123</div>
-        </div>
-        <div>
-          <div class="title">Coffee</div>
-          <i class="fa fa-coffee"></i>
-          <div class="value infinity">∞</div>
-        </div>
+     
       </div>
     </div>
   </div>
   <div class="general">
-    <h1>HI {{client.name}} !</h1>
+    <h1 style="color: white;">HI {{client.name}} !</h1>
     <button class="funds_button" mat-raised-button [routerLink]="['/' + 'stats']">
       View Stats
     </button>
@@ -176,15 +153,14 @@
   </div>
 </div>
 
-
-    <!-- ACTUAL CODE-->
-
-            <!-- <div class="card" >
+<!-- <div class="card" >
+          
                 <img src="../../assets/user.png" alt="user image" style="width:50%; margin: auto;" >
                 <h2>{{client.name}}</h2>
                 <h3>Cash Balance</h3>
                 <p class="price">{{client.funds}}</p>
                 <p>Add Funds to make more trades</p>
+            
                 <button class = "funds_button" mat-raised-button [routerLink]="['/' + 'stats']">
                   View Stats
               </button>
@@ -192,90 +168,93 @@
                 <p><button class = "funds_button" mat-raised-button (click) = "addFunds()" >
                     ADD FUNDS
                 </button></p>
+              
               </div> -->
-            
-<div style="text-align: center;"><h3>User Portfolio</h3></div>
 
-<table class="instrumenttable table table-striped ">
-    <thead>
-        <tr>
-          <th colspan="4">GOVT</th>
-        </tr>
-        <tr>
-            <th>Instrument Name</th>
-            <th>Quantity</th>
-            <th>Instrument Price</th>
-            <th>CashValue</th>
-            <th>Activity</th>
-        </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let p1 of govt" >
-      <td>{{p1.instrumentdescription}}</td> 
-          <td>{{p1.quantity}}</td>
-          <td>{{p1.executionPrice}}</td>
-          <td>{{p1.cashValue}}</td>
-          <td><button class="btn btn-danger" (click)="displayModal(p1)">SELL </button></td>
-
-      </tr>
-
-
-  </tbody>
-</table>
-<br><br>
+<div style="text-align: center;">
+  <h3>User Portfolio</h3>
+</div> -->
 
 <table class="instrumenttable table table-striped ">
   <thead>
-      <tr>
-        <th colspan="4">STOCKS</th>
-      </tr>
-      <tr>
-          <th>Instrument Name</th>
-          <th>Quantity</th>
-          <th>Instrument Price</th>
-          <th>CashValue</th>
-          <th>Activity</th>
-      </tr>
+    <tr>
+      <th colspan="5" style="font-size:20px; text-align:center; color:black;"> GOVT</th>
+    </tr>
+    <tr>
+      <th>Instrument Name</th>
+      <th>Quantity</th>
+      <th>Instrument Price</th>
+      <th>CashValue</th>
+      <th>Activity</th>
+    </tr>
   </thead>
   <tbody>
-      <tr *ngFor="let p1 of stock" >
-          <td>{{p1.instrumentdescription}}</td>
-          <td>{{p1.quantity}}</td>
-          <td>{{p1.executionPrice}}</td>
-          <td>{{p1.cashValue}}</td>
-          <td><button class="btn btn-danger" (click)="displayModal(p1)">SELL </button></td>
-
-      </tr>
-
-
-  </tbody>
-</table>
-<br><br>
-
-<table class="instrumenttable table table-striped ">
-  <thead>
-      <tr>
-        <th colspan="4">CD</th>
-      </tr>
-      <tr>
-          <th>Instrument Name</th>
-          <th>Quantity</th>
-          <th>Instrument Price</th>
-          <th>CashValue</th>
-          <th>Activity</th>
-          
-      </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let p1 of cd" >
-          <td>{{p1.instrumentdescription}}</td>
-          <td>{{p1.quantity}}</td>
-        <td>{{p1.executionPrice}}</td>
-        <td>{{p1.cashValue}}</td>
-        <td><button class="btn btn-danger" (click)="(p1)">SELL </button></td>
+    <tr *ngFor="let p1 of govt">
+      <td>{{p1.instrumentdescription}}</td>
+      <td>{{p1.quantity}}</td>
+      <td>{{p1.executionPrice}}</td>
+      <td>{{p1.cashValue}}</td>
+      <td><button class="btn btn-danger" (click)="displayModal(p1)">SELL </button></td>
 
     </tr>
 
 
-</tbody>
+  </tbody>
+</table>
+<br><br>
+
+<table class="instrumenttable table table-striped ">
+  <thead>
+    <tr>
+      <th colspan="5" style="font-size:20px; text-align:center; color:black;"> STOCKS</th>
+    </tr>
+    <tr>
+      <th>Instrument Name</th>
+      <th>Quantity</th>
+      <th>Instrument Price</th>
+      <th>CashValue</th>
+      <th>Activity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p1 of stock">
+      <td>{{p1.instrumentdescription}}</td>
+      <td>{{p1.quantity}}</td>
+      <td>{{p1.executionPrice}}</td>
+      <td>{{p1.cashValue}}</td>
+      <td><button class="btn btn-danger" (click)="displayModal(p1)">SELL </button></td>
+
+    </tr>
+
+
+  </tbody>
+</table>
+<br><br>
+
+<table class="instrumenttable table table-striped ">
+  <thead>
+    <tr>
+      <th colspan="5" style="font-size:20px; text-align:center; color:black;"> CD</th>
+    </tr>
+    <tr>
+      <th>Instrument Name</th>
+      <th>Quantity</th>
+      <th>Instrument Price</th>
+      <th>CashValue</th>
+      <th>Activity</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p1 of cd">
+      <td>{{p1.instrumentdescription}}</td>
+      <td>{{p1.quantity}}</td>
+      <td>{{p1.executionPrice}}</td>
+      <td>{{p1.cashValue}}</td>
+      <td><button class="btn btn-danger" (click)="(p1)">SELL </button></td>
+
+    </tr>
+
+
+  </tbody>
 </table>
