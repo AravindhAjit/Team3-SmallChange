@@ -15,6 +15,7 @@ import { TradeHistory } from 'src/app/models/tradehistory';
 import { Portfolio } from '../../models/portfolio';
 import { Stock } from 'src/app/models/stock';
 import { SellpopupComponent } from 'src/app/sellpopup/sellpopup.component';
+import { Router } from '@angular/router';
 
 // import { ThemeService } from 'ng2-charts';
 // import { ChartType, ChartOptions } from 'chart.js';
@@ -49,7 +50,7 @@ export class PortfolioPageComponent implements OnInit {
   dataSource : any;
   client:Client
 
-govtsize:number
+govtsize=0
 stocksize:number
 cdsize:number
   govt:Trade[]
@@ -58,7 +59,10 @@ cdsize:number
   value: Portfolio[];
   total: any;
 
-  constructor(private  dialogRef : MatDialog,private dataService : MockDataService, public dialog: MatDialog, private clientService:ClientService,private portfolioService:PortfolioService) { 
+  top5quant:Trade[]
+  top5cash:Trade[]
+
+  constructor(private router:Router,private  dialogRef : MatDialog,private dataService : MockDataService, public dialog: MatDialog, private clientService:ClientService,private portfolioService:PortfolioService) { 
     }
   ngOnInit(): void {
       this.client = this.clientService.getCurrentClient();
@@ -67,28 +71,40 @@ cdsize:number
 this.portfolioService.getAllTradesGOVT(this.client)
 .subscribe((users) => {
         this.govt = users
-        console.log(this.govt);
+        // console.log(this.govt);
     });
 
     this.portfolioService.getAllTradesSTOCK(this.client)
 .subscribe((users) => {
         this.stock = users
-        console.log(this.stock);
+        // console.log(this.stock);
     });
 
     this.portfolioService.getAllTradesCD(this.client)
 .subscribe((users) => {
         this.cd = users
-        console.log(this.cd);
+        // console.log(this.cd);
     });
-    
-  // console.log(this.govt);
+
+    this.portfolioService.getTopCashValue(this.client.clientId)
+    .subscribe((users) => {
+            this.top5cash= users
+            // console.log(this.top5cash);
+            
+        });
+
+ 
+        this.portfolioService.getTopQuantity(this.client.clientId)
+        .subscribe((users) => {
+                this.top5quant= users           
+                //  console.log(this.top5quant);
+
+            });
+
+
   
 
-
-    this.govtsize=(Object.keys(this.govt).length);
-    console.log(this.govtsize);
-    
+  
 
 
   }
@@ -101,7 +117,22 @@ this.portfolioService.getAllTradesGOVT(this.client)
 //   }
 // }
 
+
+  showStats(){
+    this.portfolioService.settop5cash(this.top5cash)
+    this.portfolioService.settop5quant(this.top5quant)
+
+this.portfolioService.setgovt(this.govt);
+this.portfolioService.setcd(this.cd);
+this.portfolioService.setstock(this.stock)
+this.router.navigateByUrl('stats')
+
+  }
   addFunds(){
+    
+ 
+    console.log("govt stock size="+this.govtsize);
+
     const dialogConfig = new MatDialogConfig;
     dialogConfig.width = "60%";
     this.dialog.open(FundPopupComponent , {width : '500px', height : '500px'});
@@ -118,7 +149,6 @@ this.portfolioService.getAllTradesGOVT(this.client)
   });
 
  
-    // this.dialogRef.open(PopupComponent,
 
 }
 

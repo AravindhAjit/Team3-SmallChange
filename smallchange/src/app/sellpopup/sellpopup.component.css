@@ -4,7 +4,7 @@ background-color: whitesmoke;
 }
 
 h2,h4{
-color:green;
+color:red;
 }
 
 ::ng-deep .mat-slider-horizontal .mat-slider-wrapper .mat-slider-thumb-container .mat-slider-thumb{

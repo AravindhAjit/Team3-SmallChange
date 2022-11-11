@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApexChart, ApexAxisChartSeries, ApexXAxis, ApexDataLabels, ApexNonAxisChartSeries, ApexTitleSubtitle } from 'ng-apexcharts';
+import { Trade } from 'src/app/models/trade';
+import { ClientService } from 'src/app/service/client.service';
+import { PortfolioService } from 'src/app/service/portfolio.service';
 
 @Component({
   selector: 'app-stats',
@@ -7,7 +10,42 @@ import { ApexChart, ApexAxisChartSeries, ApexXAxis, ApexDataLabels, ApexNonAxisC
   styleUrls: ['./stats.component.css']
 })
 export class StatsComponent implements OnInit {
-  pieChartSeries: ApexNonAxisChartSeries = [20000,15000,35000];
+
+ 
+
+  govtsize: number;
+
+  constructor(private portfolioservice:PortfolioService,private service:ClientService) { }
+  client=this.service.getCurrentClient()
+  govt = this.portfolioservice.getgovt()
+  stock = this.portfolioservice.getstock()
+  cd =this.portfolioservice.getcd()
+
+  govtcashvalue=this.portfolioservice.getcashvalue(this.govt);
+  stockcashvalue=this.portfolioservice.getcashvalue(this.stock);
+  cdcashvalue=this.portfolioservice.getcashvalue(this.cd);
+
+
+  topcash = this.portfolioservice.gettop5casj();
+  topquant = this.portfolioservice.gettop5quant();
+
+  
+
+
+  
+
+  ngOnInit(): void {
+
+    console.log(this.govt);
+    console.log(this.topquant);
+    
+
+    
+  }
+
+
+
+  pieChartSeries: ApexNonAxisChartSeries = [this.stockcashvalue,this.govtcashvalue,this.cdcashvalue];
   pieChartDetails: ApexChart = {
     type: 'pie',
     toolbar: {
@@ -27,26 +65,27 @@ export class StatsComponent implements OnInit {
   };
   barChartSeries1 : ApexAxisChartSeries = [
     {
-      name: "quantity",
-      data: [150,122,119,102,100]
+      name: "cashvalue",
+      data: [this.topcash[0].cashValue,this.topcash[1].cashValue,this.topcash[2].cashValue,this.topcash[3].cashValue,this.topcash[4].cashValue]
     }
   ];
+
   barChart1: ApexChart = {
     height: 350,
     type: "bar"
   };
   barCharttitle1: ApexTitleSubtitle = {
-    text: "Top 5 trades by quantity",
+    text: "Top 5 trades by CashValue",
     align: 'center'
   };
   barChartxaxis1: ApexXAxis = {
-    categories: ["JPMorgan Chase & Co. Capital Stock","Berkshire Hathaway Inc. Class A","USA, Notes 2.5% 15jan2022 3Y","Tesla, Inc. Common Stockc","USA, Bond 3 15aug2048 30Y"]
+    categories: [this.topcash[0].instrumentdescription,this.topcash[1].instrumentdescription,this.topcash[2].instrumentdescription,this.topcash[3].instrumentdescription,this.topcash[4].instrumentdescription]
   };
 
   barChartSeries2 : ApexAxisChartSeries = [
     {
       name: "Cash-Value",
-      data: [45000,32000,20000,15000,13000]
+      data: [this.topquant[0].quantity,this.topquant[1].quantity,this.topquant[2].quantity,this.topquant[3].quantity,this.topquant[4].quantity]
     }
   ];
   barChart2: ApexChart = {
@@ -54,18 +93,16 @@ export class StatsComponent implements OnInit {
     type: "bar"
   };
   barCharttitle2: ApexTitleSubtitle = {
-    text: "Top 5 trades by total cash value",
+    text: "Top 5 trades by Quantity",
     align: 'center'
   };
   barChartxaxis2: ApexXAxis = {
-    categories: ["JPMorgan Chase & Co. Capital Stock","Berkshire Hathaway Inc. Class A","USA, Notes 2.5% 15jan2022 3Y","Tesla, Inc. Common Stockc","USA, Bond 3 15aug2048 30Y"]
+    categories: [this.topquant[0].instrumentdescription,this.topquant[1].instrumentdescription,this.topquant[2].instrumentdescription,this.topquant[3].instrumentdescription,this.topquant[4].instrumentdescription]
   };
 
 
-  constructor() { }
 
-  ngOnInit(): void {
-  }
+
 
 }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/auth.service';
 import { Client } from 'src/app/models/client';
 import { Login } from 'src/app/models/login';
 import { ClientService } from 'src/app/service/client.service';
@@ -18,7 +19,7 @@ export class LoginPageComponent implements OnInit {
   clientAuth:number;
   client:Client;
 
-  constructor(private service:ClientService,private router:Router){}
+  constructor(private service:ClientService,private router:Router,private auth:AuthService){}
   ngOnInit(): void {
   }
 
@@ -38,9 +39,10 @@ if(this.client!=undefined){
     {
       alert("Invalid credentials")
     }
-    else
+    else{
+      this.auth.setLogIn()
     this.router.navigateByUrl('portfolio')
-   
+    }
 }
     
     

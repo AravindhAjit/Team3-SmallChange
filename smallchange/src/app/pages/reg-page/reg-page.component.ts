@@ -73,7 +73,7 @@ export class RegPageComponent implements OnInit {
     if(this.password!=this.repassword){
       alert("Incorrect confirm password")
     }
-    var user = new Client(this.clientservice.getLastClientId()+1,this.fname,this.lname,this.email,this.dob,this.country,this.password,0);
+    var user = new Client(8,this.fname,this.lname,this.email,this.dob,this.country,this.password,0);
     this.clientservice.setLastClientId(user.clientId)
     console.log("Created client obj");
     console.log(user);

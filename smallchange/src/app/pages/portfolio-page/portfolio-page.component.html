@@ -1,3 +1,5 @@
+<app-nav-bar></app-nav-bar>
+
 <!-- 
 <div class="card" id="left">
     <h5 class="card-header">Client info</h5>
@@ -118,12 +120,12 @@
     </div>
     <div class="more-info">
       <div class="coords">
-        <span>Client ID</span>
-        <span>Email ID</span>
+        <span><strong style="font-size: 30px;">ID</strong></span>
+        <span><strong style="font-size: 30px;">Email</strong></span>
       </div>
       <div class="coords">
-        <span>{{client.clientId}}</span>
-        <span>{{client.email}}</span>
+        <span style="font-size: 20px;">{{client.clientId}}</span>
+        <span style="font-size: 20px;">{{client.email}}</span>
 
       </div>
       <div class="stats">
@@ -142,8 +144,8 @@
     </div>
   </div>
   <div class="general">
-    <h2 style="color: white;">HI {{client.name}} !</h2>
-    <button class="funds_button" mat-raised-button [routerLink]="['/' + 'stats']">
+    <h2 style="color: white;margin-left: 0.5em; font-size: 40px;">HI {{client.name}} !</h2>
+    <button class="funds_button" mat-raised-button (click)="showStats()">
       View Stats
     </button>
     <br>
@@ -251,7 +253,7 @@
       <td>{{p1.quantity}}</td>
       <td>{{p1.executionPrice}}</td>
       <td>{{p1.cashValue}}</td>
-      <td><button class="btn btn-danger" (click)="(p1)">SELL </button></td>
+      <td><button class="btn btn-danger" (click)="displayModal(p1)">SELL </button></td>
 
     </tr>
 
